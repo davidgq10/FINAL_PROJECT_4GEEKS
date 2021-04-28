@@ -5,6 +5,8 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Homed } from "./pages/homed";
+
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
 
@@ -32,7 +34,9 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-
+						<Route exact path="/homed">
+							<Homed />
+                        </Route>
 						<Route exact path="/login">
 							<Login />
 						</Route>
