@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import { Product } from "./pages/product";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
@@ -30,6 +31,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/product">
+							<Product />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
