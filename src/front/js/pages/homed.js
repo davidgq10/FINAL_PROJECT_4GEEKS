@@ -13,7 +13,7 @@ export const Homed = () => {
 				content or information.
 			</p>
 			<p>
-				<Button variant="primary">Learn more</Button>
+				<Button variant="success">>Learn more</Button>
 			</p>
 		</Jumbotron>
 	);
