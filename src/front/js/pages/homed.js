@@ -8,8 +8,8 @@ export const Homed = () => {
 	return (
 		<div>
 			<Jumbotron>
-				<h1 className="text-success">Hello, world!</h1>
-				<p className="text-light">
+				<h1 className="text-primary">Hello, world!</h1>
+				<p className="text-ColorAzulOscuro">
 					This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
 					featured content or information.
 				</p>
