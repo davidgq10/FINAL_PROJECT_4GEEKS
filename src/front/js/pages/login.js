@@ -5,12 +5,44 @@ import "../../styles/home.scss";
 
 export const Login = () => {
 	return (
-		<div className="container-fluid bg-info">
-			<h1 className="text-left pl-0"> Mauricio APP</h1>
-			<div className="row">
-				<button type="button" classNameName="btn btn-primary ml-5" col-sm>
-					Are new? Please Login Here!!
-				</button>
+		<div>
+			<div className="container-fluid bg-ColorClaro">
+				<h1 className="text-left pl-0"> Mauricio APP</h1>
+				<div className="row">
+					<button type="button" className="btn btn-ColorAzulOscuro ml-2 col-2">
+						Are new? Please Login Here!!
+					</button>
+				</div>
+			</div>
+
+			<form />
+			<div className="d-flex justify-content-end bg-ColorClaro">
+				<div className="text-right row bg-ColorClaro">
+					<div className="form-group widthForm col-lg-12 ">
+						<label className="d-flex justify-content-center">Email address</label>
+						<input
+							type="mail"
+							className="form-control "
+							id="exampleFormControlInput1"
+							placeholder="name@example.com"
+						/>
+						<label className="d-flex justify-content-center">Password</label>
+						<input
+							type="password"
+							className="form-control "
+							id="exampleFormControlInput1"
+							placeholder="Password"
+						/>
+					</div>
+					<div className="mr-5 col-lg-12 bg-ColorClaro ">
+						<button type="button" className="btn btn-ColorAzulOscuro mr-3">
+							Sign In
+						</button>
+						<button type="button" className="btn btn-ColorCeleste">
+							Forgot Password
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
