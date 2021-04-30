@@ -3,12 +3,17 @@ $imgHomed: "https://www.ecci.edu.co/sites/default/files/styles/imagen_banner_pro
 .jumbotron {
   background-image: url($imgHomed);
   background-size: cover;
-  height:450px;
+  height: 900;
+  width: auto;
+  margin: 0px;
 }
 
-.Card .Img{
-    max-height: 100px;
-}
 .fab fa-instagram{
     font-size: 50px;
+}
+
+.img-m50{
+    height: auto;
+    max-width: 150px;
+    margin: auto;
 }

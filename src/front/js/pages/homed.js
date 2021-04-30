@@ -2,67 +2,82 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
-import { Jumbotron, Button, Card, Container, Row } from "react-bootstrap";
 
 export const Homed = () => {
 	return (
 		<div>
-			<Jumbotron>
+			{/*Sección de Jumbotron*/}
+			<div className="jumbotron">
 				<h1 className="text-primary">Hello, world!</h1>
 				<p className="text-ColorAzulOscuro">
 					This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
 					featured content or information.
 				</p>
 				<p>
-					<Button variant="success">Learn more</Button>
+					<button type="button" className="btn btn-primary">
+						Primary
+					</button>
 				</p>
-			</Jumbotron>
-			<Container>
-				<Row className="justify-content-md-center">
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-				</Row>
-			</Container>
+				{/*Sección de Cards*/}
+				<div className="container">
+					<div className=" row justify-content-md-center">
+						<div className="card-deck">
+							<div className="card" style={{ width: "18rem" }}>
+								<img
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgMgyoZcAFjcYu6mZKjmqXEFeoS8lDZt2egw&usqp=CAU"
+									className="card-img-top img-m50"
+									alt="..."
+								/>
+								<div className="card-body">
+									<h5 className="card-title">Card title</h5>
+									<a href="#" className="btn btn-primary">
+										Go somewhere
+									</a>
+								</div>
+							</div>
+							<div className="card" style={{ width: "18rem" }}>
+								<img
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgMgyoZcAFjcYu6mZKjmqXEFeoS8lDZt2egw&usqp=CAU"
+									className="card-img-top img-m50"
+									alt="..."
+								/>
+								<div className="card-body">
+									<h5 className="card-title">Card title</h5>
+									<a href="#" className="btn btn-primary">
+										Go somewhere
+									</a>
+								</div>
+							</div>
+							<div className="card" style={{ width: "18rem" }}>
+								<img
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgMgyoZcAFjcYu6mZKjmqXEFeoS8lDZt2egw&usqp=CAU"
+									className="card-img-top img-m50"
+									alt="..."
+								/>
+								<div className="card-body">
+									<h5 className="card-title">Card title</h5>
+									<a href="#" className="btn btn-primary">
+										Go somewhere
+									</a>
+								</div>
+							</div>
+							<div className="card" style={{ width: "18rem" }}>
+								<img
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgMgyoZcAFjcYu6mZKjmqXEFeoS8lDZt2egw&usqp=CAU"
+									className="card-img-top img-m50"
+									alt="..."
+								/>
+								<div className="card-body">
+									<h5 className="card-title">Card title</h5>
+									<a href="#" className="btn btn-primary">
+										Go somewhere
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
