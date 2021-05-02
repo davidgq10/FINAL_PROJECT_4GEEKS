@@ -1,47 +1,83 @@
 import React from "react";
-import { Card, CardDeck } from "react-bootstrap";
+import { cluth } from "../../img/cluth.jpg";
+import { frenos } from "../../img/frenos.jpg";
+import { suspension } from "../../img/suspension.png";
 
 export const Product = () => {
 	return (
-		<CardDeck>
-			<Card>
-				<Card.Img variant="top" src="holder.js/100px160" />
-				<Card.Body>
-					<Card.Title>Card title</Card.Title>
-					<Card.Text>
-						This is a wider card with supporting text below as a natural lead-in to additional content. This
-						content is a little bit longer.
-					</Card.Text>
-				</Card.Body>
-				<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
-				</Card.Footer>
-			</Card>
-			<Card>
-				<Card.Img variant="top" src="holder.js/100px160" />
-				<Card.Body>
-					<Card.Title>Card title</Card.Title>
-					<Card.Text>
-						This card has supporting text below as a natural lead-in to additional content.{" "}
-					</Card.Text>
-				</Card.Body>
-				<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
-				</Card.Footer>
-			</Card>
-			<Card>
-				<Card.Img variant="top" src="holder.js/100px160" />
-				<Card.Body>
-					<Card.Title>Card title</Card.Title>
-					<Card.Text>
-						This is a wider card with supporting text below as a natural lead-in to additional content. This
-						card has even longer content than the first to show that equal height action.
-					</Card.Text>
-				</Card.Body>
-				<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
-				</Card.Footer>
-			</Card>
-		</CardDeck>
+		<div className="container">
+			<div className="row align-items-start">
+				<div className="col-8">
+					<div className="col">One of three columns</div>
+					<div className="col">One of three columns</div>
+					<div className="col">One of three columns</div>
+				</div>
+			</div>
+			<div className="row align-items-center " />
+			<div className="col ">
+				<div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+					<div className="carousel-indicators">
+						<button
+							type="button"
+							data-bs-target="#carouselExampleIndicators"
+							data-bs-slide-to="0"
+							className="active"
+							aria-current="true"
+							aria-label="Slide 1"
+						/>
+						<button
+							type="button"
+							data-bs-target="#carouselExampleIndicators"
+							data-bs-slide-to="1"
+							aria-label="Slide 2"
+						/>
+						<button
+							type="button"
+							data-bs-target="#carouselExampleIndicators"
+							data-bs-slide-to="2"
+							aria-label="Slide 3"
+						/>
+					</div>
+					<div className="carousel-inner">
+						<div className={(`carousel-item active`, `carousel-control-prev`, `carousel-control-next`)} />
+						<div className={(`carousel-item`, `prev`, `next`)} />
+						<div className={(`carousel-item`, `prev`, `next`)} />
+
+						<div className="carousel-item active">
+							<img
+								src="suspension.png"
+								className="d-block w-100"
+								width="100px"
+								height="200px"
+								alt="..."
+							/>
+						</div>
+						<div className="carousel-item">
+							<img src="frenos.jpg" className="d-block w-100" width="100px" height="200px" alt="..." />
+						</div>
+						<div className="carousel-item">
+							<img src="cluth.jpg" className="d-block w-100" width="100px" height="200px" alt="..." />
+						</div>
+					</div>
+
+					<button
+						className="carousel-control-prev"
+						type="button"
+						data-bs-target="#carouselExampleIndicators"
+						data-bs-slide="prev">
+						<span className="carousel-control-prev-icon" aria-hidden="true" />
+						<span className="visually-hidden">Previous</span>
+					</button>
+					<button
+						className="carousel-control-next"
+						type="button"
+						data-bs-target="#carouselExampleIndicators"
+						data-bs-slide="next">
+						<span className="carousel-control-next-icon" aria-hidden="true" />
+						<span className="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</div>
 	);
 };
