@@ -1,83 +1,112 @@
 import React from "react";
+import { Container, Carousel, Row, Col, CarouselCaption, CarouselItem } from "react-bootstrap";
 import { cluth } from "../../img/cluth.jpg";
 import { frenos } from "../../img/frenos.jpg";
 import { suspension } from "../../img/suspension.png";
 
 export const Product = () => {
 	return (
-		<div className="container">
-			<div className="row align-items-start">
-				<div className="col-8">
-					<div className="col">One of three columns</div>
-					<div className="col">One of three columns</div>
-					<div className="col">One of three columns</div>
-				</div>
-			</div>
-			<div className="row align-items-center " />
-			<div className="col ">
-				<div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-					<div className="carousel-indicators">
-						<button
-							type="button"
-							data-bs-target="#carouselExampleIndicators"
-							data-bs-slide-to="0"
-							className="active"
-							aria-current="true"
-							aria-label="Slide 1"
-						/>
-						<button
-							type="button"
-							data-bs-target="#carouselExampleIndicators"
-							data-bs-slide-to="1"
-							aria-label="Slide 2"
-						/>
-						<button
-							type="button"
-							data-bs-target="#carouselExampleIndicators"
-							data-bs-slide-to="2"
-							aria-label="Slide 3"
-						/>
-					</div>
-					<div className="carousel-inner">
-						<div className={(`carousel-item active`, `carousel-control-prev`, `carousel-control-next`)} />
-						<div className={(`carousel-item`, `prev`, `next`)} />
-						<div className={(`carousel-item`, `prev`, `next`)} />
+		<Container>
+			<Row className="justify-content-md-center">
+				<Col xs={12} md={8}>
+					fila para parte superior
+				</Col>
+			</Row>
 
-						<div className="carousel-item active">
+			<Row className="justify-content-md-center">
+				<Col xs={12} md={8}>
+					<Carousel>
+						<Carousel.Item interval={1000}>
 							<img
-								src="suspension.png"
 								className="d-block w-100"
-								width="100px"
+								src="frenos.jpg"
+								alt="First slide"
+								width="10px"
 								height="200px"
-								alt="..."
 							/>
-						</div>
-						<div className="carousel-item">
-							<img src="frenos.jpg" className="d-block w-100" width="100px" height="200px" alt="..." />
-						</div>
-						<div className="carousel-item">
-							<img src="cluth.jpg" className="d-block w-100" width="100px" height="200px" alt="..." />
-						</div>
-					</div>
+							<Carousel.Caption>
+								<h3>First slide label</h3>
+								<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item interval={500}>
+							<img
+								className="d-block w-100"
+								src="cluth.jpg"
+								alt="Second slide"
+								width="10px"
+								height="200px"
+							/>
 
-					<button
-						className="carousel-control-prev"
-						type="button"
-						data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="prev">
-						<span className="carousel-control-prev-icon" aria-hidden="true" />
-						<span className="visually-hidden">Previous</span>
-					</button>
-					<button
-						className="carousel-control-next"
-						type="button"
-						data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="next">
-						<span className="carousel-control-next-icon" aria-hidden="true" />
-						<span className="visually-hidden">Next</span>
-					</button>
-				</div>
-			</div>
-		</div>
+							<Carousel.Caption>
+								<h3>Second slide label</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img
+								className="d-block w-100"
+								src="suspension.png"
+								alt="Third slide"
+								width="10px"
+								height="200px"
+							/>
+							<Carousel.Caption>
+								<h3>Third slide label</h3>
+								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+					</Carousel>
+				</Col>
+			</Row>
+
+			<Row className="justify-content-md-center">
+				<Col xs={12} md={8}>
+					<Carousel>
+						<Carousel.Item interval={1000}>
+							<img
+								className="d-block w-100"
+								src="frenos.jpg"
+								alt="First slide"
+								width="10px"
+								height="200px"
+							/>
+							<Carousel.Caption>
+								<h3>First slide label</h3>
+								<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item interval={500}>
+							<img
+								className="d-block w-100"
+								src="cluth.jpg"
+								alt="Second slide"
+								width="10px"
+								height="200px"
+							/>
+
+							<Carousel.Caption>
+								<h3>Second slide label</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img
+								className="d-block w-100"
+								src="suspension.png"
+								alt="Third slide"
+								width="10px"
+								height="200px"
+							/>
+
+							<Carousel.Caption>
+								<h3>Third slide label</h3>
+								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+					</Carousel>
+				</Col>
+			</Row>
+		</Container>
 	);
 };
