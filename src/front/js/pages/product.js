@@ -1,19 +1,37 @@
 import React from "react";
-import { Container, Carousel, Row, Col, CarouselCaption, CarouselItem } from "react-bootstrap";
+import {
+	Container,
+	Carousel,
+	Row,
+	Col,
+	InputGroup,
+	FormControl,
+	Button,
+	CarouselCaption,
+	CarouselItem
+} from "react-bootstrap";
+
 import { cluth } from "../../img/cluth.jpg";
 import { frenos } from "../../img/frenos.jpg";
 import { suspension } from "../../img/suspension.png";
+
 
 export const Product = () => {
 	return (
 		<Container>
 			<Row className="justify-content-md-center">
-				<Col xs={12} md={8}>
-					fila para parte superior
+				<Col xs={12} md={4}>
+					<InputGroup className="mb-3">
+						<FormControl placeholder="" aria-label="" aria-describedby="basic-addon2" />
+						<InputGroup.Append>
+							<Button variant="outline-secondary">Search</Button>
+						</InputGroup.Append>
+					</InputGroup>
 				</Col>
 			</Row>
 
 			<Row className="justify-content-md-center">
+				<p>Categoria A</p>
 				<Col xs={12} md={8}>
 					<Carousel>
 						<Carousel.Item interval={1000}>
