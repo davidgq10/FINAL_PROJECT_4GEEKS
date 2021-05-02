@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
+import Img from "../../img/engrane.png";
 
 export const Login = () => {
 	return (
@@ -14,9 +15,11 @@ export const Login = () => {
 					</button>
 				</div>
 			</div>
-
+			<div className="bg-ColorClaro">
+				<img src="engrane.png" className="img-thumbnail" alt="..." width="304" height="236" />
+			</div>
 			<form />
-			<div className="d-flex justify-content-end bg-ColorClaro">
+			<div className="d-flex justify-content-end bg-ColorClaro pr-5">
 				<div className="text-right row bg-ColorClaro">
 					<div className="form-group widthForm col-lg-12 ">
 						<label className="d-flex justify-content-center">Email address</label>
