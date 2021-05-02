@@ -1,11 +1,9 @@
 $imgHomed: "https://www.ecci.edu.co/sites/default/files/styles/imagen_banner_programa_1920x527_/public/2016-12/mecanica-automotriz_0.jpg?itok=ss_jWz9D";
 
-.jumbotron {
+.myHome {
   background-image: url($imgHomed);
   background-size: cover;
-  height: 900;
-  width: auto;
-  margin: 0px;
+  height: 100%;
 }
 
 .fab fa-instagram{
