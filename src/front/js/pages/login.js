@@ -16,7 +16,7 @@ export const Login = () => {
 				</div>
 			</div>
 			<div className="bg-ColorClaro">
-				<img src="engrane.png" className="img-thumbnail"  width="304" height="236" />
+				<img src="engrane.png" className="img-thumbnail" alt="..." width="304" height="236" />
 			</div>
 			<form />
 			<div className="d-flex justify-content-end bg-ColorClaro pr-5">
