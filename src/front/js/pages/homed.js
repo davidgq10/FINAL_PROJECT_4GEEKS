@@ -22,7 +22,7 @@ export const Homed = () => {
 					<div className="row justify-content-md-center">
 						<div className="card-deck card-columns">
 							<div
-								className="card shadow-lg bg-ColorAzulClaro border border-dark pb-0"
+								className="card bg-ColorAzulClaro border border-dark pb-0"
 								style={{ width: "16rem", height: "25rem" }}>
 								<div className="container-fluid">
 									<img
@@ -39,7 +39,7 @@ export const Homed = () => {
 									</p>
 								</div>
 							</div>
-							<div className="card shadow-lg pt-3" style={{ width: "16rem", height: "25rem" }}>
+							<div className="card  pt-3" style={{ width: "16rem", height: "25rem" }}>
 								<div className="container-fluid mt-1 bg-ColorAzulClaro">
 									<img src={icTienda} className="card-img-top img-fluid p-2" alt="..." />
 								</div>
@@ -50,7 +50,7 @@ export const Homed = () => {
 									</p>
 								</div>
 							</div>
-							<div className="card shadow-lg pt-3" style={{ width: "16rem", height: "25rem" }}>
+							<div className="card  pt-3" style={{ width: "16rem", height: "25rem" }}>
 								<div className="container-fluid mt-1 bg-ColorAzulOscuro">
 									<img src={icMan} className="card-img-top img-fluid p-2" alt="..." />
 								</div>
@@ -62,9 +62,7 @@ export const Homed = () => {
 									</p>
 								</div>
 							</div>
-							<div
-								className="card shadow-lg pt-3 bg-ColorAzulOscuro "
-								style={{ width: "16rem", height: "25rem" }}>
+							<div className="card  pt-3 bg-ColorAzulOscuro " style={{ width: "16rem", height: "25rem" }}>
 								<div className="container-fluid mt-1">
 									<img src={icSoporte} className="card-img-top img-fluid p-2" alt="..." />
 								</div>
