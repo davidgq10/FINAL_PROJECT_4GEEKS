@@ -7,8 +7,47 @@ import icMan from "../../img/man.png";
 import "../../styles/home.scss";
 
 export const Homed = () => {
+	// se crea un array de objetos que contiene las opciones del menú
+	const Menu = [
+		{
+			imagen: icBuscar,
+			descripcion: "En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de tu vehículo"
+		},
+		{
+			imagen: icTienda,
+			descripcion: "En esta sección podrás inscribirte como anunciante"
+		},
+		{
+			imagen: icMan,
+			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos"
+		},
+		{
+			imagen: icSoporte,
+			descripcion: "Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí"
+		}
+	];
+
+	// en el siguiente bloque se generan las tarjetas
+	const getCards = Menu.map((item, index) => {
+		return (
+			<div
+				key={index}
+				className="card bg-ColorAzulClaro border border-dark pb-0"
+				style={{ width: "16rem", height: "25rem" }}>
+				<div className="container-fluid">
+					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
+				</div>
+
+				<div className="card-body  bg-light" style={{ "min-height": "8rem" }}>
+					<p className="card-text text-center">{item.descripcion}</p>
+				</div>
+			</div>
+		);
+	});
+
+	// retorna la vista home
 	return (
-		<div className="myHome">
+		<div className="Home">
 			{/*Sección de Jumbotron*/}
 			<div className="container">
 				<div className="transbox">
@@ -20,61 +59,7 @@ export const Homed = () => {
 				{/*Sección de Cards*/}
 				<div className="container">
 					<div className="row justify-content-md-center">
-						<div className="card-deck card-columns">
-							<div
-								className="card bg-ColorAzulClaro border border-dark pb-0"
-								style={{ width: "16rem", height: "25rem" }}>
-								<div className="container-fluid">
-									<img
-										src={icBuscar}
-										className="card-img-top img-fluid pt-4 pb-3 rounded-top"
-										alt="..."
-									/>
-								</div>
-
-								<div className="card-body  bg-light">
-									<p className="card-text text-center">
-										En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de
-										tu vehículo
-									</p>
-								</div>
-							</div>
-							<div className="card  pt-3" style={{ width: "16rem", height: "25rem" }}>
-								<div className="container-fluid mt-1 bg-ColorAzulClaro">
-									<img src={icTienda} className="card-img-top img-fluid p-2" alt="..." />
-								</div>
-
-								<div className="card-body">
-									<p className="card-text text-center">
-										En esta sección podrás inscribirte como anunciante
-									</p>
-								</div>
-							</div>
-							<div className="card  pt-3" style={{ width: "16rem", height: "25rem" }}>
-								<div className="container-fluid mt-1 bg-ColorAzulOscuro">
-									<img src={icMan} className="card-img-top img-fluid p-2" alt="..." />
-								</div>
-
-								<div className="card-body">
-									<p className="card-text text-center">
-										Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus
-										artículos
-									</p>
-								</div>
-							</div>
-							<div className="card  pt-3 bg-ColorAzulOscuro " style={{ width: "16rem", height: "25rem" }}>
-								<div className="container-fluid mt-1">
-									<img src={icSoporte} className="card-img-top img-fluid p-2" alt="..." />
-								</div>
-
-								<div className="card-body">
-									<p className="card-text text-center">
-										Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes
-										consultar aquí
-									</p>
-								</div>
-							</div>
-						</div>
+						<div className="card-deck card-columns">{getCards}</div>
 					</div>
 				</div>
 			</div>
