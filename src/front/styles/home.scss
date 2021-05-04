@@ -11,17 +11,16 @@ $bgImage: "../img/bgHomeGray.jpeg";
   background-position: bottom;
 }
 
+// div.transbox {
+//   margin: 30px;
+//   background-color: #ffffff;
+//   border: 1px solid black;
+//   opacity: 0.8;
+//   border-radius: 15px ;
+// }
+
 div.transbox {
-  margin: 30px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.6;
-  border-radius: 15px ;
-}
-div.transbox p {
-  margin: 5%;
-  font-weight: bold;
-  color: black;
+  margin: 30px 10px;
 }
 
 .card{
@@ -34,4 +33,8 @@ div.transbox p {
 .card:hover{
      transform: scale(1.05);
   box-shadow: 0 10px 20px black, 0 4px 8px rgba(0,0,0,.05);
+}
+
+.border-2 {
+    border-width:2px !important;
 }

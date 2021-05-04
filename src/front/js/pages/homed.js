@@ -32,7 +32,7 @@ export const Homed = () => {
 		return (
 			<div
 				key={index}
-				className="card bg-ColorAzulClaro border border-dark pb-0"
+				className="card bg-light border border-dark border-2 pb-0"
 				style={{ width: "16rem", height: "25rem" }}>
 				<div className="container-fluid">
 					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
@@ -51,13 +51,13 @@ export const Homed = () => {
 			{/*Sección de Jumbotron*/}
 			<div className="container">
 				<div className="transbox">
-					<h1 className="text-primary text-center">¿Necesitas un repuesto para tu vehículo?</h1>
-					<h4 className="text-ColorAzulOscuro text-center">
-						En este sitio podrás encontrar los repuestos disponibles de los distribuidores del país
+					<h1 className="text-light text-center">¿Necesitas un repuesto para tu vehículo?</h1>
+					<h4 className="text-ColorCeleste text-center">
+						En este sitio podrás encontrar los repuestos disponibles en los distribuidores del país
 					</h4>
 				</div>
 				{/*Sección de Cards*/}
-				<div className="container">
+				<div className="container mt-2">
 					<div className="row justify-content-md-center">
 						<div className="card-deck card-columns">{getCards}</div>
 					</div>
