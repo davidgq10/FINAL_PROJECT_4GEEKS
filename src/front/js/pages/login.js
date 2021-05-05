@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
+import "../../styles/login.scss";
 import Img from "../../img/engranaje.png";
 
 export const Login = () => {
