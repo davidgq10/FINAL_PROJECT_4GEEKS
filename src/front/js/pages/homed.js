@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import icBuscar from "../../img/buscar.png";
 import icTienda from "../../img/tienda.png";
@@ -11,26 +12,32 @@ export const Homed = () => {
 	const Menu = [
 		{
 			imagen: icBuscar,
-			descripcion: "En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de tu vehículo"
+			descripcion: "En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de tu vehículo",
+			vista: "/product"
 		},
 		{
 			imagen: icTienda,
-			descripcion: "En esta sección podrás inscribirte como anunciante"
+			descripcion: "En esta sección podrás inscribirte como anunciante",
+			vista: "/"
 		},
 		{
 			imagen: icMan,
-			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos"
+			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos",
+			vista: "/"
 		},
 		{
 			imagen: icSoporte,
-			descripcion: "Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí"
+			descripcion:
+				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
+			vista: "/"
 		}
 	];
 
 	// en el siguiente bloque se generan las tarjetas
 	const getCards = Menu.map((item, index) => {
 		return (
-			<div
+			<Link
+				to={item.vista}
 				key={index}
 				className="card bg-light border border-dark border-2 pb-0"
 				style={{ width: "16rem", height: "25rem" }}>
@@ -38,10 +45,10 @@ export const Homed = () => {
 					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
 				</div>
 
-				<div className="card-body  bg-light" style={{ "min-height": "8rem" }}>
+				<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
 					<p className="card-text text-center">{item.descripcion}</p>
 				</div>
-			</div>
+			</Link>
 		);
 	});
 
