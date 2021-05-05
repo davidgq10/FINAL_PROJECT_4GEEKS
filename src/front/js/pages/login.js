@@ -6,7 +6,7 @@ import Img from "../../img/engranaje.png";
 
 export const Login = () => {
 	return (
-		<div>
+		<div className="container">
 			<div className="container-fluid bg-ColorClaro">
 				<h1 className="text-left pl-0"> Mauricio APP</h1>
 				<div className="row">
