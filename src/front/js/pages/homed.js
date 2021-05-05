@@ -40,11 +40,10 @@ export const Homed = () => {
 				to={item.vista}
 				key={index}
 				className="card bg-light border border-dark border-2 pb-0"
-				style={{ width: "16rem", height: "25rem" }}>
+				style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
 				<div className="container-fluid">
 					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
 				</div>
-
 				<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
 					<p className="card-text text-center">{item.descripcion}</p>
 				</div>
