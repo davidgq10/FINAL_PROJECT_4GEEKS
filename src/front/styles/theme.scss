@@ -1,5 +1,4 @@
 
-
 //Colores de temas
 $theme-colors: (
   "ColorAzulOscuro": #1B325F,
@@ -8,6 +7,10 @@ $theme-colors: (
   "ColorAzulClaro": #3A89C9,
   "ColorNaranja": #F26C4F
 );
+
+#app{
+background-color:#E9F2F9;
+}
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss"
 
