@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
+import "../../styles/login.scss";
 import Img from "../../img/engranaje.png";
 
 export const Login = () => {
 	return (
-		<div>
+		<div className="container">
 			<div className="container-fluid bg-ColorClaro">
 				<h1 className="text-left pl-0"> Mauricio APP</h1>
 				<div className="row">
