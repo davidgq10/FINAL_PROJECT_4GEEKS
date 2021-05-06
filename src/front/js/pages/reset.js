@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Img from "../../img/engranaje.png";
+import { Link } from "react-router-dom";
 
 export const Reset = () => {
 	return (
@@ -70,9 +71,11 @@ export const Reset = () => {
 							<button type="button" className="btn btn-ColorAzulOscuro mr-5 col-lg-6">
 								Change Password
 							</button>
-							<button type="button" className="btn btn-danger col-lg-6">
+							<a href="/login" className="btn btn-danger col-lg-6" role="button" aria-pressed="true">
 								Cancel
-							</button>
+							</a>
+							{/* <button type="button" className="btn btn-danger col-lg-6" href="/login">
+							</button> */}
 						</div>
 					</div>
 				</div>

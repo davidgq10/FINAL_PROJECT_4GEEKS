@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/login.scss";
 import Img from "../../img/engranaje.png";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
 	return (
@@ -10,9 +11,19 @@ export const Login = () => {
 			<div className="container-fluid bg-ColorClaro">
 				<h1 className="text-left pl-0"> Mauricio APP</h1>
 				<div className="row">
-					<button type="button" className="btn btn-ColorAzulOscuro ml-2 col-2">
+					<a
+						href="/register"
+						className="btn btn-ColorAzulOscuro ml-2 col-4"
+						role="button"
+						aria-pressed="true">
 						Are new? Please Login Here!!
-					</button>
+					</a>
+					{/* <Link to="/register">
+
+						<button type="button" className="btn btn-ColorAzulOscuro ml-2 col-4">
+							Are new? Please Login Here!!
+						</button>
+					</Link> */}
 				</div>
 			</div>
 
@@ -53,9 +64,11 @@ export const Login = () => {
 							<button type="button" className="btn btn-ColorAzulOscuro mr-3">
 								Sign In
 							</button>
-							<button type="button" className="btn btn-ColorCeleste">
-								Forgot Password
-							</button>
+							<Link to="/reset">
+								<button type="button" className="btn btn-ColorCeleste">
+									Forgot Password
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>

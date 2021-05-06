@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Img from "../../img/engranaje.png";
+import { Link } from "react-router-dom";
 
 export const Register = () => {
 	return (
@@ -97,9 +98,13 @@ export const Register = () => {
 
 					<div className="row bg-ColorClaro ">
 						<div className="col d-flex justify-content-center">
-							<button type="button" className="btn btn-lg btn-danger col-lg-12">
+							<a
+								href="/login"
+								className="btn btn-lg btn-danger col-lg-12"
+								role="button"
+								aria-pressed="true">
 								Cancel
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>
