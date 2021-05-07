@@ -8,6 +8,10 @@ import icMan from "../../img/man.png";
 import "../../styles/home.scss";
 
 export const Homed = () => {
+	// vínculo a soporte
+	const externalLinkSoporte = () =>
+		window.open("https://api.whatsapp.com/send?phone=+50684495779&text=Hola,%20como%20estas?");
+
 	// se crea un array de objetos que contiene las opciones del menú
 	const Menu = [
 		{
@@ -29,23 +33,23 @@ export const Homed = () => {
 			imagen: icSoporte,
 			descripcion:
 				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
-			vista: "/"
+			vista: externalLinkSoporte
 		}
 	];
 
 	// en el siguiente bloque se generan las tarjetas
 	const getCards = Menu.map((item, index) => {
 		return (
-			<Link
-				to={item.vista}
-				key={index}
-				className="card bg-light border border-dark border-2 pb-0"
-				style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
-				<div className="container-fluid">
-					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
-				</div>
-				<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
-					<p className="card-text text-center">{item.descripcion}</p>
+			<Link key={index} to={item.vista} classclassName="text-link">
+				<div
+					className="text-link card order border-dark border-2 pb-0"
+					style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
+					<div className="container-fluid">
+						<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
+					</div>
+					<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
+						<p className="card-text text-center">{item.descripcion}</p>
+					</div>
 				</div>
 			</Link>
 		);
