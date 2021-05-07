@@ -1,68 +1,74 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+import icBuscar from "../../img/buscar.png";
+import icTienda from "../../img/tienda.png";
+import icSoporte from "../../img/consultante.png";
+import icMan from "../../img/man.png";
 import "../../styles/home.scss";
-import { Jumbotron, Button, Card, Container, Row } from "react-bootstrap";
 
 export const Homed = () => {
+	// se crea un array de objetos que contiene las opciones del menú
+	const Menu = [
+		{
+			imagen: icBuscar,
+			descripcion: "En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de tu vehículo",
+			vista: "/product"
+		},
+		{
+			imagen: icTienda,
+			descripcion: "En esta sección podrás inscribirte como anunciante",
+			vista: "/"
+		},
+		{
+			imagen: icMan,
+			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos",
+			vista: "/"
+		},
+		{
+			imagen: icSoporte,
+			descripcion:
+				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
+			vista: "/"
+		}
+	];
+
+	// en el siguiente bloque se generan las tarjetas
+	const getCards = Menu.map((item, index) => {
+		return (
+			<Link
+				to={item.vista}
+				key={index}
+				className="card bg-light border border-dark border-2 pb-0"
+				style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
+				<div className="container-fluid">
+					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
+				</div>
+				<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
+					<p className="card-text text-center">{item.descripcion}</p>
+				</div>
+			</Link>
+		);
+	});
+
+	// retorna la vista home
 	return (
-		<div>
-			<Jumbotron>
-				<h1 className="text-primary">Hello, world!</h1>
-				<p className="text-ColorAzulOscuro">
-					This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-					featured content or information.
-				</p>
-				<p>
-					<Button variant="success">Learn more</Button>
-				</p>
-			</Jumbotron>
-			<Container>
-				<Row className="justify-content-md-center">
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-					<Card style={{ width: "18rem" }}>
-						<Card.Img
-							variant="top"
-							src="https://ccmechanic.com/wp-content/uploads/2021/03/cc-mechanic-e1616486913317.png"
-						/>
-						<Card.Body>
-							<Card.Title>Card Title</Card.Title>
-							<Card.Text>
-								Some quick example text to build on the card title and make up the bulk of the cards
-								content.
-							</Card.Text>
-							<Button variant="primary">Go somewhere</Button>
-						</Card.Body>
-					</Card>
-				</Row>
-			</Container>
+		<div className="myHome">
+			{/*Sección de Jumbotron*/}
+			<div className="container">
+				<div className="transbox">
+					<h1 className="text-light text-center">¿Necesitas un repuesto para tu vehículo?</h1>
+					<h4 className="text-ColorCeleste text-center">
+						En este sitio podrás encontrar los repuestos disponibles en los distribuidores del país
+					</h4>
+				</div>
+				{/*Sección de Cards*/}
+				<div className="container mt-2">
+					<div className="row justify-content-md-center">
+						<div className="card-deck card-columns">{getCards}</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

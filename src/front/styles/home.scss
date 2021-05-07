@@ -1,16 +1,43 @@
-$imgHomed: "https://www.ecci.edu.co/sites/default/files/styles/imagen_banner_programa_1920x527_/public/2016-12/mecanica-automotriz_0.jpg?itok=ss_jWz9D";
 
-.jumbotron {
-  background-image: url($imgHomed);
-  background-size: cover;
-  height:450px;
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../styles/theme.scss";
+
+.myHome {
+  background: url("../img/bgHomeGray.jpeg");
+  background-size: cover;   
+  height: 100%;
+  width: auto;
+  background-position: bottom;
 }
 
-.Card .Img{
-    max-height: 100px;
+// genera un cuadro translúcido a través del título, por estética se elimina la clase
+// div.transbox {
+//   margin: 30px;
+//   background-color: #ffffff;
+//   border: 1px solid black;
+//   opacity: 0.8;
+//   border-radius: 15px ;
+// }
+
+div.transbox {
+  margin: 30px 10px;
 }
-.fab fa-instagram{
-    font-size: 50px;
+
+.card{
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  cursor: pointer;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px black, 0 4px 8px rgba(0,0,0,.05);
+}
+
+
+.border-2 {
+    border-width:2px !important;
 }
 
 .cards-wrapper {
