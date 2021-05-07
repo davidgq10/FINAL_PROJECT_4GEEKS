@@ -1,130 +1,90 @@
 import React from "react";
-import {
-	Container,
-	Carousel,
-	Row,
-	Col,
-	InputGroup,
-	FormControl,
-	Button,
-	CarouselCaption,
-	CarouselItem
-} from "react-bootstrap";
-
-import { cluth } from "../../img/cluth.jpg";
-import { frenos } from "../../img/frenos.jpg";
-import { suspension } from "../../img/suspension.png";
-
+import { engranaje } from "../../img/engranaje.png";
+// import { cluth } from "../../img/cluth.jpg";
+// import { frenos } from "../../img/frenos.jpg";
+// import { suspension } from "../../img/suspension.png";
+import { Repuesto } from "../component/repuesto";
 
 export const Product = () => {
 	return (
-		<Container>
-			<Row className="justify-content-md-center">
-				<Col xs={12} md={4}>
-					<InputGroup className="mb-3">
-						<FormControl placeholder="" aria-label="" aria-describedby="basic-addon2" />
-						<InputGroup.Append>
-							<Button variant="outline-secondary">Search</Button>
-						</InputGroup.Append>
-					</InputGroup>
-				</Col>
-			</Row>
+		<div className="bg-ColorClaro">
+			<div className="container bg-ColorClaro">
+				<div className="row">
+					<div className="col-sm-3 justify-content-end">
+						<img
+							src="engranaje.png"
+							className="rounded float-left"
+							alt="..."
+							width="100px"
+							height="100px"
+						/>
+					</div>
 
-			<Row className="justify-content-md-center">
-				<p>Categoria A</p>
-				<Col xs={12} md={8}>
-					<Carousel>
-						<Carousel.Item interval={1000}>
-							<img
-								className="d-block w-100"
-								src="frenos.jpg"
-								alt="First slide"
-								width="10px"
-								height="200px"
-							/>
-							<Carousel.Caption>
-								<h3>First slide label</h3>
-								<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item interval={500}>
-							<img
-								className="d-block w-100"
-								src="cluth.jpg"
-								alt="Second slide"
-								width="10px"
-								height="200px"
-							/>
+					<div className="col-sm-6 pt-5 mt-3 ">
+						<section className="search-sec  ">
+							<form action="#" method="post">
+								<div className="row justify-content-md-center">
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<input type="text" className="form-control search-slt" placeholder="Placa" />
+									</div>
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<input type="text" className="form-control search-slt" placeholder="Repuesto" />
+									</div>
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<select className="form-control search-slt" id="exampleFormControlSelect1">
+											<option>Vehiculo</option>
+											<option>Example one</option>
+											<option>Example one</option>
+											<option>Example one</option>
+											<option>Example one</option>
+											<option>Example one</option>
+											<option>Example one</option>
+										</select>
+									</div>
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<button type="button" className="btn btn-danger wrn-btn">
+											Search
+										</button>
+									</div>
+								</div>
+							</form>
+						</section>
+					</div>
 
-							<Carousel.Caption>
-								<h3>Second slide label</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-								className="d-block w-100"
-								src="suspension.png"
-								alt="Third slide"
-								width="10px"
-								height="200px"
-							/>
-							<Carousel.Caption>
-								<h3>Third slide label</h3>
-								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-					</Carousel>
-				</Col>
-			</Row>
+					<div className="col-sm-3 pt-4    ">
+						<i className="fas fa-cart-arrow-down  fa-3x d-flex justify-content-end"></i>
+					</div>
+				</div>
+			</div>
 
-			<Row className="justify-content-md-center">
-				<Col xs={12} md={8}>
-					<Carousel>
-						<Carousel.Item interval={1000}>
-							<img
-								className="d-block w-100"
-								src="frenos.jpg"
-								alt="First slide"
-								width="10px"
-								height="200px"
-							/>
-							<Carousel.Caption>
-								<h3>First slide label</h3>
-								<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item interval={500}>
-							<img
-								className="d-block w-100"
-								src="cluth.jpg"
-								alt="Second slide"
-								width="10px"
-								height="200px"
-							/>
+			<div className="container text-center mt-5 bg-ColorClaro ">
+				<div className="row justify-content-md-center">
+					<div className="col-9">
+						<h1 className="text-left">Categoria A</h1>
 
-							<Carousel.Caption>
-								<h3>Second slide label</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-								className="d-block w-100"
-								src="suspension.png"
-								alt="Third slide"
-								width="10px"
-								height="200px"
-							/>
+						<div className="scrolling-wrapper">
+							<Repuesto />
+							<Repuesto />
+							<Repuesto />
+							<Repuesto />
+						</div>
+					</div>
+				</div>
 
-							<Carousel.Caption>
-								<h3>Third slide label</h3>
-								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-							</Carousel.Caption>
-						</Carousel.Item>
-					</Carousel>
-				</Col>
-			</Row>
-		</Container>
+				<div className="container text-center mt-5 mb-5  ">
+					<div className="row justify-content-md-center ">
+						<div className="col-9 ">
+							<h1 className="text-left">Categoria B</h1>
+							<div className="scrolling-wrapper ">
+								<Repuesto />
+								<Repuesto />
+								<Repuesto />
+								<Repuesto />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 };

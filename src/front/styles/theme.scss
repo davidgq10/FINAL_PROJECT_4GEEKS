@@ -1,0 +1,16 @@
+
+//Colores de temas
+$theme-colors: (
+  "ColorAzulOscuro": #1B325F,
+  "ColorCeleste": #9CC4E4,
+  "ColorClaro": #E9F2F9,
+  "ColorAzulClaro": #3A89C9,
+  "ColorNaranja": #F26C4F
+);
+
+#app{
+background-color:#E9F2F9;
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss"
+

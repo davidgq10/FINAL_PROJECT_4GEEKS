@@ -76,17 +76,20 @@
 		]
 	},
 	"dependencies": {
+		"-": "0.0.1",
 		"@popperjs/core": "^2.9.2",
-		"bootstrap": "^5.0.0-beta3",
+		"bootstrap": "^4.6.0",
 		"bootstrap-loader": "^3.0.4",
 		"jquery": "^3.6.0",
 		"mdbreact": "^5.0.2",
+		"popper.js": "^1.16.1",
 		"post-npm-install": "^2.0.0",
-		"prop-types": "^15.7.2",
-		"react": "^16.14.0",
+		"prop-types": "^15.6.1",
+		"react": "^16.8.4",
 		"react-bootstrap": "^1.5.2",
 		"react-dom": "^16.14.0",
 		"react-polyfills": "0.0.1",
-		"react-router-dom": "^5.2.0"
+		"react-router-dom": "^5.2.0",
+		"save": "^2.4.0"
 	}
 }
