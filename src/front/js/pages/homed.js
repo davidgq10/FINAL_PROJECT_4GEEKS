@@ -13,41 +13,63 @@ export const Homed = () => {
 		{
 			imagen: icBuscar,
 			descripcion: "En esta sección podrás encontrar tu repuesto aplicando criterios de búsqueda de tu vehículo",
-			vista: "/product"
+			vista: "/product",
+			esVista: "true"
 		},
 		{
 			imagen: icTienda,
 			descripcion: "En esta sección podrás inscribirte como anunciante",
-			vista: "/"
+			vista: "/register",
+			esVista: "true"
 		},
 		{
 			imagen: icMan,
 			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos",
-			vista: "/"
+			vista: "/login",
+			esVista: "true"
 		},
 		{
 			imagen: icSoporte,
 			descripcion:
 				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
-			vista: "/"
+			vista: "https://api.whatsapp.com/send?phone=+50684495779&text=Hola,%20como%20estas?",
+			esVista: "false"
 		}
 	];
 
 	// en el siguiente bloque se generan las tarjetas
 	const getCards = Menu.map((item, index) => {
-		return (
-			<Link
-				to={item.vista}
+		return item.esVista == "true" ? (
+			<Link key={index} to={item.vista} classclassName="text-link">
+				<div
+					className="text-link card order border-dark border-2 pb-0"
+					style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
+					<div className="container-fluid">
+						<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
+					</div>
+					<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
+						<p className="card-text text-center">{item.descripcion}</p>
+					</div>
+				</div>
+			</Link>
+		) : (
+			<a
 				key={index}
-				className="card bg-light border border-dark border-2 pb-0"
+				href={item.vista}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="text-link card order border-dark border-2 pb-0"
 				style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
 				<div className="container-fluid">
 					<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />
 				</div>
 				<div className="card-body bg-light" style={{ "min-height": "8rem" }}>
-					<p className="card-text text-center">{item.descripcion}</p>
+					<p className="card-text text-center">
+						{item.descripcion}
+						{item.esVista.toString()}
+					</p>
 				</div>
-			</Link>
+			</a>
 		);
 	});
 
