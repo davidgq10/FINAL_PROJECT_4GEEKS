@@ -25,15 +25,9 @@ export const Product = () => {
 							<form action="#" method="post">
 								<div className="row justify-content-md-center">
 									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
-										<input type="text" className="form-control search-slt" placeholder="Placa" />
-									</div>
-									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
-										<input type="text" className="form-control search-slt" placeholder="Repuesto" />
-									</div>
-									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
 										<select className="form-control search-slt" id="exampleFormControlSelect1">
-											<option>Vehiculo</option>
-											<option>Example one</option>
+											<option>Marca</option>
+											<option>Toyota </option>
 											<option>Example one</option>
 											<option>Example one</option>
 											<option>Example one</option>
@@ -41,6 +35,14 @@ export const Product = () => {
 											<option>Example one</option>
 										</select>
 									</div>
+
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<input type="text" className="form-control search-slt" placeholder="Modelo" />
+									</div>
+									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+										<input type="text" className="form-control search-slt" placeholder="Año" />
+									</div>
+
 									<div className="col-lg-3 col-md-3 col-sm-12 p-0">
 										<button type="button" className="btn btn-danger wrn-btn">
 											Search
