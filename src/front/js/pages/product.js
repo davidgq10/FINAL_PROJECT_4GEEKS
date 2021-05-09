@@ -4,6 +4,7 @@ import { engranaje } from "../../img/engranaje.png";
 // import { frenos } from "../../img/frenos.jpg";
 // import { suspension } from "../../img/suspension.png";
 import { Repuesto } from "../component/repuesto";
+import "../../styles/product.scss";
 
 export const Product = () => {
 	return (

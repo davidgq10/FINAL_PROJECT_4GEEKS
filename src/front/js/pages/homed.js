@@ -42,7 +42,7 @@ export const Homed = () => {
 		return item.esVista == "true" ? (
 			<Link key={index} to={item.vista} classclassName="text-link">
 				<div
-					className="text-link card order border-dark border-2 pb-0"
+					className="text-link card_home order border-dark border-2 pb-0"
 					style={{ width: "15rem", height: "25rem", textDecoration: "none" }}>
 					<div className="container-fluid">
 						<img src={item.imagen} className="card-img-top img-fluid pt-4 pb-3 rounded-top" alt="..." />

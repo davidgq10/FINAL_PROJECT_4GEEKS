@@ -11,8 +11,8 @@ import "bootstrap/dist/js/bootstrap";
 import "../styles/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/theme.scss";
-import "../styles/home.scss";
-import "../styles/product.scss";
+//import "../styles/home.scss";
+//import "../styles/product.scss";
 
 //include your theme.scss file into the bundle
 
