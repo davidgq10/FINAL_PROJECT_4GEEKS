@@ -11,9 +11,9 @@ export const Repuesto = () => {
 					alt="Card image cap"
 				/>
 				<div className="card-body">
-					<h5 className="card-title"></h5>
-					<p className="card-text"></p>
-					<p className="card-text"></p>
+					<h5 className="card-title" />
+					<p className="card-text" />
+					<p className="card-text" />
 
 					<Link to="/">
 						<div className=" text-left">

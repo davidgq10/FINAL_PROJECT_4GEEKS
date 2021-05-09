@@ -55,7 +55,7 @@ export const Product = () => {
 					</div>
 
 					<div className="col-sm-3 pt-4    ">
-						<i className="fas fa-cart-arrow-down  fa-3x d-flex justify-content-end"></i>
+						<i className="fas fa-cart-arrow-down  fa-3x d-flex justify-content-end" />
 					</div>
 				</div>
 			</div>
