@@ -52,6 +52,7 @@ div.transbox {
     width: 250px;
     height: 200px;
     transition: 0.5s;
+    transition-delay: 1s;
 }
 
 .container_home .card_home .face.face1{
@@ -61,7 +62,7 @@ div.transbox {
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transform: translateY(100px);
+    transform: translateY(40px);
 }
 
 .container_home .card_home:hover .face.face1{
@@ -70,7 +71,7 @@ div.transbox {
 }
 
 .container_home .card_home .face.face1 .content{
-    opacity: 0.2;
+    opacity: 0.4;
     transition: 0.5s;
 }
 
@@ -102,14 +103,14 @@ div.transbox {
 
 .container_home .card_home .face.face2{
     position: relative;
-    background: #fff;
+    background:lightgrey ;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    transform: translateY(-100px);
+    transform: translateY(-155px);
 }
 
 .container_home .card_home:hover .face.face2{
