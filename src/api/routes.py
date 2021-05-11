@@ -2,8 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Product, Wish_list
-from api.utils import generate_sitemap, APIException
+from api.models import db, User, Product, Wish_list, ResetPassword
+from api.utils import generate_sitemap, APIException, ToObj
+from api.email import SendEmailTemplate
+
+import shortuuid
 
 api = Blueprint('api', __name__)
 
@@ -55,3 +58,50 @@ def update_password():
     db.session.commit()
 
     return jsonify("Password updated"), 200
+
+@api.route('/register', methods=['POST'])
+def Register():
+    newUser = ToObj(request.json, User())
+    userExists = User.query.filter_by(email=newUser.email).first()
+    if userExists is not None:
+        # the user was not found on the database
+        return jsonify({"msg": "Email already registered."}), 409 
+    else:
+        db.session.add(newUser)
+        db.session.commit()
+        SendEmailTemplate('welcome', newUser.serialize(), newUser.email, f'Welcome to Easy Parts CR {newUser.nombre}!')
+        return jsonify({"msg": "User added!"}), 200 
+
+@api.route('/reset/validation', methods=['POST'])
+def ResetPasswordValidation():
+    email = request.json.get("email", None)
+    code = request.json.get("code", None)
+    resetRequest = ResetPassword.query.filter_by(email=email, code=code).first()
+    if resetRequest is not None:
+        db.session.delete(resetRequest)
+        db.session.commit()
+        return jsonify({"msg": "Invalid Code!"}), 200 
+    else:
+        return jsonify({"msg": "Reser request not found."}), 404
+
+@api.route('/reset', methods=['POST'])
+def ResetPassword():
+    email = request.json.get("email", None)
+    userExists = User.query.filter_by(email=email).first()
+    if userExists is not None:
+        # Generar code y relacionarlo con este correo
+        code = shortuuid.uuid()
+        # Buscar si ya existe un code para este email
+        resetRequest = ResetPassword.query.filter_by(email=email).first()
+        if resetRequest is not None:
+            resetRequest.code = code
+        else:
+            # Crear un registro en ResetPassword
+            resetRequest = ResetPassword(email=email, code=code)
+            db.session.add(resetRequest)
+
+        SendEmailTemplate('code', resetRequest.serialize(), email, f'Easy Parts CR: password recovery')
+        db.session.commit()
+        return jsonify({"msg": "Code was generated, check your email."}), 200 
+    else:
+        return jsonify({"msg": "Amil not found!"}), 404 

@@ -53,5 +53,19 @@ class Wish_list(db.Model):
             "id ": self.id ,
             "user_id ": self.user_id ,
             "product_id": self.product_id
-            # do not serialize the password, its a security breach
+        }
+
+class ResetPassword(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    code = db.Column(db.String(100), nullable=True)
+
+    def __repr__(self):
+        return '<ResetPassword %r>' % self.code
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "code": self.code
         }              
