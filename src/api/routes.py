@@ -69,7 +69,7 @@ def Register():
     else:
         db.session.add(newUser)
         db.session.commit()
-        SendEmailTemplate('welcome', newUser.serialize(), newUser.email, f'Welcome to Easy Parts CR {newUser.nombre}!')
+        SendEmailTemplate('welcome', newUser.serialize(), newUser.email, f'Welcome to Easy Parts CR {newUser.name}!')
         return jsonify({"msg": "User added!"}), 200 
 
 @api.route('/reset/validation', methods=['POST'])
