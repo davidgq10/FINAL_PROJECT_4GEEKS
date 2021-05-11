@@ -52,8 +52,6 @@ class Wish_list(db.Model):
         return {
             "id ": self.id ,
             "user_id ": self.user_id ,
-            "product_id": self.product_id,
-            "user_relation":self.user_relation,
-            "product_relation":self.product_relation,
+            "product_id": self.product_id
             # do not serialize the password, its a security breach
         }              
