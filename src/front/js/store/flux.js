@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			register: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -27,6 +28,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
+			},
+			postUser: () => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+			},
+			registerStore: obj => {
+				setStore({ register: obj });
 			},
 			changeColor: (index, color) => {
 				//get the store

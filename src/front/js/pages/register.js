@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
@@ -6,6 +7,48 @@ import Img from "../../img/engranaje.png";
 import { Link } from "react-router-dom";
 
 export const Register = () => {
+	const { store, actions } = useContext(Context);
+
+	const [information, setInformation] = useState({});
+	const [name, setName] = useState("");
+	const [lastname, setLastname] = useState("");
+	const [country, setCountry] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const [error, setError] = useState("");
+
+	const handleName = e => {
+		setName(e.target.value);
+	};
+
+	const handleLastname = e => {
+		setLastname(e.target.value);
+	};
+
+	const handleEmail = e => {
+		setEmail(e.target.value);
+	};
+
+	const handleCountry = e => {
+		setCountry(e.target.value);
+	};
+
+	const handlePassword = e => {
+		setPassword(e.target.value);
+	};
+
+	const handleInformation = () => {
+		let temp = {
+			name: name,
+			email: email,
+			last_name: lastname
+			// "password": password
+		};
+		setInformation(temp);
+		actions.registerStore(temp);
+	};
+
 	return (
 		<div className="container">
 			<div className="bg-ColorClaro">
@@ -20,22 +63,44 @@ export const Register = () => {
 							<label>
 								<strong>Name </strong>{" "}
 							</label>
-							<input type="text" className="form-control " id="name" placeholder="Name" />
+							<input
+								type="text"
+								className="form-control "
+								id="name"
+								placeholder="Name"
+								value={name}
+								onChange={e => {
+									handleName(e);
+								}}
+							/>
 							{/* Last Name*/}
 							<label className="pt-5">
 								<strong> Last Name </strong>
 							</label>
-							<input type="text" className="form-control " id="lastName" placeholder="Last Name" />
+							<input
+								type="text"
+								className="form-control "
+								id="lastName"
+								placeholder="Last Name"
+								value={lastname}
+								onChange={e => {
+									handleLastname(e);
+								}}
+							/>
 							{/* E-mail */}
 							<label className="pt-5">
 								<strong> E-Mail </strong>
 							</label>
-							<input type="mail" className="form-control " id="registerEmail" placeholder="E-Mail" />
-							{/* User */}
-							<label className="pt-5">
-								<strong>User </strong>
-							</label>
-							<input type="text" className="form-control " id="registerUser" placeholder="User" />
+							<input
+								type="mail"
+								className="form-control "
+								id="registerEmail"
+								placeholder="E-Mail"
+								value={email}
+								onChange={e => {
+									handleEmail(e);
+								}}
+							/>
 						</div>
 					</div>
 				</div>
@@ -85,7 +150,10 @@ export const Register = () => {
 					<br />
 					<div className="row bg-ColorClaro ">
 						<div className="col d-flex justify-content-center">
-							<button type="button" className="btn btn-lg btn-ColorAzulOscuro col-lg-12">
+							<button
+								type="button"
+								className="btn btn-lg btn-ColorAzulOscuro col-lg-12"
+								onClick={() => handleInformation()}>
 								Register
 							</button>
 						</div>
