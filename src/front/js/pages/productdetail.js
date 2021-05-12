@@ -11,7 +11,7 @@ export const ProductDetail = () => {
 	return (
 		<div className="myProductDetail">
 			<div className="container h-100  ">
-				<div className="jumbotron mt-5 myJumbo">
+				<div className="jumbotron p-3 mt-5 myJumbo">
 					<div className="row d-flex">
 						<div className="col">
 							<img
@@ -30,13 +30,13 @@ export const ProductDetail = () => {
 								<i className="far fa-heart mt-4 mr-3"></i>
 							</div>
 							<hr className="my-3" />
-							<div className="row d-flex ml-1 mt-2 mb-3">
+							<div className="row d-flex mt-2 mb-3">
 								<div className="col d-flex">
-									<h3>Precio: &nbsp; </h3>
+									<h3>Precio:&nbsp; </h3>
 									<h3 className="display-6 text-danger">{price}</h3>
 								</div>
 								<div className="col d-flex justify-content-center align-self-center">
-									<h3>Cantidad: &nbsp; </h3>
+									<h3>Cantidad:&nbsp; </h3>
 									<button
 										className="buttonCount"
 										onClick={() => (count > 0 ? setCount(count - 1) : null)}>
@@ -53,7 +53,7 @@ export const ProductDetail = () => {
 									</button>
 								</div>
 							</div>
-							<div className="row d-flex ml-1 mt-2 mb-3">
+							<div className="row d-flex mt-2 mb-3">
 								<div className="col d-flex align-self-center">
 									<h3>Total: &nbsp; </h3>
 									<h3 className="display-6 text-danger">{amount}</h3>
