@@ -7,6 +7,11 @@
   background-position: bottom;
 }
 
+a:link {
+color: #333;
+background-color: transparent;
+text-decoration: none;
+}
 // genera un cuadro translúcido a través del título, por estética se elimina la clase
 div.transbox {
   margin: 30px;

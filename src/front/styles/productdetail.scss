@@ -1,0 +1,53 @@
+
+.myProductDetail{
+    background: url("../img/bgLeft.jpeg");
+    background-size: cover;
+    height: 100%;
+    width: auto;
+}
+
+.buttonAdd {
+  display: inline-block;
+  width: 30px ;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 3px rgb(83, 83, 83);
+}
+
+.buttonAdd:hover {background-color: #3e8e41}
+
+.buttonAdd:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1x #666;
+  transform: translateY(1px);
+}
+
+.buttonSubtract {
+  display: inline-block;
+  width: 30px ;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:red;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 3px rgb(83, 83, 83);
+}
+
+.buttonSubtract:hover {background-color: darkred}
+
+.buttonSubtract:active {
+  background-color: darkred;
+  box-shadow: 0 1x #666;
+  transform: translateY(1px);
+}

@@ -2,11 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-//importación de imágenes
-import icBuscar from "../../img/buscar.png";
-import icTienda from "../../img/tienda.png";
-import icSoporte from "../../img/support.png";
-import icMan from "../../img/man.png";
 import "../../styles/home.scss";
 
 export const Homed = () => {
@@ -20,7 +15,7 @@ export const Homed = () => {
 			esVista: "true"
 		},
 		{
-			titulotarjeta: "Login",
+			titulotarjeta: "Cuenta",
 			imagen: <i className="far fa-user fa-5x" />,
 			descripcion: "En esta sección podrás inscribirte como anunciante",
 			vista: "/register",
@@ -67,12 +62,7 @@ export const Homed = () => {
 				</div>
 			</Link>
 		) : (
-			<span
-				className="card_home text-link"
-				key={index}
-				href={item.vista}
-				target="_blank"
-				rel="noopener noreferrer">
+			<a className="card_home text-link" key={index} href={item.vista} target="_blank" rel="noopener noreferrer">
 				<div className="face face1">
 					<div className="content">
 						{item.imagen}
@@ -82,10 +72,10 @@ export const Homed = () => {
 				<div className="face face2">
 					<div className="content">
 						<p>{item.descripcion}</p>
-						<a href="#">Read More</a>
+						<a href={item.vista}>Read More</a>
 					</div>
 				</div>
-			</span>
+			</a>
 		);
 	});
 
