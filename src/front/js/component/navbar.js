@@ -90,6 +90,10 @@ export const Navbar = () => {
 									</button>
 								</div>
 							</a>
+							<div className="dropdown-divider"></div>
+							<a className="dropdown-item" href="#">
+								Ir al carrito &nbsp; <i className="fas fa-shopping-basket"></i>
+							</a>
 						</div>
 					</span>
 				</div>
