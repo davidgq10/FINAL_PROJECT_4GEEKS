@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
@@ -12,11 +12,11 @@ export const Register = () => {
 	const [information, setInformation] = useState({});
 	const [name, setName] = useState("");
 	const [lastname, setLastname] = useState("");
-	const [country, setCountry] = useState("");
+	// const [country, setCountry] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const [error, setError] = useState("");
+	// const [error, setError] = useState("");
 
 	const handleName = e => {
 		setName(e.target.value);
@@ -39,14 +39,16 @@ export const Register = () => {
 	};
 
 	const handleInformation = () => {
+		// temp is the information of the new user.
 		let temp = {
 			name: name,
 			email: email,
 			last_name: lastname,
 			password: password
 		};
-		setInformation(temp);
-		actions.registerStore(temp);
+
+		// setInformation(temp);
+		// actions.registerStore(temp);
 		actions.postRegister(temp);
 		if (store.registerStatus.msg == "User added!") {
 			alert("User added!");

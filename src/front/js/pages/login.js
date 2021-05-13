@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/login.scss";
@@ -6,6 +6,20 @@ import Img from "../../img/engranaje.png";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
+
+	const [email, setEmail] = useState("");
+
+	const handleEmail = e => {
+		setEmail(e.target.value);
+	};
+
+	const resetRequest = () => {
+		let temp = {
+			email: email
+		};
+		actions.postReset(temp);
+	};
 	return (
 		<div className="container">
 			<div className="container-fluid bg-ColorClaro">
@@ -49,6 +63,10 @@ export const Login = () => {
 								className="form-control "
 								id="exampleFormControlInput1"
 								placeholder="name@example.com"
+								value={email}
+								onChange={e => {
+									handleEmail(e);
+								}}
 							/>
 							<label className="d-flex justify-content-center pt-5">
 								<strong> Password </strong>
@@ -65,7 +83,7 @@ export const Login = () => {
 								Sign In
 							</button>
 							<Link to="/reset">
-								<button type="button" className="btn btn-ColorCeleste">
+								<button type="button" className="btn btn-ColorCeleste" onClick={() => resetRequest()}>
 									Forgot Password
 								</button>
 							</Link>
