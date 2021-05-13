@@ -10,6 +10,9 @@ import { Homed } from "./pages/homed";
 import { Reset } from "./pages/reset";
 import { Register } from "./pages/register";
 import { ProductDetail } from "./pages/productdetail";
+import { Recovery } from "./pages/recovery";
+import { ConfirmCode } from "./pages/confirmcode";
+import { ChangePassword } from "./pages/changepassword";
 
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
@@ -52,6 +55,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/productdetail">
 							<ProductDetail />
+						</Route>
+						<Route exact path="/recovery">
+							<Recovery />
+						</Route>
+						<Route exact path="/confirmcode">
+							<ConfirmCode />
+						</Route>
+						<Route exact path="/changepassword">
+							<ChangePassword />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

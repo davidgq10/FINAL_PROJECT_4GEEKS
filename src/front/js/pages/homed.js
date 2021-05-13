@@ -83,7 +83,7 @@ export const Homed = () => {
 	return (
 		<div className="myHome mt-0">
 			{/*Sección de Jumbotron*/}
-			<div className="container" style={{ height: "100%" }}>
+			<div className="container justify-content-center" style={{ height: "100%" }}>
 				<div className="transbox">
 					<h1 className="text-light text-center">¿Necesitas un repuesto para tu vehículo?</h1>
 					<h4 className="text-ColorCeleste text-center">

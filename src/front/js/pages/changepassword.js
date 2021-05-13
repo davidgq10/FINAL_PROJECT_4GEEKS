@@ -3,18 +3,23 @@ import { Context } from "../store/appContext";
 import "../../styles/login.scss";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const ChangePassword = () => {
 	return (
 		<div className="myLogin">
 			<div className="container-md mt-4 col-3 myForm p-4 rounded">
 				<div className="row justify-content-center mb-2">
-					<i className="fas fa-user-circle fa-1x " />
+					<i className="fas fa-asterisk"></i>
+					<i className="fas fa-asterisk"></i>
+					<i className="fas fa-asterisk"></i>
+					<i className="fas fa-asterisk"></i>
+					<i className="fas fa-asterisk"></i>
+					<i className="fas fa-asterisk"></i>
 				</div>
 				<form className="needs-validation">
 					<div className="form-group">
-						<label className="exampleInputEmail1">Correo electrónico</label>
+						<label className="exampleInputPassword1">Nueva contraseña</label>
 						<input
-							type="email"
+							type="password"
 							className="form-control"
 							aria-describedby="emailHelp"
 							id="validationCustom01"
@@ -22,24 +27,15 @@ export const Login = () => {
 						/>
 					</div>
 					<div className="form-group">
-						<label className="exampleInputPassword1">Contraseña</label>
+						<label className="exampleInputPassword1">Confirmar contraseña</label>
 						<input type="password" className="form-control" id="validationCustom01" required />
 					</div>
-					<div className="form-group form-check">
-						<input type="checkbox" className="form-check-input" id="exampleCheck1" />
-						<label className="form-check-label">Mantener iniciada la sesión</label>
-					</div>
 					<button type="submit" className="btn btn-danger btn-block">
-						Ingresar
+						Cambiar contraseña
 					</button>
-					<div className="d-flex justify-content-center pt-2">
-						<Link to="/recovery">Olvidaste tu contraseña?</Link>
-					</div>
 					<hr className="my-3" />
-					<Link to="/register">
-						<button type="submit" className="btn btn-dark btn-block">
-							Crear cuenta
-						</button>
+					<Link to="/homed" className="d-flex justify-content-center">
+						<p>Cancelar</p>
 					</Link>
 				</form>
 			</div>
