@@ -1,113 +1,74 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
-import Img from "../../img/engranaje.png";
+import "../../styles/login.scss";
 import { Link } from "react-router-dom";
 
 export const Register = () => {
 	return (
-		<div className="container">
-			<div className="bg-ColorClaro">
-				<h1 className="text-center pb-5"> Mauricio APP</h1>
-			</div>
-			<div className="row">
-				{/* LEFT PANEL */}
-				<div className="bg-ColorClaro col-4">
-					<div className="row d-flex justify-content-center bg-ColorClaro">
-						<div className="form-group widthForm col-lg-9 ">
-							{/* Name */}
-							<label>
-								<strong>Name </strong>{" "}
-							</label>
-							<input type="text" className="form-control " id="name" placeholder="Name" />
-							{/* Last Name*/}
-							<label className="pt-5">
-								<strong> Last Name </strong>
-							</label>
-							<input type="text" className="form-control " id="lastName" placeholder="Last Name" />
-							{/* E-mail */}
-							<label className="pt-5">
-								<strong> E-Mail </strong>
-							</label>
-							<input type="mail" className="form-control " id="registerEmail" placeholder="E-Mail" />
-							{/* User */}
-							<label className="pt-5">
-								<strong>User </strong>
-							</label>
-							<input type="text" className="form-control " id="registerUser" placeholder="User" />
+		<div className="myLogin">
+			<div className="container-md mt-4 col-6 myForm p-4 rounded">
+				<div className="row mb-2">
+					<span className="col-md-4 d-flex justify-content-center align-middle">
+						<i className="fas fa-id-card fa-1x" />
+					</span>
+					<span className="col-md-6 d-flex justify-content-center ">
+						<h3 className="align-middle">Complete la siguiente información</h3>
+					</span>
+				</div>
+				<form>
+					<div className="form-row">
+						<div className="form-group col-md-6">
+							<label className="inputEmail4">Nombre</label>
+							<input type="email" className="form-control" id="inputEmail4" />
+						</div>
+						<div className="form-group col-md-6">
+							<label className="inputPassword4">Apellido</label>
+							<input type="password" className="form-control" id="inputPassword4" />
 						</div>
 					</div>
-				</div>
-				{/* RIGHT PANEL */}
-				<div className="bg-ColorClaro col-4">
-					<div className="row d-flex justify-content-center bg-ColorClaro">
-						<div className="form-group widthForm col-lg-9 ">
-							{/* Country */}
-							<div className="form-group">
-								<label>
-									<strong>Country </strong>
-								</label>
-								<select className="form-control" id="sel1">
-									<option>Costa Rica</option>
-									<option>USA</option>
-									<option>Chile</option>
-									<option>Argentina</option>
-								</select>
-							</div>
-							{/* Adress Line 1 */}
-							<label className="pt-4">
-								<strong>Adreess Line 1 </strong>{" "}
-							</label>
-							<input type="text" className="form-control " id="line1" placeholder="" />
-							{/* Adress Line 2*/}
-							<label className="pt-5">
-								<strong> Adress Line 2 </strong>
-							</label>
-							<input type="text" className="form-control " id="line2" placeholder="" />
-							{/* Password */}
-							<label className="pt-5">
-								<strong> Password </strong>
-							</label>
-							<input
-								type="password"
-								className="form-control "
-								id="registerPassword"
-								placeholder="Password"
-							/>
+					<div className="form-row">
+						<div className="form-group col-md-4">
+							<label className="inputEmail4">Usuario</label>
+							<input type="email" className="form-control" id="inputEmail4" />
+						</div>
+						<div className="form-group col-md-5">
+							<label className="inputPassword4">Correo electrónico</label>
+							<input type="password" className="form-control" id="inputPassword4" />
+						</div>
+						<div className="form-group col-3">
+							<label className="inputState">Provincia</label>
+							<select id="inputState" className="form-control">
+								<option selected>San José</option>
+								<option>Cartago</option>
+								<option>Alajuela</option>
+								<option>Heredia</option>
+								<option>Guanacaste</option>
+								<option>Limón</option>
+								<option>Puntarenas</option>
+							</select>
 						</div>
 					</div>
-				</div>
-				<div className="bg-ColorClaro col-4">
-					<br />
-					<br />
-					<br />
-					<br />
-					<div className="row bg-ColorClaro ">
-						<div className="col d-flex justify-content-center">
-							<button type="button" className="btn btn-lg btn-ColorAzulOscuro col-lg-12">
-								Register
+					<div className="form-row">
+						<div className="form-group col-6">
+							<label className="inputAddress">Dirección 1</label>
+							<input type="text" className="form-control" id="inputAddress" />
+						</div>
+						<div className="form-group col-6">
+							<label className="inputAddress2">Dirección 2</label>
+							<input type="text" className="form-control" id="inputAddress2" />
+						</div>
+					</div>
+					<div className="form-row justify-content-center align-middle">
+						<button type="submit" className="btn-lg btn-danger mr-2">
+							Crear cuenta
+						</button>{" "}
+						<Link to="/">
+							<button type="submit" className="btn-lg btn-light">
+								Cancelar
 							</button>
-						</div>
+						</Link>
 					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-
-					<div className="row bg-ColorClaro ">
-						<div className="col d-flex justify-content-center">
-							<a
-								href="/login"
-								className="btn btn-lg btn-danger col-lg-12"
-								role="button"
-								aria-pressed="true">
-								Cancel
-							</a>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	);

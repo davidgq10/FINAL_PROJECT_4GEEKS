@@ -34,7 +34,7 @@ export const ChangePassword = () => {
 						Cambiar contraseña
 					</button>
 					<hr className="my-3" />
-					<Link to="/homed" className="d-flex justify-content-center">
+					<Link to="/" className="d-flex justify-content-center">
 						<p>Cancelar</p>
 					</Link>
 				</form>

@@ -8,7 +8,7 @@ export const ConfirmCode = () => {
 		<div className="myLogin">
 			<div className="container-md mt-4 col-3 myForm p-4 rounded">
 				<div className="row justify-content-center mb-2">
-					<i className="fas fa-envelope-open-text fa-1x " />
+					<i className="fas fa-keyboard"></i>
 				</div>
 				<form className="needs-validation">
 					<div className="form-group">
@@ -22,12 +22,12 @@ export const ConfirmCode = () => {
 						/>
 					</div>
 					<Link to="/changepassword">
-						<button type="submit" className="btn btn-warning btn-block">
+						<button type="submit" className="btn btn-danger btn-block">
 							Verificar
 						</button>
 					</Link>
 					<hr className="my-3" />
-					<Link to="/homed" className="d-flex justify-content-center">
+					<Link to="/" className="d-flex justify-content-center">
 						<p>Cancelar</p>
 					</Link>
 				</form>

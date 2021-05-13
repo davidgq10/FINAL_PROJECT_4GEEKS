@@ -7,10 +7,9 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Homed } from "./pages/homed";
-import { Reset } from "./pages/reset";
 import { Register } from "./pages/register";
 import { ProductDetail } from "./pages/productdetail";
-import { Recovery } from "./pages/recovery";
+import { Recovery } from "./pages/sendcode";
 import { ConfirmCode } from "./pages/confirmcode";
 import { ChangePassword } from "./pages/changepassword";
 
@@ -46,9 +45,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/login">
 							<Login />
-						</Route>
-						<Route exact path="/reset">
-							<Reset />
 						</Route>
 						<Route exact path="/register">
 							<Register />
