@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			register: []
+			register: [],
+			registerStatus: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -29,9 +30,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			postUser: () => {
+			postRegister: newData => {
 				// var myHeaders = new Headers();
 				// myHeaders.append("Content-Type", "application/json");
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(newData);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw
+				};
+
+				fetch(process.env.BACKEND_URL + "/api/register", requestOptions)
+					.then(response => response.json())
+					// .then(result => console.log(result))
+					.then(result => setStore({ registerStatus: result }))
+					.catch(error => console.log("error", error));
 			},
 			registerStore: obj => {
 				setStore({ register: obj });

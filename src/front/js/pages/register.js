@@ -42,11 +42,18 @@ export const Register = () => {
 		let temp = {
 			name: name,
 			email: email,
-			last_name: lastname
-			// "password": password
+			last_name: lastname,
+			password: password
 		};
 		setInformation(temp);
 		actions.registerStore(temp);
+		actions.postRegister(temp);
+		if (store.registerStatus.msg == "User added!") {
+			alert("User added!");
+		}
+		if (store.registerStatus.msg == "Email already registered.") {
+			alert("Email already registered.");
+		}
 	};
 
 	return (
@@ -139,6 +146,10 @@ export const Register = () => {
 								className="form-control "
 								id="registerPassword"
 								placeholder="Password"
+								value={password}
+								onChange={e => {
+									handlePassword(e);
+								}}
 							/>
 						</div>
 					</div>
