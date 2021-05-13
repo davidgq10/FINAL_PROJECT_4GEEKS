@@ -18,7 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			registerStatus: [],
 			resetStatus: [], // This the reset request response
 			resetCode: [], // This is a code validation response
-			passwordResponse: []
+			passwordResponse: [],
+			loginResponse: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -51,6 +52,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					// .then(result => console.log(result))
 					.then(result => setStore({ registerStatus: result }))
+					.catch(error => console.log("error", error));
+			},
+			postLogin: newData => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(newData);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw
+				};
+
+				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
+					.then(response => response.json())
+					// .then(result => console.log(result))
+					.then(result => setStore({ loginResponse: result }))
 					.catch(error => console.log("error", error));
 			},
 			postReset: email => {

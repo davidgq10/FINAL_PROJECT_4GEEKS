@@ -6,6 +6,11 @@ from api.models import db, User, Product, Wish_list, ResetPassword
 from api.utils import generate_sitemap, APIException, ToObj
 from api.email import SendEmailTemplate
 
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
+
 import shortuuid
 
 api = Blueprint('api', __name__)
@@ -27,8 +32,28 @@ def get_User():
     request=list(map(lambda user:user.serialize(), users))
     return jsonify(request), 200
 
-# Create User
+@api.route('/user/<int:position>', methods=['GET'])
+def get_one_user(position):
+    user = User.query.filter_by(id=position)
+    request = list(map(lambda user:user.serialize(),user))
+    
+    # Verify if user exist
+    if not request:
+        raise APIException('User not found', status_code=404)
+    return jsonify(request), 200
 
+@api.route('/login', methods=['POST'])
+def Login():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    user = User.query.filter_by(email=email, password=password).first()
+    if user is None:
+        # the user was not found on the database
+        return jsonify({"msg": "Incorrect credentials."}), 401
+    access_token = create_access_token(identity=user.id)
+    return jsonify({ "token": access_token, "idUser": user.id })
+
+# Create User
 @api.route('/register', methods=['POST'])
 def Register():
     newUser = ToObj(request.json, User())

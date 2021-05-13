@@ -9,9 +9,14 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 
 	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	const handleEmail = e => {
 		setEmail(e.target.value);
+	};
+
+	const handlePassword = e => {
+		setPassword(e.target.value);
 	};
 
 	const resetRequest = () => {
@@ -19,6 +24,14 @@ export const Login = () => {
 			email: email
 		};
 		actions.postReset(temp);
+	};
+
+	const accessLogin = () => {
+		let temp = {
+			email: email,
+			password: password
+		};
+		actions.postLogin(temp);
 	};
 	return (
 		<div className="container">
@@ -76,10 +89,17 @@ export const Login = () => {
 								className="form-control "
 								id="exampleFormControlInput1"
 								placeholder="Password"
+								value={password}
+								onChange={e => {
+									handlePassword(e);
+								}}
 							/>
 						</div>
 						<div className="mr-5 col-lg-12 bg-ColorClaro ">
-							<button type="button" className="btn btn-ColorAzulOscuro mr-3">
+							<button
+								type="button"
+								className="btn btn-ColorAzulOscuro mr-3"
+								onClick={() => accessLogin()}>
 								Sign In
 							</button>
 							<Link to="/reset">
