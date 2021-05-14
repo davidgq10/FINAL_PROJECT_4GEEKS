@@ -49,7 +49,7 @@ def Login():
     user = User.query.filter_by(email=email, password=password).first()
     if user is None:
         # the user was not found on the database
-        return jsonify({"msg": "Incorrect credentials."}), 401
+        return jsonify({"msg": "Incorrect credentials. Please Try Again"}), 401
     access_token = create_access_token(identity=user.id)
     return jsonify({ "token": access_token, "idUser": user.id })
 
@@ -131,4 +131,4 @@ def ResetPasswordFunction():
         db.session.commit()
         return jsonify({"msg": "Code was generated, check your email."}), 200 
     else:
-        return jsonify({"msg": "Amil not found!"}), 404 
+        return jsonify({"msg": "Emmil not found!"}), 404 

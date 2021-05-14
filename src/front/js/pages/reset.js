@@ -12,6 +12,12 @@ export const Reset = () => {
 	const [password2, setPassword2] = useState("");
 	const [code, setCode] = useState("");
 
+	// // This is for redirect to a view
+	if (store.resetStatus.msg == undefined) {
+	} else if (store.resetStatus.msg == "Password updated!") {
+		location.replace("/login");
+	}
+
 	const handleEmail = e => {
 		setEmail(e.target.value);
 	};

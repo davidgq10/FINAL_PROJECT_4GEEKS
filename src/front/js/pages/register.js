@@ -50,10 +50,10 @@ export const Register = () => {
 		// setInformation(temp);
 		// actions.registerStore(temp);
 		actions.postRegister(temp);
-		if (store.registerStatus.msg == "User added!") {
+		if (store.passwordResponse.msg == "User added!") {
 			alert("User added!");
 		}
-		if (store.registerStatus.msg == "Email already registered.") {
+		if (store.passwordResponse.msg == "Email already registered.") {
 			alert("Email already registered.");
 		}
 	};
@@ -110,6 +110,9 @@ export const Register = () => {
 									handleEmail(e);
 								}}
 							/>
+							<span className="text-danger d-flex justify-content-center pt-3">
+								{store.registerStatus.msg}
+							</span>
 						</div>
 					</div>
 				</div>
