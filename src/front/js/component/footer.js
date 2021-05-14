@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../styles/footer.scss";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-2 text-center bg-dark">
+	<footer className="navbar navbar-expand-sm fixed-bottom navbar-dark bg-dark text-center bg-dark justify-content-center">
 		<button
 			onClick={() => window.open("https://www.instagram.com")}
 			id="myButtonInstagram"

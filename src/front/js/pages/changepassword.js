@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const ChangePassword = () => {
 	return (
-		<div className="myLogin">
+		<div className="myLogin d-flex mt-5">
 			<div className="container-md mt-4 col-3 myForm p-4 rounded">
 				<div className="row justify-content-center mb-2">
 					<i className="fas fa-asterisk"></i>

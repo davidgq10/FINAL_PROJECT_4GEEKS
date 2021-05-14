@@ -81,7 +81,7 @@ export const Homed = () => {
 
 	// retorna la vista home
 	return (
-		<div className="myHome mt-0">
+		<div className="myHome mt-5">
 			{/*Sección de Jumbotron*/}
 			<div className="container justify-content-center" style={{ height: "100%" }}>
 				<div className="transbox">

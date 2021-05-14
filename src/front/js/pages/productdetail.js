@@ -9,8 +9,8 @@ export const ProductDetail = () => {
 	const price = 360000;
 
 	return (
-		<div className="myProductDetail">
-			<div className="container h-100  ">
+		<div className="myProductDetail mt-5 ">
+			<div className="container h-100">
 				<div className="jumbotron p-3 mt-5 myJumbo">
 					<div className="row d-flex">
 						<div className="col">

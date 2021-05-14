@@ -133,11 +133,11 @@ export const Product = props => {
 
 	//El siguiente bloque de código retorna el objeto a mostrar
 	return (
-		<div className=" myProduct">
+		<div className="myProduct">
 			{/* En esta sección se construye el menu de filtros */}
-			<div className="container mt-2">
+			<div className="container mt-5">
 				<form>
-					<div className="row justify-content-center bg-dark rounded pt-2">
+					<div className="row justify-content-center bg-dark rounded-bottom rounded-3 pt-2">
 						<div className="form-group col-3">
 							<label className="exampleFormControlSelect1 text-warning">Marca</label>
 							<select className="form-control" id="exampleFormControlSelect1">
@@ -180,9 +180,9 @@ export const Product = props => {
 				</form>
 			</div>
 			{/* En esta sección se contruye el contenedor con las card */}
-			<div className="container myCard mt-3 ">
+			<div className="container myCard mt-2 mb-5">
 				<h3 className="text-light">Repuestos disponibles</h3>
-				<div className="card-deck row-cols-4">{getCards}</div>
+				<div className="card-deck row-cols-4 mb-5 pb-4">{getCards}</div>
 			</div>
 		</div>
 	);

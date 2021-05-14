@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Register = () => {
 	return (
-		<div className="myLogin">
+		<div className="myLogin mt-5">
 			<div className="container-md mt-4 col-4 myForm p-4 rounded">
 				<div className="row mb-2">
 					<span className="col-md-4 d-flex justify-content-center align-middle">

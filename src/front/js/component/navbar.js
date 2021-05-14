@@ -35,7 +35,7 @@ export const Navbar = () => {
 	});
 
 	return (
-		<nav className="navbar navbar-dark bg-dark justify-content-center mb-0">
+		<nav className="navbar navbar-dark fixed-top mb-5 bg-dark justify-content-center mb-0">
 			<div className="container">
 				{/*Sección de marca*/}
 				<div className="col d-flex justify-content-start">

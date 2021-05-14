@@ -1,10 +1,11 @@
 
 .myHome{
   background: url("../img/bgHomeGray.jpeg");
-  background-size: cover;   
-  height: 100%;
-  width: auto;
   background-position: bottom;
+  background-size: cover;
+  min-height: 85%;
+  height: auto;
+  width: auto;
 }
 
 a:link {
