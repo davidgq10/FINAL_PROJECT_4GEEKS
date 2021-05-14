@@ -10,9 +10,19 @@ export const Login = () => {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [notification, setNotification] = useState("");
+
+	// This is for redirect to a view
+	// if (store.loginResponse.msg == undefined) {
+	// } else if (store.loginResponse.msg == "Incorrect credentials.") {
+	// 	location.replace("/");
+	// }
 
 	const handleEmail = e => {
 		setEmail(e.target.value);
+	};
+	const handleNotification = e => {
+		setNotification("Incorrect credentials.");
 	};
 
 	const handlePassword = e => {
@@ -96,6 +106,7 @@ export const Login = () => {
 							/>
 						</div>
 						<div className="mr-5 col-lg-12 bg-ColorClaro ">
+							<span>{store.loginResponse.msg}</span>
 							<button
 								type="button"
 								className="btn btn-ColorAzulOscuro mr-3"
