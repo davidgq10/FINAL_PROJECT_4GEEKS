@@ -27,7 +27,7 @@ export const Navbar = () => {
 					<img style={{ height: "30px" }} src={item.ImageUrl} alt="..." />
 					<div className="p-2 bd-highlight">{item.PartName}</div>
 					<button type="button" className="btn btn-light">
-						<i className="fas fa-trash-alt"></i>
+						<i className="fas fa-trash-alt" />
 					</button>
 				</div>
 			</a>
@@ -87,9 +87,9 @@ export const Navbar = () => {
 						</i>
 						<div className="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
 							{getFavorites}
-							<div className="dropdown-divider"></div>
+							<div className="dropdown-divider" />
 							<button type="button" className="btn btn-danger justify-content-center btn-block mb-0">
-								Comprar &nbsp; <i className="fas fa-shopping-basket"></i>
+								Comprar &nbsp; <i className="fas fa-shopping-basket" />
 							</button>
 						</div>
 					</span>

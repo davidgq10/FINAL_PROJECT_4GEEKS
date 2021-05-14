@@ -8,7 +8,7 @@ export const ConfirmCode = () => {
 		<div className="myLogin mt-5">
 			<div className="container-md mt-4 col-3 myForm p-4 rounded">
 				<div className="row justify-content-center mb-2">
-					<i className="fas fa-keyboard"></i>
+					<i className="fas fa-keyboard" />
 				</div>
 				<form className="needs-validation">
 					<div className="form-group">

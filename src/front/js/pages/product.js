@@ -101,7 +101,7 @@ export const Product = props => {
 					<img src={item.Url} className="card-img-top" alt="..." />
 					<div className="card-body">
 						<div className="card-title">{item.Name}</div>
-						<div className="dropdown-divider"></div>
+						<div className="dropdown-divider" />
 						<div className="card-text">
 							<strong>Marca:</strong> {item.Brand}
 						</div>
@@ -114,7 +114,7 @@ export const Product = props => {
 						<div className="card-text">
 							<strong>Item:</strong> {item.Item}
 						</div>
-						<div className="dropdown-divider"></div>
+						<div className="dropdown-divider" />
 						<div className="d-flex justify-content-between">
 							<Link to={"/productdetail"}>
 								<div className="btn btn-dark btn-block" variant="outline-primary">

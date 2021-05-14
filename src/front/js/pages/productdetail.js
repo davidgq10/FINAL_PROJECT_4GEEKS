@@ -27,7 +27,7 @@ export const ProductDetail = () => {
 						<div className="col">
 							<div className="d-flex justify-content-between">
 								<h1 className="display-4">Suspención</h1>
-								<i className="far fa-heart mt-4 mr-3"></i>
+								<i className="far fa-heart mt-4 mr-3" />
 							</div>
 							<hr className="my-3" />
 							<div className="row d-flex mt-2 mb-3">
@@ -46,7 +46,8 @@ export const ProductDetail = () => {
 										type="button"
 										className="buttonCount"
 										onChange={() => setAmount(price * count)}>
-										&nbsp;{count} &nbsp;
+										&nbsp;
+										{count} &nbsp;
 									</button>
 									<button className="buttonCount" onClick={() => setCount(count + 1)}>
 										+
@@ -60,7 +61,7 @@ export const ProductDetail = () => {
 								</div>
 								<div className="col">
 									<button className="btn btn-danger btn-lg btn-block" href="#" type="button">
-										Comprar &nbsp; <i className="fas fa-shopping-basket"></i>
+										Comprar &nbsp; <i className="fas fa-shopping-basket" />
 									</button>
 								</div>
 							</div>
