@@ -12,7 +12,7 @@ color: #333;
 background-color: transparent;
 text-decoration: none;
 }
-// genera un cuadro translúcido a través del título, por estética se elimina la clase
+
 div.transbox {
   margin: 30px;
   background-color: black;
@@ -108,7 +108,7 @@ div.transbox {
 
 .container_home .card_home .face.face2{
     position: relative;
-    background:lightgrey ;
+    background:#fff ;
     display: flex;
     justify-content: center;
     align-items: center;
