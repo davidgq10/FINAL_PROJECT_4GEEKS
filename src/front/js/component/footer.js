@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import "../../styles/footer.scss";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center bg-info">
+	<footer className="footer mt-auto py-2 text-center bg-dark">
 		<button
 			onClick={() => window.open("https://www.instagram.com")}
 			id="myButtonInstagram"
 			className="btn request-callback">
 			{" "}
-			<i className="fab fa-instagram fa-3x pr-2" />{" "}
+			<i className="fab fa-instagram fa-2x pr-2" />{" "}
 		</button>
 
 		<button
@@ -15,7 +16,7 @@ export const Footer = () => (
 			id="myButtonFacebook"
 			className="btn request-callback">
 			{" "}
-			<i className="fab fa-facebook fa-3x pr-2" />
+			<i className="fab fa-facebook fa-2x pr-2" />
 		</button>
 
 		<button
@@ -23,10 +24,9 @@ export const Footer = () => (
 			id="myButtonTwitter"
 			className="btn request-callback">
 			{" "}
-			<i className="fab fa-twitter fa-3x pr-2" />
+			<i className="fab fa-twitter fa-2x pr-2" />
 		</button>
 
-		<i className="fas fa-phone-alt fa-3x pr-1" />
-		<i className="fas fa-envelope fa-3x " />
+		<i className="fas fa-envelope fa-2x " />
 	</footer>
 );

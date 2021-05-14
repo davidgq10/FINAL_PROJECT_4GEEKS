@@ -1,6 +1,11 @@
 /* 
     General Styles
 */
+/* The following line can be included in a src/App.scss */
+
+@import "~bootstrap/scss/bootstrap";
+
+/* The following line can be included in your src/index.js or App.js file */
 
 .widthForm{
 

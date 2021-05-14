@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
-import Img from "../../img/engranaje.png";
+import "../../styles/login.scss";
 import { Link } from "react-router-dom";
 
 export const Register = () => {
@@ -15,8 +13,6 @@ export const Register = () => {
 	// const [country, setCountry] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
-	// const [error, setError] = useState("");
 
 	const handleName = e => {
 		setName(e.target.value);
@@ -50,107 +46,84 @@ export const Register = () => {
 		// setInformation(temp);
 		// actions.registerStore(temp);
 		actions.postRegister(temp);
-		if (store.passwordResponse.msg == "User added!") {
-			alert("User added!");
-		}
-		if (store.passwordResponse.msg == "Email already registered.") {
-			alert("Email already registered.");
-		}
+
+		// if (store.passwordResponse.msg == "User added!") {
+		// 	alert("User added!");
+		// }
+		// if (store.passwordResponse.msg == "Email already registered.") {
+		// 	alert("Email already registered.");
+		// }
+	};
+
+	// Clean hooks function
+	const cleanHooks = () => {
+		setName("");
+		setLastname("");
+		setEmail("");
+		setPassword("");
 	};
 
 	return (
-		<div className="container">
-			<div className="bg-ColorClaro">
-				<h1 className="text-center pb-5"> Mauricio APP</h1>
-			</div>
-			<div className="row">
-				{/* LEFT PANEL */}
-				<div className="bg-ColorClaro col-4">
-					<div className="row d-flex justify-content-center bg-ColorClaro">
-						<div className="form-group widthForm col-lg-9 ">
-							{/* Name */}
-							<label>
-								<strong>Name </strong>{" "}
-							</label>
+		<div className="myLogin">
+			<div className="container-md mt-4 col-4 myForm p-4 rounded">
+				<div className="row mb-2">
+					<span className="col-md-4 d-flex justify-content-center align-middle">
+						<i className="fas fa-id-card fa-1x" />
+					</span>
+					<span className="col-md-6 d-flex justify-content-center ">
+						<h3 className="align-middle">Información de la cuenta</h3>
+					</span>
+				</div>
+				<form>
+					<div className="form-row">
+						<div className="form-group col-md-6">
+							<label className="validationCustom01">Nombre</label>
 							<input
 								type="text"
-								className="form-control "
-								id="name"
-								placeholder="Name"
+								className="form-control"
+								id="inputEmail4"
+								required
 								value={name}
 								onChange={e => {
 									handleName(e);
 								}}
 							/>
-							{/* Last Name*/}
-							<label className="pt-5">
-								<strong> Last Name </strong>
-							</label>
+						</div>
+						<div className="form-group col-md-6">
+							<label className="validationCustom01">Apellido</label>
 							<input
 								type="text"
-								className="form-control "
-								id="lastName"
-								placeholder="Last Name"
+								className="form-control"
+								id="inputPassword4"
+								required
 								value={lastname}
 								onChange={e => {
 									handleLastname(e);
 								}}
 							/>
-							{/* E-mail */}
-							<label className="pt-5">
-								<strong> E-Mail </strong>
-							</label>
+						</div>
+					</div>
+					<div className="form-row">
+						<div className="form-group col-md-6">
+							<label className="inputPassword4">Correo electrónico</label>
 							<input
-								type="mail"
-								className="form-control "
-								id="registerEmail"
-								placeholder="E-Mail"
+								type="email"
+								className="form-control"
+								id="inputPassword4"
+								required
 								value={email}
 								onChange={e => {
 									handleEmail(e);
 								}}
 							/>
-							<span className="text-danger d-flex justify-content-center pt-3">
-								{store.registerStatus.msg}
-							</span>
 						</div>
-					</div>
-				</div>
-				{/* RIGHT PANEL */}
-				<div className="bg-ColorClaro col-4">
-					<div className="row d-flex justify-content-center bg-ColorClaro">
-						<div className="form-group widthForm col-lg-9 ">
-							{/* Country */}
-							<div className="form-group">
-								<label>
-									<strong>Country </strong>
-								</label>
-								<select className="form-control" id="sel1">
-									<option>Costa Rica</option>
-									<option>USA</option>
-									<option>Chile</option>
-									<option>Argentina</option>
-								</select>
-							</div>
-							{/* Adress Line 1 */}
-							<label className="pt-4">
-								<strong>Adreess Line 1 </strong>{" "}
-							</label>
-							<input type="text" className="form-control " id="line1" placeholder="" />
-							{/* Adress Line 2*/}
-							<label className="pt-5">
-								<strong> Adress Line 2 </strong>
-							</label>
-							<input type="text" className="form-control " id="line2" placeholder="" />
-							{/* Password */}
-							<label className="pt-5">
-								<strong> Password </strong>
-							</label>
+						<div className="form-group col-md-6">
+							<label className="inputEmail4">Contraseña</label>
 							<input
 								type="password"
-								className="form-control "
-								id="registerPassword"
-								placeholder="Password"
+								className="form-control"
+								id="inputEmail4"
+								required
 								value={password}
 								onChange={e => {
 									handlePassword(e);
@@ -158,40 +131,29 @@ export const Register = () => {
 							/>
 						</div>
 					</div>
-				</div>
-				<div className="bg-ColorClaro col-4">
-					<br />
-					<br />
-					<br />
-					<br />
-					<div className="row bg-ColorClaro ">
-						<div className="col d-flex justify-content-center">
+					<span className="text-danger d-flex justify-content-center pt-3">{store.registerStatus.msg}</span>
+
+					<div className="form-row mt-3">
+						<div className="form-group col-md-6">
 							<button
 								type="button"
-								className="btn btn-lg btn-ColorAzulOscuro col-lg-12"
+								className="btn btn-danger mr-2 btn-block"
 								onClick={() => handleInformation()}>
-								Register
+								Crear cuenta
 							</button>
 						</div>
-					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-
-					<div className="row bg-ColorClaro ">
-						<div className="col d-flex justify-content-center">
-							<a
-								href="/login"
-								className="btn btn-lg btn-danger col-lg-12"
-								role="button"
-								aria-pressed="true">
-								Cancel
-							</a>
+						<div className="form-group col-md-6">
+							<Link to="/">
+								<button
+									type="submit"
+									className="btn btn-outline-dark btn-block"
+									style={{ with: "200px" }}>
+									Cancelar
+								</button>
+							</Link>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	);

@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/login.scss";
-import Img from "../../img/engranaje.png";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
@@ -44,85 +42,39 @@ export const Login = () => {
 		actions.postLogin(temp);
 	};
 	return (
-		<div className="container">
-			<div className="container-fluid bg-ColorClaro">
-				<h1 className="text-left pl-0"> Mauricio APP</h1>
-				<div className="row">
-					<a
-						href="/register"
-						className="btn btn-ColorAzulOscuro ml-2 col-4"
-						role="button"
-						aria-pressed="true">
-						Are new? Please Login Here!!
-					</a>
-					{/* <Link to="/register">
-
-						<button type="button" className="btn btn-ColorAzulOscuro ml-2 col-4">
-							Are new? Please Login Here!!
-						</button>
-					</Link> */}
+		<div className="myLogin">
+			<div className="container-md mt-4 col-3 myForm p-4 rounded">
+				<div className="row justify-content-center mb-2">
+					<i className="fas fa-user-circle fa-1x " />
 				</div>
-			</div>
-
-			<div className="row">
-				<div className="bg-ColorClaro col-6">
-					<img
-						src="engranaje.png"
-						className="img-thumbnail pt-5 pl-5 bg-ColorClaro border-0"
-						alt="..."
-						width="400"
-						height="400"
-					/>
-				</div>
-				<form />
-				<div className="d-flex justify-content-end bg-ColorClaro pr-5 col-6">
-					<div className="text-right row bg-ColorClaro">
-						<div className="form-group widthForm col-lg-12 ">
-							<label className="d-flex justify-content-center">
-								<strong>Email address </strong>{" "}
-							</label>
-							<input
-								type="mail"
-								className="form-control "
-								id="exampleFormControlInput1"
-								placeholder="name@example.com"
-								value={email}
-								onChange={e => {
-									handleEmail(e);
-								}}
-							/>
-							<label className="d-flex justify-content-center pt-5">
-								<strong> Password </strong>
-							</label>
-							<input
-								type="password"
-								className="form-control "
-								id="exampleFormControlInput1"
-								placeholder="Password"
-								value={password}
-								onChange={e => {
-									handlePassword(e);
-								}}
-							/>
-							<span className="text-danger d-flex justify-content-center pt-3">
-								{store.loginResponse.msg}
-							</span>
-						</div>
-						<div className="mr-5 col-lg-12 bg-ColorClaro ">
-							<button
-								type="button"
-								className="btn btn-ColorAzulOscuro mr-3"
-								onClick={() => accessLogin()}>
-								Sign In
-							</button>
-							<Link to="/reset">
-								<button type="button" className="btn btn-ColorCeleste" onClick={() => resetRequest()}>
-									Forgot Password
-								</button>
-							</Link>
-						</div>
+				<form className="needs-validation">
+					<div className="form-group">
+						<label className="exampleInputEmail1">Correo electrónico</label>
+						<input
+							type="email"
+							className="form-control"
+							aria-describedby="emailHelp"
+							id="validationCustom01"
+							required
+						/>
 					</div>
-				</div>
+					<div className="form-group">
+						<label className="exampleInputPassword1">Contraseña</label>
+						<input type="password" className="form-control" id="validationCustom01" required />
+					</div>
+					<button type="submit" className="btn btn-danger btn-block">
+						Ingresar
+					</button>
+					<div className="d-flex justify-content-center pt-2">
+						<Link to="/recovery">Olvidaste tu contraseña?</Link>
+					</div>
+					<hr className="my-3" />
+					<Link to="/register">
+						<button type="submit" className="btn btn-dark btn-block">
+							Crear cuenta
+						</button>
+					</Link>
+				</form>
 			</div>
 		</div>
 	);

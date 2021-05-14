@@ -1,0 +1,39 @@
+
+.myProductDetail{
+    background: url("../img/bgLeft.jpeg");
+    background-size: cover;
+    height: 100%;
+    width: auto;
+}
+
+.buttonCount {
+  display: inline-block;
+  height: 35px;
+  max-width: 40px ;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  color: #333;
+  background-color: white;
+  border: 1px;
+  border-radius: 0;
+  box-shadow: 0 3px rgb(83, 83, 83);
+}
+
+.buttonCount:active {
+  background-color:lightgray;
+  box-shadow: 0 1x #666;
+  transform: translateY(1px);
+}
+
+.myJumbo{
+background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(214,213,213,1) 66%, rgba(201,200,200,0.8528245770964635) 100%);
+}
+
+.myProductDetail .fa-heart{
+    font-size: 40px;
+    color: red;
+}
