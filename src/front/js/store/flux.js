@@ -20,7 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			resetCode: [], // This is a code validation response
 			passwordResponse: [],
 			loginResponse: [],
-			currentEmail: []
+			currentEmail: [],
+			loginToken: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -70,9 +71,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
-					.then(response => response.json())
+					.then(response => {
+						if (response.ok) {
+							setStore({ loginResponse: "Login Succesful!" });
+							return response.json();
+						} else {
+							setStore({ loginResponse: "Invalid Credentials!" });
+							return response.json();
+						}
+					})
 					// .then(result => console.log(result))
-					.then(result => setStore({ loginResponse: result }))
+					.then(result => setStore({ loginToken: result }))
 					.catch(error => console.log("error", error));
 			},
 			postReset: email => {
