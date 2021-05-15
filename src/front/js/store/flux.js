@@ -15,11 +15,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			register: [],
-			registerStatus: [],
+			registerStatus: [], // This the register request response
 			resetStatus: [], // This the reset request response
 			resetCode: [], // This is a code validation response
 			passwordResponse: [],
-			loginResponse: []
+			loginResponse: [],
+			currentEmail: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -96,6 +97,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			registerStore: obj => {
 				setStore({ register: obj });
+			},
+			saveEmail: emailIncoming => {
+				sessionStorage.setItem("email", emailIncoming);
+				setStore({ email: emailIncoming });
 			},
 			postValidation: data => {
 				// var myHeaders = new Headers();

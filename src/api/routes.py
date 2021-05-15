@@ -131,4 +131,4 @@ def ResetPasswordFunction():
         db.session.commit()
         return jsonify({"msg": "Code was generated, check your email."}), 200 
     else:
-        return jsonify({"msg": "Emmil not found!"}), 404 
+        return jsonify({"msg": "Email not found!"}), 404 

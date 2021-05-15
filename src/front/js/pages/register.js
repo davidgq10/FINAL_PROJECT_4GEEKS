@@ -14,6 +14,11 @@ export const Register = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
+	// // This is for redirect to a view
+	if (store.registerStatus.msg == "User added!") {
+		location.replace("/login");
+	}
+
 	const handleName = e => {
 		setName(e.target.value);
 	};
@@ -62,6 +67,10 @@ export const Register = () => {
 		setEmail("");
 		setPassword("");
 	};
+
+	// const renderLoginBTN = () => {
+
+	// };
 
 	return (
 		<div className="myLogin mt-5 align-middle">

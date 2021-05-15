@@ -10,11 +10,9 @@ export const Login = () => {
 	const [password, setPassword] = useState("");
 	const [notification, setNotification] = useState("");
 
-	// // This is for redirect to a view
-	// if (store.loginResponse.msg == undefined) {
-	// } else if (store.loginResponse.msg == "Incorrect credentials. Please Try Again") {
-	// 	// 	location.replace("/");
-	// }
+	if (store.loginResponse.msg == "User added!") {
+		location.replace("/product");
+	}
 
 	const handleEmail = e => {
 		setEmail(e.target.value);
