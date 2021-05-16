@@ -142,6 +142,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				sessionStorage.removeItem("email");
 				sessionStorage.removeItem("token");
 				sessionStorage.removeItem("id");
+				sessionStorage.removeItem("name");
+				sessionStorage.removeItem("lastname");
 				setStore({ logoutStatus: "Logged out!" });
 			},
 			postValidation: data => {
