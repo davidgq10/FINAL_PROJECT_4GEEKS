@@ -8,9 +8,9 @@ export const ProductDetail = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
+    
 	const [count, setCount] = useState(0);
 	const [amount, setAmount] = useState(0);
-	const price = 360000;
 
 	return (
 		<div className="myProductDetail mt-5 ">
