@@ -81,7 +81,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					// .then(result => console.log(result))
-					.then(result => setStore({ loginToken: result }))
+					.then(result => {
+						setStore({ loginToken: result });
+						getActions().saveToken(result.token);
+					})
 					.catch(error => console.log("error", error));
 			},
 			postReset: email => {
@@ -110,6 +113,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			saveEmail: emailIncoming => {
 				sessionStorage.setItem("email", emailIncoming);
 				setStore({ email: emailIncoming });
+			},
+			saveToken: tokenIncoming => {
+				sessionStorage.setItem("token", tokenIncoming);
+				setStore({ token: tokenIncoming });
 			},
 			postValidation: data => {
 				// var myHeaders = new Headers();
