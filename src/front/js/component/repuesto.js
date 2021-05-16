@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { ProductDetail } from "../pages/productdetail";
 
-export const Repuesto = () => {
+export const Repuesto = props => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<>
 			<div className="card mx-1 " style={{ width: "18rem;" }}>
@@ -11,11 +16,11 @@ export const Repuesto = () => {
 					alt="Card image cap"
 				/>
 				<div className="card-body">
-					<h5 className="card-title" />
-					<p className="card-text" />
-					<p className="card-text" />
+					<h5 className="card-title">{props.categoria}</h5>
+					<p className="card-text">{props.item}</p>
+					<p className="card-text">{props.marca} </p>
 
-					<Link to="/">
+					<Link to={"/productdatail/" + props.id1}>
 						<div className=" text-left">
 							<button type="button" className="btn shadow-none  text-danger float-right ">
 								<h1>♥</h1>
@@ -28,4 +33,13 @@ export const Repuesto = () => {
 			</div>
 		</>
 	);
+};
+
+Repuesto.propTypes = {
+	categoria: PropTypes.string,
+	id1: PropTypes.integer,
+	item: PropTypes.integer,
+	marca: PropTypes.string
+	// nombre: PropTypes.string,
+	// precio: PropTypes.integer
 };

@@ -20,12 +20,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			resetCode: [], // This is a code validation response
 			passwordResponse: [],
 			loginResponse: [],
-			currentEmail: []
+			currentEmail: [],
+			product: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+
+			loadProduct: async () => {
+				const url = process.env.BACKEND_URL + "/api/product";
+				const response = await fetch(url);
+				const data = await response.json();
+				console.log(data);
+				setStore({ product: data }); //variable global
 			},
 
 			getMessage: () => {

@@ -132,3 +132,11 @@ def ResetPasswordFunction():
         return jsonify({"msg": "Code was generated, check your email."}), 200 
     else:
         return jsonify({"msg": "Email not found!"}), 404 
+
+# product
+
+@api.route('/product', methods=['GET'])  #aquí especificamos la ruta para el endpoint y especificamos que este endpoint acepta solicitudes GET
+def getpart():                        #este método se llamará cuando el cliente haga el request
+    parts = Product.query.all()
+    request = list(map(lambda x: x.serialize(), parts ))
+    return jsonify( request), 200 

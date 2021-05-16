@@ -24,17 +24,26 @@ class User(db.Model):
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
-    price = db.Column(db.String(120), unique=True, nullable=False) 
+    nombre= db.Column(db.String(120), unique=False, nullable=False)
+    marca = db.Column(db.String(120), unique=False, nullable=False)
+    categoria= db.Column(db.String(120), unique=False, nullable=False) 
+    precio = db.Column(db.Integer, unique=False, nullable=False) 
+    item = db.Column(db.Integer, unique=False, nullable=False)
+    enlace= db.Column(db.String(120), unique=False, nullable=False)
+ 
     
     def _repr_(self):
         return '<Product %r>' % self.id
 
     def serialize(self):
         return {
-            "id ": self.id,
-            "name": self.name,
-            "price":self.price,
+            "id": self.id,
+            "nombre": self.nombre,
+            "marca":self.marca,
+            "categoria":self.categoria,
+            "precio":self.precio,
+            "item":self.item,
+            "enlace":self.enlace
             # do not serialize the password, its a security breach
         } 
 

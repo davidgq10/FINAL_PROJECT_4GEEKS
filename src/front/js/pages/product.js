@@ -1,89 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 import { engranaje } from "../../img/engranaje.png";
 import { Repuesto } from "../component/repuesto";
 import { Link } from "react-router-dom";
 import "../../styles/product.scss";
 
-export const Product = props => {
-	// La siguiente constante contiene la información de prueba para las card
-	const cardParts = [
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		},
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		},
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		},
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		},
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		},
-		{
-			Name: "Suspencion",
-			Url:
-				"https://www.diariomotor.com/imagenes/picscache/750x/tipos-esquemas-suspension-mcpherson-eje-audi-sq2_750x.jpg",
-			Brand: "Hitachi",
-			Price: 350000,
-			Item: 684,
-			PartCode: "469S549D",
-			RelatedCar: "Toyota Corolla 1991",
-			Description:
-				"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
-		}
-	];
+export const Product = () => {
+	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.loadProduct();
+	}, []);
+	//  La siguiente constante contiene la información de prueba para las card
 
 	//La siguiente constante almacena el mapeo de las card, será llamado posteriormente en el ultimo bloque que renderiza el objeto
-	let getCards = cardParts.map((item, index) => {
-		// el siguiente código genera el botón de favorito relleno o vacío según la data en lista de favoritos
+	let getCards = store.product.map((item, index) => {
+		// el siguiente código genera el botón de favorito  relleno o vacío según la data en lista de favoritos
 		// function getButton(name) {
 		// 	return (
 		// 		<div
@@ -100,19 +31,19 @@ export const Product = props => {
 				<div className="card m-2">
 					<img src={item.Url} className="card-img-top" alt="..." />
 					<div className="card-body">
-						<div className="card-title">{item.Name}</div>
+						<div className="card-title">{item.nombre}</div>
 						<div className="dropdown-divider" />
 						<div className="card-text">
-							<strong>Marca:</strong> {item.Brand}
+							<strong>Marca:</strong> {item.marca}
 						</div>
 						<div className="card-text">
-							<strong>Categoría:</strong> {item.Name}
+							<strong>Categoría:</strong> {item.categoria}
 						</div>
 						<div className="card-text">
-							<strong>Precio:</strong> {item.Price}
+							<strong>Precio:</strong> {item.precio}
 						</div>
 						<div className="card-text">
-							<strong>Item:</strong> {item.Item}
+							<strong>Item:</strong> {item.item}
 						</div>
 						<div className="dropdown-divider" />
 						<div className="d-flex justify-content-between">
