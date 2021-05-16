@@ -1,9 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/productdetail.scss";
 
 export const ProductDetail = () => {
+	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.loadProduct();
+	}, []);
+	const params = useParams();
+
 	const [count, setCount] = useState(0);
 	const [amount, setAmount] = useState(0);
 	const price = 360000;
@@ -15,18 +23,14 @@ export const ProductDetail = () => {
 					<div className="row d-flex">
 						<div className="col">
 							<img
-								style={{ maxHeight: "350px" }}
+								style={{ maxHeight: "400px" }}
 								src="https://cuymar.com/noticias/wp-content/uploads/2018/12/como-funciona-suspension-neumatica.jpg"
 								alt="..."
 							/>
-							<p className="mt-2 ml-2 mr-4">
-								Esta es una descripcion breve del componente del vehículo, en donde se explica las
-								características
-							</p>
 						</div>
 						<div className="col">
 							<div className="d-flex justify-content-between">
-								<h1 className="display-4">Suspención</h1>
+								<h1 className="display-4">{store.product[params.theItem].nombre}</h1>
 								<i className="far fa-heart mt-4 mr-3" />
 							</div>
 							<hr className="my-3" />

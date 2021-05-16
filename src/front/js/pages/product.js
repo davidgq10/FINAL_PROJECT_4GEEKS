@@ -47,7 +47,7 @@ export const Product = () => {
 						</div>
 						<div className="dropdown-divider" />
 						<div className="d-flex justify-content-between">
-							<Link to={"/productdetail"}>
+							<Link to={"/productdetail/" + item.item}>
 								<div className="btn btn-dark btn-block" variant="outline-primary">
 									Detalles
 								</div>
