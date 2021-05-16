@@ -16,7 +16,12 @@ export const Navbar = () => {
 			let lastname = sessionStorage.getItem("lastname");
 			actions.getUserbyID(id);
 			return (
-				<span className="navbar-brand mb-0 " onClick={() => actions.clearSession()}>
+				<span
+					className="navbar-brand mb-0 "
+					onClick={() => {
+						actions.clearSession();
+						location.replace("/");
+					}}>
 					{name}, {lastname} &nbsp; <i className="fas fa-sign-out-alt fa-1x"></i>
 					&nbsp;Salir
 				</span>
