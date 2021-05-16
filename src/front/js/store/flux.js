@@ -21,7 +21,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			passwordResponse: [],
 			loginResponse: [],
 			currentEmail: [],
-			loginToken: []
+			loginToken: [],
+			loginName: [],
+			loginLastName: [],
+			logoutStatus: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -34,6 +37,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/hello")
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getUserbyID: position => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/user/" + position)
+					.then(resp => resp.json())
+					.then(result => {
+						console.log(result);
+						getActions().saveInSession("name", result[0].name);
+						getActions().saveInSession("lastname", result[0].last_name);
+						// setStore({ loginName: result.name });
+						// setStore({ loginLastName: result.last_name });
+					})
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			postRegister: newData => {
@@ -84,6 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(result => {
 						setStore({ loginToken: result });
 						getActions().saveToken(result.token);
+						getActions().saveInSession("id", result.idUser);
 					})
 					.catch(error => console.log("error", error));
 			},
@@ -117,6 +134,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			saveToken: tokenIncoming => {
 				sessionStorage.setItem("token", tokenIncoming);
 				setStore({ token: tokenIncoming });
+			},
+			saveInSession: (keyName, value) => {
+				sessionStorage.setItem(keyName, value);
+			},
+			clearSession: () => {
+				sessionStorage.removeItem("email");
+				sessionStorage.removeItem("token");
+				sessionStorage.removeItem("id");
+				setStore({ logoutStatus: "Logged out!" });
 			},
 			postValidation: data => {
 				// var myHeaders = new Headers();

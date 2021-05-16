@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
+	console.log("Vista login:");
+	console.log(store.loginResponse);
+	console.log(store.loginToken);
+	console.log(store.loginName);
+	console.log(store.loginLastName);
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
