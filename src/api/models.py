@@ -30,10 +30,13 @@ class Product(db.Model):
     precio = db.Column(db.Integer, unique=False, nullable=False) 
     item = db.Column(db.Integer, unique=False, nullable=False)
     enlace= db.Column(db.String(1024), unique=False, nullable=False)
+    cardid = db.Column(db.Integer, unique=False, nullable=False)
+    
+   
  
     
     def _repr_(self):
-        return '<Product %r>' % self.id
+        return '<Product %r>' % self.nombre
 
     def serialize(self):
         return {
@@ -43,17 +46,22 @@ class Product(db.Model):
             "categoria":self.categoria,
             "precio":self.precio,
             "item":self.item,
-            "enlace":self.enlace
+            "enlace":self.enlace,
+            "cardid":self.cardid
+            
+          
             # do not serialize the password, its a security breach
         } 
 
+
+    
 class Wish_list(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id=db.Column(db.Integer, db.ForeignKey("user.id"))
     product_id=db.Column(db.Integer, db.ForeignKey("product.id"))
-    user_relation= db.relationship("User", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete")) 
-    product_relation= db.relationship("Product", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete"))     
     
+    user_relation= db.relationship("User", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete")) 
+    product_relation= db.relationship("Product", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete"))    
     def _repr_(self):
         return '<Wish_list %r>' % self.id 
 
