@@ -7,6 +7,10 @@ import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	const handleDelete = item => {
+		actions.deleteFav(item);
+	};
+
 	const loginLogout = () => {
 		let tokenExist = sessionStorage.getItem("token");
 
@@ -52,13 +56,18 @@ export const Navbar = () => {
 		}
 	];
 
-	const getFavorites = navFavorites.map((item, index) => {
+	const getFavorites = store.favs.map((item, index) => {
 		return (
 			<a key={index} className="dropdown-item" href="#">
 				<div className="d-flex flex-row justify-content-between bd-highlight align-items-center">
-					<img style={{ height: "30px" }} src={item.ImageUrl} alt="..." />
-					<div className="p-2 bd-highlight">{item.PartName}</div>
-					<button type="button" className="btn btn-light">
+					<img style={{ height: "30px" }} src="..." alt="..." />
+					<div className="p-2 bd-highlight">{item}</div>
+					<button
+						type="button"
+						className="btn btn-light"
+						onClick={evento => {
+							handleDelete(item);
+						}}>
 						<i className="fas fa-trash-alt" />
 					</button>
 				</div>
@@ -111,7 +120,7 @@ export const Navbar = () => {
 							data-toggle="dropdown"
 							aria-haspopup="true"
 							aria-expanded="false">
-							<span className="badge badge-pill badge-light">{navFavorites.length}</span>
+							<span className="badge badge-pill badge-light">{store.favs.length}</span>
 						</i>
 						<div className="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
 							{getFavorites}

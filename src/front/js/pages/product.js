@@ -7,6 +7,11 @@ import "../../styles/product.scss";
 
 export const Product = () => {
 	const { store, actions } = useContext(Context);
+	const handleAdd = shop => {
+		//if (shop != undefined) {
+		actions.addFav(shop);
+		//}
+	};
 	useEffect(() => {
 		actions.loadProduct();
 	}, []);
@@ -52,7 +57,11 @@ export const Product = () => {
 									Detalles
 								</div>
 							</Link>
-							<div className="btn btn-danger float-right">
+							<div
+								className="btn btn-danger float-right"
+								onClick={evento => {
+									handleAdd(item.nombre);
+								}}>
 								<i className="fas fa-shopping-cart" />
 							</div>
 						</div>

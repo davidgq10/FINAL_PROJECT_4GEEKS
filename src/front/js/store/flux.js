@@ -21,14 +21,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			passwordResponse: [],
 			loginResponse: [],
 			currentEmail: [],
-<<<<<<< HEAD
-			product: []
-=======
+			product: [],
 			loginToken: [],
 			loginName: [],
 			loginLastName: [],
-			logoutStatus: []
->>>>>>> a2a4f4791ebf7605b75e27e34b63957f9674ebea
+			logoutStatus: [],
+			favs: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -214,6 +212,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addFav: fav => {
+				setStore({ favs: getStore().favs.concat(fav) });
+			},
+
+			deleteFav: fav => {
+				const deleteArray = getStore().favs.filter(erase => {
+					return erase !== fav;
+				});
+				setStore({ favs: deleteArray });
 			}
 		}
 	};
