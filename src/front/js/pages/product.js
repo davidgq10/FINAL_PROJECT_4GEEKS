@@ -29,7 +29,7 @@ export const Product = () => {
 		return (
 			<div key={index}>
 				<div className="card m-2">
-					<img src={item.Url} className="card-img-top" alt="..." />
+					<img src={item.enlace} className="card-img-top" alt="..." width="100" height="150" />
 					<div className="card-body">
 						<div className="card-title">{item.nombre}</div>
 						<div className="dropdown-divider" />
