@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -7,9 +6,6 @@ import "../../styles/productdetail.scss";
 
 export const ProductDetail = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		actions.loadProduct();
-	}, []);
 	const params = useParams();
 
 	const [count, setCount] = useState(0);
@@ -23,21 +19,20 @@ export const ProductDetail = () => {
 					<div className="row d-flex">
 						<div className="col">
 							<img
-								style={{ maxHeight: "400px" }}
-								src="https://cuymar.com/noticias/wp-content/uploads/2018/12/como-funciona-suspension-neumatica.jpg"
+								style={{ maxHeight: "400px", maxWidth: "520px" }}
+								src={store.product[params.theIndx].enlace}
 								alt="..."
 							/>
 						</div>
 						<div className="col">
 							<div className="d-flex justify-content-between">
-								<h1 className="display-4">{store.product[params.theItem].nombre}</h1>
-								<i className="far fa-heart mt-4 mr-3" />
+								<h1 className="display-4">{store.product[params.theIndx].nombre}</h1>
 							</div>
 							<hr className="my-3" />
 							<div className="row d-flex mt-2 mb-3">
 								<div className="col d-flex">
 									<h3>Precio:&nbsp; </h3>
-									<h3 className="display-6 text-danger">{price}</h3>
+									<h3 className="display-6 text-danger">{store.product[params.theIndx].precio}</h3>
 								</div>
 								<div className="col d-flex justify-content-center align-self-center">
 									<h3>Cantidad:&nbsp; </h3>
@@ -75,19 +70,19 @@ export const ProductDetail = () => {
 										<td>
 											<strong>Marca:</strong>
 										</td>
-										<td>Bosh</td>
+										<td>{store.product[params.theIndx].marca}</td>
 									</tr>
 									<tr>
 										<td>
 											<strong>Item:</strong>
 										</td>
-										<td>65491</td>
+										<td>{store.product[params.theIndx].item}</td>
 									</tr>
 									<tr>
 										<td>
 											<strong>Código de parte:</strong>
 										</td>
-										<td>98494485</td>
+										<td>{store.product[params.theIndx].id}</td>
 									</tr>
 									<tr>
 										<td>
