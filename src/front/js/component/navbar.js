@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Context } from "../store/appContext";
+
 import { Link } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const loginLogout = () => {
+		let tokenExist = sessionStorage.getItem("token");
+
+		if (tokenExist != null) {
+			let id = sessionStorage.getItem("id");
+			let name = sessionStorage.getItem("name");
+			let lastname = sessionStorage.getItem("lastname");
+			actions.getUserbyID(id);
+			return (
+				<span
+					className="navbar-brand mb-0 "
+					onClick={() => {
+						actions.clearSession();
+						location.replace("/");
+					}}>
+					{name}, {lastname} &nbsp; <i className="fas fa-sign-out-alt fa-1x"></i>
+					&nbsp;Salir
+				</span>
+			);
+		} else {
+			return (
+				<span className="navbar-brand mb-0 " onClick={() => location.replace("/login")}>
+					<i className="fas fa-user-circle fa-1x" />
+					&nbsp; Iniciar sesión
+				</span>
+			);
+		}
+	};
+	// sessionStorage.removeItem("email")
 	const navFavorites = [
 		{
 			PartName: "Frenos",
@@ -67,12 +99,8 @@ export const Navbar = () => {
 
 				<div className="col d-flex justify-content-end">
 					{/*Botón de inicio de sesión*/}
-					<Link to="/login">
-						<span className="navbar-brand mb-0 ">
-							<i className="fas fa-user-circle fa-1x" />
-							&nbsp; Iniciar sesión
-						</span>
-					</Link>
+
+					{loginLogout()}
 
 					{/*Menú de favoritos*/}
 					<span className="dropdown d-flex align-items-center">
