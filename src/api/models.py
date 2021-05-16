@@ -4,8 +4,8 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
-    last_name= db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120), unique=False, nullable=False)
+    last_name= db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     
@@ -29,7 +29,7 @@ class Product(db.Model):
     categoria= db.Column(db.String(120), unique=False, nullable=False) 
     precio = db.Column(db.Integer, unique=False, nullable=False) 
     item = db.Column(db.Integer, unique=False, nullable=False)
-    enlace= db.Column(db.String(120), unique=False, nullable=False)
+    enlace= db.Column(db.String(1024), unique=False, nullable=False)
  
     
     def _repr_(self):

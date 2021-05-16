@@ -6,10 +6,11 @@ from api.models import db, User, Product, Wish_list, ResetPassword
 from api.utils import generate_sitemap, APIException, ToObj
 from api.email import SendEmailTemplate
 
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import jwt_required
-from flask_jwt_extended import JWTManager
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+# from flask_jwt_extended import create_access_token
+# from flask_jwt_extended import get_jwt_identity
+# from flask_jwt_extended import jwt_required
+# from flask_jwt_extended import JWTManager
 
 import shortuuid
 
@@ -84,7 +85,24 @@ def Register():
 
 #     return jsonify("Message: user added"), 200
 
-# Update password
+# Update password because I want to change it
+@api.route("/updatelogged", methods=["PUT"])
+@jwt_required()
+def update_password_logged():
+    current_user = get_jwt_identity()
+    Email_Incoming = request.json.get("email", None)
+    Password_Incoming = request.json.get("password", None)
+    user1 = User.query.filter_by(email=current_user).first()
+    if user1 is None:
+        return jsonify({"msg": "User not found."}), 404 
+        # raise APIException('User not found', status_code=404)
+
+    user1.password = Password_Incoming
+    db.session.commit()
+
+    return jsonify({"msg": "Password updated!"}), 200
+
+# Update password because you forgot it.
 @api.route("/update", methods=["PUT"])
 def update_password():
     Email_Incoming = request.json.get("email", None)

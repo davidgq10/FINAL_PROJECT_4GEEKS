@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Context } from "../store/appContext";
+
 import { Link } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const handleDelete = item => {
+		actions.deleteFav(item);
+	};
+
+	const loginLogout = () => {
+		let tokenExist = sessionStorage.getItem("token");
+
+		if (tokenExist != null) {
+			let id = sessionStorage.getItem("id");
+			let name = sessionStorage.getItem("name");
+			let lastname = sessionStorage.getItem("lastname");
+			actions.getUserbyID(id);
+			return (
+				<span
+					className="navbar-brand mb-0 "
+					onClick={() => {
+						actions.clearSession();
+						location.replace("/");
+					}}>
+					{name}, {lastname} &nbsp; <i className="fas fa-sign-out-alt fa-1x"></i>
+					&nbsp;Salir
+				</span>
+			);
+		} else {
+			return (
+				<span className="navbar-brand mb-0 " onClick={() => location.replace("/login")}>
+					<i className="fas fa-user-circle fa-1x" />
+					&nbsp; Iniciar sesión
+				</span>
+			);
+		}
+	};
+	// sessionStorage.removeItem("email")
 	const navFavorites = [
 		{
 			PartName: "Frenos",
@@ -20,13 +56,18 @@ export const Navbar = () => {
 		}
 	];
 
-	const getFavorites = navFavorites.map((item, index) => {
+	const getFavorites = store.favs.map((item, index) => {
 		return (
 			<a key={index} className="dropdown-item" href="#">
 				<div className="d-flex flex-row justify-content-between bd-highlight align-items-center">
-					<img style={{ height: "30px" }} src={item.ImageUrl} alt="..." />
-					<div className="p-2 bd-highlight">{item.PartName}</div>
-					<button type="button" className="btn btn-light">
+					<img style={{ height: "30px" }} src="..." alt="..." />
+					<div className="p-2 bd-highlight">{item}</div>
+					<button
+						type="button"
+						className="btn btn-light"
+						onClick={evento => {
+							handleDelete(item);
+						}}>
 						<i className="fas fa-trash-alt" />
 					</button>
 				</div>
@@ -67,12 +108,8 @@ export const Navbar = () => {
 
 				<div className="col d-flex justify-content-end">
 					{/*Botón de inicio de sesión*/}
-					<Link to="/login">
-						<span className="navbar-brand mb-0 ">
-							<i className="fas fa-user-circle fa-1x" />
-							&nbsp; Iniciar sesión
-						</span>
-					</Link>
+
+					{loginLogout()}
 
 					{/*Menú de favoritos*/}
 					<span className="dropdown d-flex align-items-center">
@@ -83,7 +120,7 @@ export const Navbar = () => {
 							data-toggle="dropdown"
 							aria-haspopup="true"
 							aria-expanded="false">
-							<span className="badge badge-pill badge-light">{navFavorites.length}</span>
+							<span className="badge badge-pill badge-light">{store.favs.length}</span>
 						</i>
 						<div className="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
 							{getFavorites}
