@@ -25,6 +25,7 @@ export const Product = () => {
 
 	//Define una const que almacena los valores de los cars para filtrarlas más adelante
 	const APICars = store.cars;
+	console.log(APICars);
 	//Se define una constante que contiene todos los elementos filtrados según los criterios de búsqueda
 	const FilterCars = () => {
 		if (selectedmake && selectedmodel && selectedyear != "")

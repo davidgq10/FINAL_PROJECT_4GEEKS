@@ -66,7 +66,7 @@ export const ProductDetail = () => {
 											handleAdd(store.product[params.theIndx].nombre);
 										}}
 										type="button">
-										Comprar &nbsp; <i className="fas fa-shopping-basket" />
+										Añadir al carrito &nbsp; <i className="fas fa-shopping-basket" />
 									</button>
 								</div>
 							</div>
@@ -89,12 +89,6 @@ export const ProductDetail = () => {
 											<strong>Código de parte:</strong>
 										</td>
 										<td>{store.product[params.theIndx].id}</td>
-									</tr>
-									<tr>
-										<td>
-											<strong>Vehículos compatibles:</strong>
-										</td>
-										<td>Toyota tercer 2013, Nissan centra 2011</td>
 									</tr>
 								</tbody>
 							</table>
