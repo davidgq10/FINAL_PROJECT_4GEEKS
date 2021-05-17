@@ -14,8 +14,10 @@ export const Product = () => {
 	};
 	useEffect(() => {
 		actions.loadProduct();
+		actions.loadCars();
 	}, []);
 	console.log(store.product);
+	console.log(store.cars);
 
 	//Obtenemos los datos únicos de producto en cuanto a vehículos, marca y año
 

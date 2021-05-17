@@ -26,12 +26,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loginName: [],
 			loginLastName: [],
 			logoutStatus: [],
-			favs: []
+			favs: [],
+			cars: [] // Aquí se almacenan los modelos de los carros que genera la API
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+
+			loadCars: async () => {
+				const response = await fetch(
+					"https://parseapi.back4app.com/classes/Car_Model_List?limit=20&excludeKeys=Category",
+					{
+						headers: {
+							"X-Parse-Application-Id": "hlhoNKjOvEhqzcVAJ1lxjicJLZNVv36GdbboZj3Z", // This is the fake app's application id
+							"X-Parse-Master-Key": "SNMJJF0CZZhTPhLDIqGhTlUNV9r60M2Z5spyWfXW" // This is the fake app's readonly master key
+						}
+					}
+				);
+				const data = await response.json(); // Here you have the data that you need
+				const carsOb = data.results;
+				console.log(JSON.stringify(carsOb, null, 2));
+				setStore({ cars: carsOb });
 			},
 
 			loadProduct: async () => {

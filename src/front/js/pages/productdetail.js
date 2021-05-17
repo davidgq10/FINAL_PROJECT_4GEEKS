@@ -7,9 +7,14 @@ import "../../styles/productdetail.scss";
 export const ProductDetail = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-
 	const [count, setCount] = useState(0);
-	const [amount, setAmount] = useState(0);
+	const handleAdd = shop => {
+		//if (shop != undefined) {
+		actions.addFav(shop);
+		//}
+	};
+
+	const precio = store.product[params.theIndx].precio;
 
 	return (
 		<div className="myProductDetail mt-5 ">
@@ -40,10 +45,7 @@ export const ProductDetail = () => {
 										onClick={() => (count > 0 ? setCount(count - 1) : null)}>
 										-
 									</button>
-									<button
-										type="button"
-										className="buttonCount"
-										onChange={() => setAmount(price * count)}>
+									<button className="buttonCount">
 										&nbsp;
 										{count} &nbsp;
 									</button>
@@ -55,10 +57,15 @@ export const ProductDetail = () => {
 							<div className="row d-flex mt-2 mb-3">
 								<div className="col d-flex align-self-center">
 									<h3>Total: &nbsp; </h3>
-									<h3 className="display-6 text-danger">{amount}</h3>
+									<h3 className="display-6 text-danger">{precio * count}</h3>
 								</div>
 								<div className="col">
-									<button className="btn btn-danger btn-lg btn-block" href="#" type="button">
+									<button
+										className="btn btn-danger btn-lg btn-block"
+										onClick={evento => {
+											handleAdd(store.product[params.theIndx].nombre);
+										}}
+										type="button">
 										Comprar &nbsp; <i className="fas fa-shopping-basket" />
 									</button>
 								</div>
