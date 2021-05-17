@@ -41,11 +41,7 @@ export const Homed = () => {
 	// en el siguiente bloque se generan las tarjetas
 	const getCards = Menu.map((item, index) => {
 		return item.esVista == "true" ? (
-			<Link
-				key={index}
-				to={item.vista}
-				classclassName="text-link"
-				style={{ textDecoration: "none", color: "#333" }}>
+			<Link key={index} to={item.vista} className="text-link" style={{ textDecoration: "none", color: "#333" }}>
 				<div className="card_home text-link">
 					<div className="face face1">
 						<div className="content">

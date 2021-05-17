@@ -25,7 +25,8 @@ export const Product = () => {
 
 	//Define una const que almacena los valores de los cars para filtrarlas más adelante
 	const APICars = store.cars;
-	console.log(APICars);
+	console.log("My store", APICars);
+	console.log("My product", store.product);
 	//Se define una constante que contiene todos los elementos filtrados según los criterios de búsqueda
 	const FilterCars = () => {
 		if (selectedmake && selectedmodel && selectedyear != "")
@@ -42,7 +43,7 @@ export const Product = () => {
 
 	//La siguiente constante almacena el valor de los productos filtrados.
 	const filterObjectProduct = () =>
-		store.product.filter(item => FilterCars().some(car => car.objectId == item.marca));
+		store.product.filter(item => FilterCars().some(car => car.objectId == item.Cardid));
 
 	//La siguiente constante almacena el mapeo de las card, será llamado posteriormente en el ultimo bloque que renderiza el objeto
 	let getCards =
@@ -188,7 +189,7 @@ export const Product = () => {
 								onChange={e => handleChangePart(e)}
 								placeholder="Código"
 								style={{ height: "38px" }}
-								value={selectedpart}
+								// value={selectedpart}
 							/>
 						</div>
 					</div>
