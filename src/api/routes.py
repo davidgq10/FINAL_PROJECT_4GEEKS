@@ -158,3 +158,5 @@ def getpart():                        #este método se llamará cuando el client
     parts = Product.query.all()
     request = list(map(lambda x: x.serialize(), parts ))
     return jsonify( request), 200 
+
+
