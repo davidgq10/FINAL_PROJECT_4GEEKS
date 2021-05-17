@@ -8,7 +8,6 @@ export const ProductDetail = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-    
 	const [count, setCount] = useState(0);
 	const [amount, setAmount] = useState(0);
 
