@@ -30,7 +30,7 @@ class Product(db.Model):
     precio = db.Column(db.Integer, unique=False, nullable=False) 
     item = db.Column(db.Integer, unique=False, nullable=False)
     enlace= db.Column(db.String(1024), unique=False, nullable=False)
-    cardid = db.Column(db.Integer, unique=False, nullable=False)
+    cardid = db.Column(db.String(120), unique=False, nullable=False)
     
    
  
