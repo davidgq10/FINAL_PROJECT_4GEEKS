@@ -52,7 +52,6 @@ export const Homed = () => {
 					<div className="face face2">
 						<div className="content">
 							<p>{item.descripcion}</p>
-							<a href="#">Read More</a>
 						</div>
 					</div>
 				</div>

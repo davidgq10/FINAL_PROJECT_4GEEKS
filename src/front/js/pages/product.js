@@ -26,6 +26,11 @@ export const Product = () => {
 	//Define una const que almacena los valores de los cars para filtrarlas más adelante
 	const APICars = store.cars;
 
+	//Impresión en consola de los datos
+	console.log("Mi CarAPI:", APICars);
+	console.log("Mi store products:", store.product);
+	console.log("Mi carrito:", store.favs);
+
 	//Se define una constante que contiene todos los elementos filtrados según los criterios de búsqueda
 	const FilterCars = () => {
 		if (selectedmake && selectedmodel && selectedyear != "")
@@ -192,7 +197,6 @@ export const Product = () => {
 								onChange={e => handleChangePart(e)}
 								placeholder="Código"
 								style={{ height: "38px" }}
-								// value={selectedpart}
 							/>
 						</div>
 					</div>

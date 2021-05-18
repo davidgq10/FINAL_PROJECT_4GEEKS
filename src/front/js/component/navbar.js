@@ -39,22 +39,6 @@ export const Navbar = () => {
 			);
 		}
 	};
-	// sessionStorage.removeItem("email")
-	const navFavorites = [
-		{
-			PartName: "Frenos",
-			ImageUrl: "https://www.endado.com/blog/wp-content/uploads/2014/08/pastillas-de-freno.jpg"
-		},
-		{
-			PartName: "Suspensión",
-			ImageUrl:
-				"https://talleractual.com/images/contenido/tecnica-al-dia/suspension-y-direccion/2018/09/2018-09-13-la-suspension-y-la-amortiguacion-01.jpg"
-		},
-		{
-			PartName: "Aceite",
-			ImageUrl: "https://www.autonocion.com/wp-content/uploads/2018/06/Aceite-motor-2.jpg"
-		}
-	];
 
 	const getFavorites = store.favs.map((item, index) => {
 		return (
@@ -125,9 +109,12 @@ export const Navbar = () => {
 						<div className="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
 							{getFavorites}
 							<div className="dropdown-divider" />
-							<button type="button" className="btn btn-danger justify-content-center btn-block mb-0">
-								Comprar &nbsp; <i className="fas fa-shopping-basket" />
-							</button>
+
+							<Link to="/pay">
+								<button type="button" className="btn btn-danger justify-content-center btn-block mb-0">
+									Comprar &nbsp; <i className="fas fa-shopping-basket" />
+								</button>
+							</Link>
 						</div>
 					</span>
 				</div>
