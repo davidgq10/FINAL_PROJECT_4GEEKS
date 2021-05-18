@@ -43,7 +43,7 @@ export const Product = () => {
 
 	//La siguiente constante almacena el valor de los productos filtrados.
 	const filterObjectProduct = () =>
-		store.product.filter(item => FilterCars().some(car => car.objectId == item.Cardid));
+		store.product.filter(item => FilterCars().some(car => car.objectId == item.cardid));
 
 	//La siguiente constante almacena el mapeo de las card, será llamado posteriormente en el ultimo bloque que renderiza el objeto
 	let getCards =
@@ -81,7 +81,7 @@ export const Product = () => {
 								<div
 									className="btn btn-danger float-right"
 									onClick={evento => {
-										handleAdd(item.nombre);
+										handleAdd(item);
 									}}>
 									<i className="fas fa-shopping-cart" />
 								</div>

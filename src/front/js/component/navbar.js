@@ -60,8 +60,8 @@ export const Navbar = () => {
 		return (
 			<a key={index} className="dropdown-item" href="#">
 				<div className="d-flex flex-row justify-content-between bd-highlight align-items-center">
-					<img style={{ height: "30px" }} src="..." alt="..." />
-					<div className="p-2 bd-highlight">{item}</div>
+					<img style={{ height: "30px" }} src={item.enlace} alt="..." />
+					<div className="p-2 bd-highlight">{item.nombre}</div>
 					<button
 						type="button"
 						className="btn btn-light"

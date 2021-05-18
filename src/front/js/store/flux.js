@@ -232,6 +232,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFav: fav => {
 				setStore({ favs: getStore().favs.concat(fav) });
+				console.log("favs", getStore().favs);
 			},
 
 			deleteFav: fav => {
