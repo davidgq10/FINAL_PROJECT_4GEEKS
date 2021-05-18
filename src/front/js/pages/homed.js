@@ -76,7 +76,7 @@ export const Homed = () => {
 
 	// retorna la vista home
 	return (
-		<div className="myHome mt-5">
+		<div className="container-fluid myHome mt-5" style={{ minHeight: "100%" }}>
 			{/*Sección de Jumbotron*/}
 			<div className="container justify-content-center" style={{ height: "100%" }}>
 				<div className="transbox">

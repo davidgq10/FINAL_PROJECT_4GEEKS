@@ -66,7 +66,7 @@ export const Reset = () => {
 	};
 
 	return (
-		<div className="container">
+		<div className="container-fluid" style={{ minHeight: "100%" }}>
 			<div className="container-fluid bg-ColorClaro">
 				<h1 className="text-left pl-0"> Mauricio APP</h1>
 			</div>

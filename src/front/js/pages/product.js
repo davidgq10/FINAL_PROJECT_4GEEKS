@@ -152,7 +152,7 @@ export const Product = () => {
 
 	//El siguiente bloque de código retorna el objeto a mostrar
 	return (
-		<div className="myProduct">
+		<div className="container-fluid myProduct" style={{ minHeight: "100%" }}>
 			{/* En esta sección se construye el menu de filtros */}
 			<div className="container mt-5">
 				<form>
