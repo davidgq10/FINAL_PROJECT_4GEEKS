@@ -85,8 +85,8 @@ export const Navbar = () => {
 						<span className="navbar-brand mb-0 ">Vender</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
-					<Link to="/product">
-						<span className="navbar-brand mb-0 ">Soporte</span>
+					<Link to="/about">
+						<span className="navbar-brand mb-0 ">Sobre Nosotros</span>
 					</Link>
 				</div>
 

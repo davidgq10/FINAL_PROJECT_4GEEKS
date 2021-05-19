@@ -77,7 +77,7 @@ export const Product = () => {
 								<strong>Item:</strong> {item.item}
 							</div>
 							<div className="card-text">
-								<strong>Empresa:</strong> Pendiente asfignar valor
+								<strong>Empresa:</strong> Patito SA.
 							</div>
 							<div className="dropdown-divider" />
 							<div className="d-flex justify-content-between">

@@ -13,6 +13,7 @@ import { Recovery } from "./pages/sendcode";
 import { ConfirmCode } from "./pages/confirmcode";
 import { ChangePassword } from "./pages/changepassword";
 import { Favs } from "./pages/favsdetail";
+import { AboutUs } from "./pages/about";
 
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
@@ -64,6 +65,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/pay">
 							<Favs />
+						</Route>
+						<Route exact path="/about">
+							<AboutUs />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
