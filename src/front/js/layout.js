@@ -14,6 +14,7 @@ import { ConfirmCode } from "./pages/confirmcode";
 import { ChangePassword } from "./pages/changepassword";
 import { Favs } from "./pages/favsdetail";
 import { AboutUs } from "./pages/about";
+import { Landing } from "./pages/landing";
 
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
@@ -33,7 +34,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
+						<Route exact path="/home">
 							<Homed />
 						</Route>
 						<Route exact path="/demo">
@@ -68,6 +69,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/about">
 							<AboutUs />
+						</Route>
+						<Route exact path="/">
+							<Landing />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

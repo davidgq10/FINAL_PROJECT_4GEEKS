@@ -22,7 +22,15 @@ export const Product = () => {
 		actions.loadProduct();
 		actions.loadCars();
 	}, []);
+	const restringir = () => {
+		let tokenExist = sessionStorage.getItem("token");
 
+		if (tokenExist != null) {
+			return <span>Repuestos SA.</span>;
+		} else {
+			return <span>Debe iniciar sesion.</span>;
+		}
+	};
 	//Define una const que almacena los valores de los cars para filtrarlas más adelante
 	const APICars = store.cars;
 
@@ -74,10 +82,10 @@ export const Product = () => {
 								<strong>Precio:</strong> {item.precio}
 							</div>
 							<div className="card-text">
-								<strong>Item:</strong> {item.item}
+								<strong>Código de parte:</strong> {item.item}
 							</div>
 							<div className="card-text">
-								<strong>Empresa:</strong> Patito SA.
+								<strong>Empresa:</strong> {restringir()}
 							</div>
 							<div className="dropdown-divider" />
 							<div className="d-flex justify-content-between">
@@ -152,7 +160,7 @@ export const Product = () => {
 
 	//El siguiente bloque de código retorna el objeto a mostrar
 	return (
-		<div className="container-fluid myProduct" style={{ minHeight: "100%" }}>
+		<div className="container-fluid myProduct">
 			{/* En esta sección se construye el menu de filtros */}
 			<div className="container mt-5">
 				<form>

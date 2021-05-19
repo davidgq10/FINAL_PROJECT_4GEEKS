@@ -17,7 +17,7 @@ export const ProductDetail = () => {
 	const precio = store.product[params.theIndx].precio;
 
 	return (
-		<div className="myProductDetail mt-5 ">
+		<div className="myProductDetail mt-5 h-100">
 			<div className="container h-100">
 				<div className="jumbotron p-3 mt-5 myJumbo">
 					<div className="row d-flex">
@@ -63,7 +63,7 @@ export const ProductDetail = () => {
 									<button
 										className="btn btn-danger btn-lg btn-block"
 										onClick={evento => {
-											handleAdd(store.product[params.theIndx].nombre);
+											handleAdd(store.product[params.theIndx]);
 										}}
 										type="button">
 										Añadir al carrito &nbsp; <i className="fas fa-shopping-basket" />

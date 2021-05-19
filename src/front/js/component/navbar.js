@@ -81,7 +81,7 @@ export const Navbar = () => {
 						<span className="navbar-brand mb-0 ">Registro</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
-					<Link to="/">
+					<Link to="/home">
 						<span className="navbar-brand mb-0 ">Vender</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
