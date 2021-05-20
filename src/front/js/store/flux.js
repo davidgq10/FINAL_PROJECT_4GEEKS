@@ -78,6 +78,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// setStore({ loginLastName: result.last_name });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
+            },
+            deleteUserbyID: position => {
+                var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+                var requestOptions = {
+					method: "DELETE",
+					headers: myHeaders
+				};
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/user/" + position, requestOptions)
+					.then(resp => resp.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("Error Deleting User", error));
 			},
 			postRegister: newData => {
 				// var myHeaders = new Headers();
@@ -97,7 +112,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					// .then(result => console.log(result))
 					.then(result => setStore({ registerStatus: result }))
-					.catch(error => console.log("error", error));
+					.catch(error => console.log("Error registering user.", error));
 			},
 			postLogin: newData => {
 				// var myHeaders = new Headers();
@@ -129,7 +144,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						getActions().saveToken(result.token);
 						getActions().saveInSession("id", result.idUser);
 					})
-					.catch(error => console.log("error", error));
+					.catch(error => console.log("Error trying to login.", error));
 			},
 			postReset: email => {
 				// var myHeaders = new Headers();
@@ -149,7 +164,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					// .then(result => console.log(result))
 					.then(result => setStore({ resetStatus: result }))
-					.catch(error => console.log("error", error));
+					.catch(error => console.log("Error trying to request a password change.", error));
 			},
 			registerStore: obj => {
 				setStore({ register: obj });
@@ -191,7 +206,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					// .then(result => console.log(result))
 					.then(result => setStore({ resetCode: result }))
-					.catch(error => console.log("error", error));
+					.catch(error => console.log("Error validating code.", error));
 			},
 
 			putPassword: data => {
@@ -213,7 +228,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					// .then(result => console.log(result))
 					.then(result => setStore({ passwordResponse: result }))
-					.catch(error => console.log("error", error));
+					.catch(error => console.log("Error updating password.", error));
 			},
 
 			changeColor: (index, color) => {

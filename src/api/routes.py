@@ -43,6 +43,21 @@ def get_one_user(position):
         raise APIException('User not found', status_code=404)
     return jsonify(request), 200
 
+@api.route('/user/<int:position>', methods=['DELETE'])
+def delete_user(position):
+
+    # Collect data
+    currentUser = User.query.get(position)
+
+     # Validate data
+    if currentUser is None:
+        return jsonify({"msg": "User not found"}), 404
+
+    # Delete User
+    db.session.delete(currentUser)
+    db.session.commit()
+    return jsonify({"msg": "User was deleted"}), 200
+
 @api.route('/login', methods=['POST'])
 def Login():
     email = request.json.get("email", None)
