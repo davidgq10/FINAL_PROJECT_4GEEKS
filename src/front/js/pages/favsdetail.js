@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PaypalExpressBtn from "../component/paypalbutton";
 import "../../styles/favsdetail.scss";
 
 export const Favs = () => {
@@ -78,12 +79,12 @@ export const Favs = () => {
 						</tr>
 					</table>
 				</div>
-				<div className="d-flex justify-content-end mb-5 pb-5" id="myPaypalButton">
-					<button type="button" className="btn btn-danger btn-lg btn-block w-50">
+				<div className="d-flex justify-content-end mb-5 pb-5">
+					{/* <button type="button" className="btn btn-danger btn-lg btn-block w-50">
 						<i className="fab fa-cc-paypal fa-1x"></i> &nbsp; Procesar pago
-					</button>
+					</button> */}
+					<PaypalExpressBtn total={Math.round((varTotal * 1.13) / 610, -2)} />
 				</div>
-				<div id="myPaypalButton"></div>
 			</div>
 		</div>
 	);

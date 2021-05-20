@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import Ricardo from "../../img/RicardoTapia.jpg";
 import Mauricio from "../../img/MauricioVargas.jpg";
+import David from "../../img/David.jpg";
 export const AboutUs = () => {
 	// se crea un array de objetos que contiene las opciones del menú
 	const Menu = [
@@ -17,7 +18,7 @@ export const AboutUs = () => {
 		},
 		{
 			titulotarjeta: "David Garbanzo Quirós",
-			imagen: <i className="far fa-user fa-4x" />,
+			imagen: <img src={David} alt="Girl in a jacket" width="100%" height="auto" />,
 			descripcion: "Full Stack Devolper.",
 			vista: "",
 			esVista: "true"

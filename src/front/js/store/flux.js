@@ -78,11 +78,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// setStore({ loginLastName: result.last_name });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
-            },
-            deleteUserbyID: position => {
-                var myHeaders = new Headers();
+			},
+			deleteUserbyID: position => {
+				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
-                var requestOptions = {
+				var requestOptions = {
 					method: "DELETE",
 					headers: myHeaders
 				};
