@@ -6,6 +6,11 @@ import "../../styles/favsdetail.scss";
 export const Favs = () => {
 	const { store, actions } = useContext(Context);
 
+	const client = {
+		sandbox: "ARPLSZVVpgonARZIUYTeYZVoCQJPkYqNIuYdYfvSkm_2lkd8oItc1G3C5PpZZ1987IlKFLdc4ufXYmc6",
+		production: "sb-b3gbr6252396@business.example.com"
+	};
+
 	let varTotal = 0;
 
 	const orderItems = store.favs.map((item, index) => {
@@ -73,11 +78,12 @@ export const Favs = () => {
 						</tr>
 					</table>
 				</div>
-				<div className="d-flex justify-content-end mb-5 pb-5">
+				<div className="d-flex justify-content-end mb-5 pb-5" id="myPaypalButton">
 					<button type="button" className="btn btn-danger btn-lg btn-block w-50">
 						<i className="fab fa-cc-paypal fa-1x"></i> &nbsp; Procesar pago
 					</button>
 				</div>
+				<div id="myPaypalButton"></div>
 			</div>
 		</div>
 	);

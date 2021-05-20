@@ -27,6 +27,6 @@ export const Footer = () => (
 			<i className="fab fa-twitter fa-2x pr-2" />
 		</button>
 
-		<i className="fas fa-envelope fa-2x " />
+		{/* <i className="fas fa-envelope fa-2x " /> */}
 	</footer>
 );

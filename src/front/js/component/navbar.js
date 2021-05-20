@@ -73,16 +73,16 @@ export const Navbar = () => {
 
 				{/*Accesos directos en centro*/}
 				<div className="col d-flex justify-content-center">
-					<Link to="/product">
-						<span className="navbar-brand mb-0 ">Productos</span>
+					<Link to="/home">
+						<span className="navbar-brand mb-0 ">Inicio</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
 					<Link to="/register">
 						<span className="navbar-brand mb-0 ">Registro</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
-					<Link to="/home">
-						<span className="navbar-brand mb-0 ">Vender</span>
+					<Link to="/product">
+						<span className="navbar-brand mb-0 ">Productos</span>
 					</Link>
 					<span className="navbar-brand mb-0 ">|</span>
 					<Link to="/about">
