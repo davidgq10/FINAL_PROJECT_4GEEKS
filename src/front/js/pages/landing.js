@@ -71,15 +71,30 @@ export const Landing = () => {
 						plataforma.
 					</p>
 					<p className="lead">
-						<button
-							type="button"
-							className="btn btn-dark btn-lg"
-							onClick={() => {
-								location.replace("/about");
-							}}>
-							Sobre los creadores
-						</button>
+						<div className="row">
+							<div className="col d-flex justify-content-center">
+								<button
+									type="button"
+									className="btn btn-dark btn-lg"
+									onClick={() => {
+										location.replace("/about");
+									}}>
+									Sobre los creadores
+								</button>
+							</div>
+							<div className="col d-flex justify-content-center">
+								<button
+									type="button"
+									className="btn btn-danger btn-lg"
+									onClick={() => {
+										location.replace("/product");
+									}}>
+									Buscar partes
+								</button>
+							</div>
+						</div>
 					</p>
+					<p className="lead"></p>
 				</div>
 			</div>
 		</div>

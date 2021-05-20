@@ -32,7 +32,7 @@ export const Favs = () => {
 	});
 
 	return (
-		<div className="container-fluid myFav" style={{ minHeight: "100%" }}>
+		<div className="container-fluid myFav" style={{ backgroundPosition: "cover" }}>
 			<div className="container flex-column mt-5 mb-5 pt-4 pb-4 h-auto">
 				<div className="text-light">
 					<h1>Detalle del pedido</h1>
