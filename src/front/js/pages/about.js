@@ -66,9 +66,9 @@ export const AboutUs = () => {
 
 	// retorna la vista home
 	return (
-		<div className="container-fluid myHome mt-5" style={{ minHeight: "100%" }}>
+		<div className="container-fluid myHome mt-5">
 			{/*Sección de Jumbotron*/}
-			<div className="container justify-content-center" style={{ height: "100%" }}>
+			<div className="container justify-content-center" style={{ height: "90%" }}>
 				<div className="transbox">
 					<h1 className="text-light text-center">¿Quiénes somos?</h1>
 					<h4 className="text-ColorCeleste text-center">Somos ticos, protrocinados por:</h4>

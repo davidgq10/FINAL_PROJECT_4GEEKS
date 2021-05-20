@@ -39,7 +39,7 @@ export const ChangePassword = () => {
 		actions.putPassword(temp);
 	};
 	return (
-		<div className="container-fluid myLogin mt-5" style={{ minHeight: "100%" }}>
+		<div className="container-fluid myLogin mt-5" style={{ minHeight: "90%" }}>
 			<div className="container-md mt-4 col-3 myForm p-4 rounded">
 				<div className="row justify-content-center mb-2">
 					<i className="fas fa-asterisk" />

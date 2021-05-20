@@ -33,8 +33,7 @@ export const Homed = () => {
 			imagen: <i className="fas fa-question-circle fa-5x" />,
 			descripcion:
 				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
-			vista:
-				"https://api.whatsapp.com/send?phone=+50688888888&text=Hola,%20necesito%20tener%20informacion%20sobre:",
+			vista: "https://api.whatsapp.com/send?phone=+50684495779&text=Hola,%20como%20estas?",
 			esVista: "false"
 		}
 	];
@@ -77,9 +76,9 @@ export const Homed = () => {
 
 	// retorna la vista home
 	return (
-		<div className="container-fluid myHome mt-5" style={{ minHeight: "100%" }}>
+		<div className="container-fluid myHome mt-5" style={{ minHeight: "90%" }}>
 			{/*Sección de Jumbotron*/}
-			<div className="container justify-content-center" style={{ height: "100%" }}>
+			<div className="container justify-content-center">
 				<div className="transbox">
 					<h1 className="text-light text-center">¿Necesitas un repuesto para tu vehículo?</h1>
 					<h4 className="text-ColorCeleste text-center">

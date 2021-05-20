@@ -79,7 +79,7 @@ export const Favs = () => {
 						</tr>
 					</table>
 				</div>
-				<div className="d-flex justify-content-end mb-5 pb-5">
+				<div className="d-flex justify-content-center mb-5 pb-5 col-6 float-right">
 					{/* <button type="button" className="btn btn-danger btn-lg btn-block w-50">
 						<i className="fab fa-cc-paypal fa-1x"></i> &nbsp; Procesar pago
 					</button> */}
