@@ -73,24 +73,18 @@ export const Landing = () => {
 					<p className="lead">
 						<div className="row">
 							<div className="col d-flex justify-content-center">
-                                <Link to="/about">
-								<button
-									type="button"
-									className="btn btn-dark btn-lg"
-									>
-									Sobre los creadores
-								</button>
-                                </Link>
+								<Link to="/about">
+									<button type="button" className="btn btn-dark btn-lg">
+										Sobre los creadores
+									</button>
+								</Link>
 							</div>
 							<div className="col d-flex justify-content-center">
-                                <Link to="/product">
-								<button
-									type="button"
-									className="btn btn-danger btn-lg"
-									>
-									Buscar partes
-								</button>
-                                </Link>
+								<Link to="/product">
+									<button type="button" className="btn btn-danger btn-lg">
+										Buscar partes
+									</button>
+								</Link>
 							</div>
 						</div>
 					</p>

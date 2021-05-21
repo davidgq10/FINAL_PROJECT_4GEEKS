@@ -175,3 +175,11 @@ def getpart():                        #este método se llamará cuando el client
     return jsonify( request), 200 
 
 
+# Load a product with postman
+@api.route('/product', methods=['POST'])
+def Add_Product():
+    newProduct = ToObj(request.json, Product())
+    db.session.add(newProduct)
+    db.session.commit()
+    return jsonify({"msg": "Products added!"}), 200
+
