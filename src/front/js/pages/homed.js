@@ -17,14 +17,14 @@ export const Homed = () => {
 		{
 			titulotarjeta: "Cuenta",
 			imagen: <i className="far fa-user fa-5x" />,
-			descripcion: "En esta sección podrás inscribirte como anunciante",
+			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos",
 			vista: "/login",
 			esVista: "true"
 		},
 		{
 			titulotarjeta: "Vender",
 			imagen: <i className="fas fa-store fa-5x" />,
-			descripcion: "Registrate y obtén la posibilidad de realizar compras en línea y gestionar tus artículos",
+			descripcion: "En esta sección podrás inscribirte como anunciante",
 			vista: "/",
 			esVista: "true"
 		},
