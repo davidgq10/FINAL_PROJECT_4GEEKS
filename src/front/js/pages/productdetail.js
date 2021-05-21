@@ -80,13 +80,13 @@ export const ProductDetail = () => {
 									</tr>
 									<tr>
 										<td>
-											<strong>Item:</strong>
+											<strong>Código de parte:</strong>
 										</td>
 										<td>{store.product[params.theIndx].item}</td>
 									</tr>
 									<tr>
 										<td>
-											<strong>Código de parte:</strong>
+											<strong>ID de producto:</strong>
 										</td>
 										<td>{store.product[params.theIndx].id}</td>
 									</tr>
