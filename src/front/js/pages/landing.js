@@ -60,37 +60,37 @@ export const Landing = () => {
 					</a>
 				</div>
 				<div className="jumbotron">
-					<h1 className="display-4">¿Cansado de buscar una parte de tu vehículo?</h1>
-					<p className="lead">
+					<h1 className="display-4 text-center">¿Cansado de buscar una parte de tu carro?</h1>
+					<p className="lead text-center">
 						Si has topado con esta situación, Easy Parts CR, nace con el fin de ayudarte a encontrar con
 						facilidad las partes del vehículo que necesites.
 					</p>
 					<hr className="my-4" />
-					<p>
+					<p className="text-center">
 						Esto se logra al poder integrar los vendores pequeños, medianos y grandes en una misma
 						plataforma.
 					</p>
 					<p className="lead">
 						<div className="row">
 							<div className="col d-flex justify-content-center">
+                                <Link to="/about">
 								<button
 									type="button"
 									className="btn btn-dark btn-lg"
-									onClick={() => {
-										location.replace("/about");
-									}}>
+									>
 									Sobre los creadores
 								</button>
+                                </Link>
 							</div>
 							<div className="col d-flex justify-content-center">
+                                <Link to="/product">
 								<button
 									type="button"
 									className="btn btn-danger btn-lg"
-									onClick={() => {
-										location.replace("/product");
-									}}>
+									>
 									Buscar partes
 								</button>
+                                </Link>
 							</div>
 						</div>
 					</p>

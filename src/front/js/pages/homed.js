@@ -33,7 +33,7 @@ export const Homed = () => {
 			imagen: <i className="fas fa-question-circle fa-5x" />,
 			descripcion:
 				"Si necesitas ayuda de un profesional para saber cuál repuesto necesitas puedes consultar aquí",
-			vista: "https://api.whatsapp.com/send?phone=+50684495779&text=Hola,%20como%20estas?",
+			vista: "https://api.whatsapp.com/send?phone=+50688888888&text=Hola,%20busco%20tener%20informacion.",
 			esVista: "false"
 		}
 	];
