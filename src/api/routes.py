@@ -174,6 +174,15 @@ def getpart():                        #este método se llamará cuando el client
     request = list(map(lambda x: x.serialize(), parts ))
     return jsonify( request), 200 
 
+@api.route('/product/<int:position>', methods=['GET'])
+def get_product_by_id(position):
+    product = Product.query.filter_by(id=position)
+    request = list(map(lambda product:product.serialize(),product))
+    
+    # Verify if user exist
+    if not request:
+        return jsonify({"msg": "Product not found!"}), 404
+    return jsonify(request), 200
 
 # Load a product with postman
 @api.route('/product', methods=['POST'])

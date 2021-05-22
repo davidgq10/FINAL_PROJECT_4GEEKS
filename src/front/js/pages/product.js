@@ -42,6 +42,8 @@ export const Product = () => {
 	useEffect(() => {
 		actions.loadProduct();
 		actions.loadCars();
+		let id = sessionStorage.getItem("id");
+		actions.reloadCar(id);
 	}, []);
 	const restringir = empresa => {
 		let tokenExist = sessionStorage.getItem("token");

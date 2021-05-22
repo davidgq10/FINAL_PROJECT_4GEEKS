@@ -364,6 +364,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Product added!", result);
 					})
 					.catch(error => console.log("Error saving product.", error));
+			},
+			// Recarga los favoritos desde la base de datos.
+			reloadCar: id => {
+				getActions().getListbyID(id);
+				let carritoJSON = getActions().getFromSessionArray("carrito");
+				console.log("Lo que cargue de carrito", carritoJSON);
+
+				carritoJSON.map((item, index) => {
+					getActions().getProductbyID(item.product_id);
+					console.log("Esto es lo que tengo", item);
+					console.log("Mi product id", item.product_id);
+				});
+				console.log("store despues de reload", getStore().favs);
+			},
+			// Este metodo adquiere la info de un producto.
+			getProductbyID: position => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/product/" + position)
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+						setStore({ favs: getStore().favs.concat(result) });
+					})
+					.catch(error => console.log("Error loading product.", error));
 			}
 		}
 	};

@@ -272,6 +272,20 @@ export const CargarBase = () => {
 				}}>
 				Borrar item
 			</button>
+
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<button
+				type="button"
+				className="btn btn-danger btn-lg"
+				onClick={() => {
+					actions.reloadCar(1);
+				}}>
+				cargar carrito
+			</button>
 		</div>
 	);
 };
