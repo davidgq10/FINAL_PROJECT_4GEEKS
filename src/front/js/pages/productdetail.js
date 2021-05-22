@@ -8,10 +8,21 @@ export const ProductDetail = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const [count, setCount] = useState(0);
+
 	const handleAdd = shop => {
-		//if (shop != undefined) {
-		actions.addFav(shop);
-		//}
+		let id = sessionStorage.getItem("id");
+		// console.log("cantidad antes de filtro", store.productsByID);
+		// const antquantity = store.productsByID.find(prod => prod.product_id == shop.id);
+		// if (antquantity != undefined) {
+		// 	let cantNueva = antquantity.quantity + 1;
+		// 	console.log("Nueva cantidad", cantNueva);
+		// 	actions.addFav(shop, id, cantNueva);
+		// } else {
+		let cantNueva = 1;
+		actions.addFav(shop, id, cantNueva);
+		// }
+		// console.log("cantidad anterior", antquantity);
+		// actions.addFav(shop, id, cantNueva);
 	};
 
 	const precio = store.product[params.theIndx].precio;
@@ -38,7 +49,7 @@ export const ProductDetail = () => {
 									<h3>Precio:&nbsp; </h3>
 									<h3 className="display-6 text-danger">{store.product[params.theIndx].precio}</h3>
 								</div>
-								<div className="col d-flex justify-content-center align-self-center">
+								{/* <div className="col d-flex justify-content-center align-self-center">
 									<h3>Cantidad:&nbsp; </h3>
 									<button
 										className="buttonCount"
@@ -52,13 +63,13 @@ export const ProductDetail = () => {
 									<button className="buttonCount" onClick={() => setCount(count + 1)}>
 										+
 									</button>
-								</div>
+								</div> */}
 							</div>
 							<div className="row d-flex mt-2 mb-3">
-								<div className="col d-flex align-self-center">
+								{/* <div className="col d-flex align-self-center">
 									<h3>Total: &nbsp; </h3>
 									<h3 className="display-6 text-danger">{precio * count}</h3>
-								</div>
+								</div> */}
 								<div className="col">
 									<button
 										className="btn btn-danger btn-lg btn-block"

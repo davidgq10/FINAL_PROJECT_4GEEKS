@@ -8,6 +8,7 @@ export const Favs = () => {
 	const { store, actions } = useContext(Context);
 	console.log("Mi favs", store.favs);
 	console.log("Mi favs from database", store.productsByID);
+	const myFavFromDB = store.productsByID;
 
 	const client = {
 		sandbox: "ARPLSZVVpgonARZIUYTeYZVoCQJPkYqNIuYdYfvSkm_2lkd8oItc1G3C5PpZZ1987IlKFLdc4ufXYmc6",
@@ -16,7 +17,7 @@ export const Favs = () => {
 
 	let varTotal = 0;
 
-	const orderItems = store.productsByID.map((item, index) => {
+	const orderItems = myFavFromDB.map((item, index) => {
 		{
 			varTotal = varTotal + store.favs.find(prod => prod.id == item.product_id).precio * item.quantity;
 		}

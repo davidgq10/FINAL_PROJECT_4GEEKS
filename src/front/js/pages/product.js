@@ -37,7 +37,18 @@ export const Product = () => {
 	//Evento para añadir item al carrito
 	const handleAdd = shop => {
 		let id = sessionStorage.getItem("id");
-		actions.addFav(shop, id, 1);
+		console.log("cantidad antes de filtro", store.productsByID);
+		const antquantity = store.productsByID.find(prod => prod.product_id == shop.id);
+		if (antquantity != undefined) {
+			let cantNueva = antquantity.quantity + 1;
+			console.log("Nueva cantidad", cantNueva);
+			actions.addFav(shop, id, cantNueva);
+		} else {
+			let cantNueva = 1;
+			actions.addFav(shop, id, cantNueva);
+		}
+		console.log("cantidad anterior", antquantity);
+		// actions.addFav(shop, id, cantNueva);
 	};
 	useEffect(() => {
 		actions.loadProduct();

@@ -282,7 +282,7 @@ export const CargarBase = () => {
 				type="button"
 				className="btn btn-danger btn-lg"
 				onClick={() => {
-					actions.putQuantity(9, 20);
+					actions.putQuantity(26, 20);
 				}}>
 				HACER PUT.
 			</button>

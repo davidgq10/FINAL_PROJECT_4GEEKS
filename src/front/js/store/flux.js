@@ -257,8 +257,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const updateArray = getStore().productsByID.filter(favs => favs.product_id == fav.id);
 				console.log("Verificando favorito", updateArray.length);
+				console.log("updateArray", updateArray);
 
 				if (updateArray.length > 0) {
+					// getActions().putQuantity(updateArray.id, quantity);
 				} else {
 					let temp = {
 						product_id: fav.id,
