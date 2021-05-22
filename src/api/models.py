@@ -8,6 +8,7 @@ class User(db.Model):
     last_name= db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
+    user_type = db.Column(db.String(120), unique=False, nullable=False)
     
     def _repr_(self):
         return '<User %r>' % self.name 
@@ -18,6 +19,7 @@ class User(db.Model):
             "name":self.name,
             "last_name":self.last_name,
             "email": self.email,
+            "user_type": self.user_type
            
             # do not serialize the password, its a security breach
         }
@@ -28,13 +30,11 @@ class Product(db.Model):
     marca = db.Column(db.String(120), unique=False, nullable=False)
     categoria= db.Column(db.String(120), unique=False, nullable=False) 
     precio = db.Column(db.Integer, unique=False, nullable=False) 
-    item = db.Column(db.Integer, unique=False, nullable=False)
+    item = db.Column(db.Integer, unique=False, nullable=False) # Codigo de parte
     enlace= db.Column(db.String(1024), unique=False, nullable=False)
     cardid = db.Column(db.String(120), unique=False, nullable=False)
-    
-   
- 
-    
+    company = db.Column(db.String(120), unique=False, nullable=False)
+
     def _repr_(self):
         return '<Product %r>' % self.nombre
 
@@ -47,9 +47,8 @@ class Product(db.Model):
             "precio":self.precio,
             "item":self.item,
             "enlace":self.enlace,
-            "cardid":self.cardid
-            
-          
+            "cardid":self.cardid,
+            "company":self.company
             # do not serialize the password, its a security breach
         } 
 
@@ -59,6 +58,7 @@ class Wish_list(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id=db.Column(db.Integer, db.ForeignKey("user.id"))
     product_id=db.Column(db.Integer, db.ForeignKey("product.id"))
+    quantity = db.Column(db.Integer, unique=False, nullable=False)
     
     user_relation= db.relationship("User", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete")) 
     product_relation= db.relationship("Product", lazy='subquery', backref=db.backref("Wish_list", cascade="all,delete"))    
@@ -69,7 +69,8 @@ class Wish_list(db.Model):
         return {
             "id ": self.id ,
             "user_id ": self.user_id ,
-            "product_id": self.product_id
+            "product_id": self.product_id,
+            "quantity": self.quantity
         }
 
 class ResetPassword(db.Model):

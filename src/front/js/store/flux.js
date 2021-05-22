@@ -255,6 +255,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return erase !== fav;
 				});
 				setStore({ favs: deleteArray });
+			},
+			getListbyID: position => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/user/" + position + "/carlist")
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+						getActions().saveInSessionArray("carrito", result);
+					})
+					.catch(error => console.log("Error al cargar la lista del carrito.", error));
+			},
+			saveInSessionArray: (keyName, value) => {
+				let myJSONText = JSON.stringify(value); // Convierte de JSON a texto.
+				sessionStorage.setItem(keyName, myJSONText);
+			},
+			getFromSessionArray: keyName => {
+				let productText = sessionStorage.getItem(keyName);
+				let productJSON = JSON.parse(productText); // Convierte de texto a JSON.
+				return productJSON;
 			}
 		}
 	};
