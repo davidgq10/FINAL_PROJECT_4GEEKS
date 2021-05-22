@@ -206,8 +206,14 @@ export const CargarBase = () => {
 		actions.getListbyID(sessionStorage.getItem("id"));
 	};
 
+	// Agregar al carrito
 	const addCar = (data, id) => {
 		actions.postListbyID(data, id);
+	};
+
+	//Borrar elemento del carrito
+	const deleteItem = id => {
+		actions.deleteListbyID(id);
 	};
 
 	return (
@@ -252,6 +258,19 @@ export const CargarBase = () => {
 					addCar(favorito, 1);
 				}}>
 				Agregar al carrito
+			</button>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<button
+				type="button"
+				className="btn btn-danger btn-lg"
+				onClick={() => {
+					deleteItem(2);
+				}}>
+				Borrar item
 			</button>
 		</div>
 	);

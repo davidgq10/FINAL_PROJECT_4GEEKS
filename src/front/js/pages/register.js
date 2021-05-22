@@ -45,7 +45,8 @@ export const Register = () => {
 			name: name,
 			email: email,
 			last_name: lastname,
-			password: password
+			password: password,
+			user_type: "usuario"
 		};
 
 		// setInformation(temp);

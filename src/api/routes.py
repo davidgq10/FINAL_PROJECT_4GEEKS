@@ -198,6 +198,7 @@ def get_one_user_carlist(position):
 @api.route('/user/<int:position>/carlist', methods=['POST'])
 def add_carlist_by_user(position):
     # Collect data
+    quanti = request.json.get("quantity", None)
     product_idPostIncoming = request.json.get("product_id", None)
     user = User.query.filter_by(id=position)
     userExist = list(map(lambda user:user.serialize(),user))
@@ -207,7 +208,7 @@ def add_carlist_by_user(position):
         return jsonify({"msg": "Error to save, user not found."}), 404
         
     # Create instance to the model
-    newFavorite = Wish_list(product_id = product_idPostIncoming, user_id = position)
+    newFavorite = Wish_list(product_id = product_idPostIncoming, user_id = position, quantity = quanti)
     # Add it to database session
     db.session.add(newFavorite)
     db.session.commit()

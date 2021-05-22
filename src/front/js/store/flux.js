@@ -74,6 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(result);
 						getActions().saveInSession("name", result[0].name);
 						getActions().saveInSession("lastname", result[0].last_name);
+						getActions().saveInSession("user_type", result[0].user_type);
 						// setStore({ loginName: result.name });
 						// setStore({ loginLastName: result.last_name });
 					})
@@ -186,6 +187,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				sessionStorage.removeItem("id");
 				sessionStorage.removeItem("name");
 				sessionStorage.removeItem("lastname");
+				sessionStorage.removeItem("user_type");
 				setStore({ logoutStatus: "Logged out!" });
 			},
 			postValidation: data => {
