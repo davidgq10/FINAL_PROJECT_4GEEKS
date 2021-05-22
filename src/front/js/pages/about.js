@@ -6,33 +6,34 @@ import "../../styles/home.scss";
 import Ricardo from "../../img/RicardoTapia.jpg";
 import Mauricio from "../../img/MauricioVargas.jpg";
 import David from "../../img/David.jpg";
+import Jeffry from "../../img/Jeffry.jpg";
 export const AboutUs = () => {
 	// se crea un array de objetos que contiene las opciones del menú
 	const Menu = [
 		{
 			titulotarjeta: "Mauricio Vargas Soto",
-			imagen: <img src={Mauricio} alt="Girl in a jacket" width="100%" height="auto" />,
+			imagen: <img src={Mauricio} alt="Foto de Mauricio" width="100%" height="auto" />,
 			descripcion: "Full Stack Devolper.",
 			vista: "",
 			esVista: "true"
 		},
 		{
 			titulotarjeta: "David Garbanzo Quirós",
-			imagen: <img src={David} alt="Girl in a jacket" width="100%" height="auto" />,
+			imagen: <img src={David} alt="Foto de David" width="100%" height="auto" />,
 			descripcion: "Full Stack Devolper.",
 			vista: "",
 			esVista: "true"
 		},
 		{
 			titulotarjeta: "Jeffry Porras Barahona",
-			imagen: <i className="far fa-user fa-4x" />,
+			imagen: <img src={Jeffry} alt="Foto de Jeffry" width="100%" height="auto" />,
 			descripcion: "Full Stack Devolper.",
 			vista: "",
 			esVista: "true"
 		},
 		{
 			titulotarjeta: "Ricardo Tapia Venegas",
-			imagen: <img src={Ricardo} alt="Girl in a jacket" width="100%" height="auto" />,
+			imagen: <img src={Ricardo} alt="Foto de Ricardo" width="100%" height="auto" />,
 			descripcion: "Full Stack Devolper.",
 			vista: "",
 			esVista: "false"
