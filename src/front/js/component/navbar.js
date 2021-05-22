@@ -40,6 +40,48 @@ export const Navbar = () => {
 		}
 	};
 
+	const newNavbar = () => {
+		let tokenExist = sessionStorage.getItem("token");
+
+		if (tokenExist != null) {
+			return (
+				<div className="col d-flex justify-content-center">
+					<Link to="/">
+						<span className="navbar-brand mb-0 ">Inicio</span>
+					</Link>
+					<span className="navbar-brand mb-0 ">|</span>
+					<Link to="/product">
+						<span className="navbar-brand mb-0 ">Productos</span>
+					</Link>
+					<span className="navbar-brand mb-0 ">|</span>
+					<Link to="/about">
+						<span className="navbar-brand mb-0 ">Sobre Nosotros</span>
+					</Link>
+				</div>
+			);
+		} else {
+			return (
+				<div className="col d-flex justify-content-center">
+					<Link to="/home">
+						<span className="navbar-brand mb-0 ">Inicio</span>
+					</Link>
+					<span className="navbar-brand mb-0 ">|</span>
+					<Link to="/register">
+						<span className="navbar-brand mb-0 ">Registro</span>
+					</Link>
+					<span className="navbar-brand mb-0 ">|</span>
+					<Link to="/product">
+						<span className="navbar-brand mb-0 ">Productos</span>
+					</Link>
+					<span className="navbar-brand mb-0 ">|</span>
+					<Link to="/about">
+						<span className="navbar-brand mb-0 ">Sobre Nosotros</span>
+					</Link>
+				</div>
+			);
+		}
+	};
+
 	const getFavorites = store.favs.map((item, index) => {
 		return (
 			<a key={index} className="dropdown-item" href="#">
@@ -72,7 +114,7 @@ export const Navbar = () => {
 				</div>
 
 				{/*Accesos directos en centro*/}
-				<div className="col d-flex justify-content-center">
+				{/* <div className="col d-flex justify-content-center">
 					<Link to="/home">
 						<span className="navbar-brand mb-0 ">Inicio</span>
 					</Link>
@@ -88,8 +130,8 @@ export const Navbar = () => {
 					<Link to="/about">
 						<span className="navbar-brand mb-0 ">Sobre Nosotros</span>
 					</Link>
-				</div>
-
+				</div> */}
+				{newNavbar()}
 				<div className="col d-flex justify-content-end">
 					{/*Botón de inicio de sesión*/}
 

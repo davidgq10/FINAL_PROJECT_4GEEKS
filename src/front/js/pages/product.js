@@ -12,21 +12,42 @@ export const Product = () => {
 	const [selectedyear, setSelectedYear] = useState("");
 	const [selectedpart, setSelectedPart] = useState("");
 
+	const buttonCar = item => {
+		let tokenExist = sessionStorage.getItem("token");
+
+		// Desplegar modal que requiere acceso.
+		if (tokenExist != null) {
+			return (
+				<div
+					className="btn btn-danger float-right"
+					onClick={evento => {
+						handleAdd(item);
+					}}>
+					<i className="fas fa-shopping-cart" />
+				</div>
+			);
+		} else {
+			return (
+				<div className="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+					<i className="fas fa-shopping-cart" />
+				</div>
+			);
+		}
+	};
 	//Evento para añadir item al carrito
 	const handleAdd = shop => {
-		//if (shop != undefined) {
-		actions.addFav(shop);
-		//}
+		let id = sessionStorage.getItem("id");
+		actions.addFav(shop, id, 1);
 	};
 	useEffect(() => {
 		actions.loadProduct();
 		actions.loadCars();
 	}, []);
-	const restringir = () => {
+	const restringir = empresa => {
 		let tokenExist = sessionStorage.getItem("token");
 
 		if (tokenExist != null) {
-			return <span>Repuestos SA.</span>;
+			return <span>{empresa}</span>;
 		} else {
 			return <span>Debe iniciar sesion.</span>;
 		}
@@ -85,7 +106,7 @@ export const Product = () => {
 								<strong>Código de parte:</strong> {item.item}
 							</div>
 							<div className="card-text">
-								<strong>Empresa:</strong> {restringir()}
+								<strong>Empresa:</strong> {restringir(item.company)}
 							</div>
 							<div className="dropdown-divider" />
 							<div className="d-flex justify-content-between">
@@ -94,13 +115,22 @@ export const Product = () => {
 										Detalles
 									</div>
 								</Link>
-								<div
+								{buttonCar(item)}
+								{/* <div
 									className="btn btn-danger float-right"
 									onClick={evento => {
 										handleAdd(item);
 									}}>
 									<i className="fas fa-shopping-cart" />
-								</div>
+								</div> */}
+								{/* Another way */}
+								{/* <div
+									className="btn btn-danger float-right"
+									onClick={evento => {
+										handleAdd(item);
+									}}>
+									<i className="fas fa-shopping-cart" />
+								</div> */}
 							</div>
 						</div>
 					</div>
@@ -215,6 +245,35 @@ export const Product = () => {
 			<div className="container myCard mt-2 mb-5">
 				<h3 className="text-light">Repuestos disponibles</h3>
 				<div className="card-deck row-cols-4 mb-5 pb-4">{getCards}</div>
+			</div>
+			{/* Modals */}
+			<div
+				className="modal fade"
+				id="exampleModal"
+				tabIndex="-1"
+				role="dialog"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div className="modal-dialog modal-dialog-centered" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" id="exampleModalLabel">
+								Aviso
+							</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							Para poder hacer uso de esta funcionalidad, debe iniciar sesion.
+						</div>
+						<div className="modal-footer">
+							<button type="button" className="btn btn-secondary" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

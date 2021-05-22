@@ -247,8 +247,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			addFav: fav => {
+			addFav: (fav, user_id, quantity) => {
+				console.log("objeto", fav);
+				console.log("id user", user_id);
+				console.log("quantity", quantity);
+				let temp = {
+					product_id: fav.id,
+					quantity: quantity
+				};
+				console.log("json a enviar", temp);
 				setStore({ favs: getStore().favs.concat(fav) });
+				// Esta linea lo que hace es agregar el favorito a la base de datos.
+				// getActions().postListbyID(temp, user_id);
 				console.log("favs", getStore().favs);
 			},
 
