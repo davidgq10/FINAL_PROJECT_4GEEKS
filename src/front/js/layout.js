@@ -15,6 +15,8 @@ import { ChangePassword } from "./pages/changepassword";
 import { Favs } from "./pages/favsdetail";
 import { AboutUs } from "./pages/about";
 import { Landing } from "./pages/landing";
+import { CargarBase } from "./pages/loadDataBaseProducts";
+import { PruebaCarga } from "./pages/boton";
 
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
@@ -72,6 +74,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/">
 							<Landing />
+						</Route>
+						<Route exact path="/abcdfghijkl">
+							<CargarBase />
+						</Route>
+						<Route exact path="/prueba">
+							<PruebaCarga />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

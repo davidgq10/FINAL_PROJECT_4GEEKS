@@ -40,7 +40,7 @@ def get_one_user(position):
     
     # Verify if user exist
     if not request:
-        raise APIException('Usuario no encontrado.', status_code=404)
+        raise APIException('User not found', status_code=404)
     return jsonify(request), 200
 
 @api.route('/user/<int:position>', methods=['DELETE'])
@@ -51,12 +51,12 @@ def delete_user(position):
 
      # Validate data
     if currentUser is None:
-        return jsonify({"msg": "Usuario no encontrado."}), 404
+        return jsonify({"msg": "User not found"}), 404
 
     # Delete User
     db.session.delete(currentUser)
     db.session.commit()
-    return jsonify({"msg": "El usuario fue eliminado."}), 200
+    return jsonify({"msg": "User was deleted"}), 200
 
 @api.route('/login', methods=['POST'])
 def Login():
@@ -65,7 +65,7 @@ def Login():
     user = User.query.filter_by(email=email, password=password).first()
     if user is None:
         # the user was not found on the database
-        return jsonify({"msg": "Credenciales incorrectas. Intente nuevamente."}), 401
+        return jsonify({"msg": "Incorrect credentials. Please Try Again"}), 401
     access_token = create_access_token(identity=user.id)
     return jsonify({ "token": access_token, "idUser": user.id })
 
@@ -76,12 +76,12 @@ def Register():
     userExists = User.query.filter_by(email=newUser.email).first()
     if userExists is not None:
         # the user was not found on the database
-        return jsonify({"msg": "Correo ya existe."}), 409 
+        return jsonify({"msg": "Email already registered."}), 409 
     else:
         db.session.add(newUser)
         db.session.commit()
         SendEmailTemplate('welcome', newUser.serialize(), newUser.email, f'Welcome to Easy Parts CR {newUser.name}!')
-        return jsonify({"msg": "Usuario registrado!"}), 200
+        return jsonify({"msg": "User added!"}), 200
 
 # @api.route("/user", methods=["POST"])
 # def create_user():
@@ -109,13 +109,13 @@ def update_password_logged():
     Password_Incoming = request.json.get("password", None)
     user1 = User.query.filter_by(email=current_user).first()
     if user1 is None:
-        return jsonify({"msg": "Usuario no encontrado."}), 404 
-        # raise APIException('Usuario no encontrado', status_code=404)
+        return jsonify({"msg": "User not found."}), 404 
+        # raise APIException('User not found', status_code=404)
 
     user1.password = Password_Incoming
     db.session.commit()
 
-    return jsonify({"msg": "Contraseña actualizada!"}), 200
+    return jsonify({"msg": "Password updated!"}), 200
 
 # Update password because you forgot it.
 @api.route("/update", methods=["PUT"])
@@ -124,13 +124,13 @@ def update_password():
     Password_Incoming = request.json.get("password", None)
     user1 = User.query.filter_by(email=Email_Incoming).first()
     if user1 is None:
-        return jsonify({"msg": "Usuario no encontrado."}), 404 
-        # raise APIException('Usuario no encontrado', status_code=404)
+        return jsonify({"msg": "User not found."}), 404 
+        # raise APIException('User not found', status_code=404)
 
     user1.password = Password_Incoming
     db.session.commit()
 
-    return jsonify({"msg": "Contraseña actualizada!"}), 200
+    return jsonify({"msg": "Password updated!"}), 200
 
 @api.route('/reset/validation', methods=['POST'])
 def ResetPasswordValidation():
@@ -140,9 +140,9 @@ def ResetPasswordValidation():
     if resetRequest is not None:
         db.session.delete(resetRequest)
         db.session.commit()
-        return jsonify({"msg": "Código válido!"}), 200 
+        return jsonify({"msg": "Valid Code!"}), 200 
     else:
-        return jsonify({"msg": "Código inválido o no encontrado."}), 404
+        return jsonify({"msg": "Reset request not found or invalid code."}), 404
 
 @api.route('/reset', methods=['POST'])
 def ResetPasswordFunction():
@@ -160,11 +160,11 @@ def ResetPasswordFunction():
             resetRequest = ResetPassword(email=email, code=code)
             db.session.add(resetRequest)
 
-        SendEmailTemplate('code', resetRequest.serialize(), email, f'Easy Parts CR: Recuperación de contraseña')
+        SendEmailTemplate('code', resetRequest.serialize(), email, f'Easy Parts CR: password recovery')
         db.session.commit()
-        return jsonify({"msg": "Código fue generado, revise su correo."}), 200 
+        return jsonify({"msg": "Code was generated, check your email."}), 200 
     else:
-        return jsonify({"msg": "Usuario no encontrado!"}), 404 
+        return jsonify({"msg": "Email not found!"}), 404 
 
 # product
 
@@ -191,10 +191,10 @@ def get_one_user_carlist(position):
     
     # Verify if user exist
     if not request:
-        return jsonify({"msg": "No hay registros para este usuario."}), 404
+        return jsonify({"msg": "User not found"}), 404
     return jsonify(request), 200
 
-# Add a item to card list by user
+# Add a item to card list
 @api.route('/user/<int:position>/carlist', methods=['POST'])
 def add_carlist_by_user(position):
     # Collect data
@@ -204,7 +204,7 @@ def add_carlist_by_user(position):
     
     # Verify if user exist
     if not userExist:
-        return jsonify({"msg": "Error al guardar, usuario no encontrado."}), 404
+        return jsonify({"msg": "Error to save, user not found."}), 404
         
     # Create instance to the model
     newFavorite = Wish_list(product_id = product_idPostIncoming, user_id = position)
@@ -213,7 +213,8 @@ def add_carlist_by_user(position):
     db.session.commit()
     return jsonify(newFavorite.serialize()), 200
 
-# Delete a item from carlist (wish list) by ID
+
+# Delete a item from carlist (wish list)
 @api.route('/carlist/<int:position>', methods=['DELETE'])
 def delete_item_carlist(position):
 
@@ -222,9 +223,9 @@ def delete_item_carlist(position):
 
      # Validate data
     if favorite is None:
-        return jsonify({"msg": "Item no encontrado."}), 404
+        return jsonify({"msg": "Item not found"}), 404
 
     # Delete favorite
     db.session.delete(favorite)
     db.session.commit()
-    return jsonify({"msg": "Item fue eliminado."}), 200
+    return jsonify({"msg": "Item was deleted"}), 200

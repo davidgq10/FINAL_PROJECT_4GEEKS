@@ -12,10 +12,6 @@ export const Product = () => {
 	const [selectedyear, setSelectedYear] = useState("");
 	const [selectedpart, setSelectedPart] = useState("");
 
-	// Obtener la lista del carrito
-	const getCarList = () => {
-		actions.getListbyID(sessionStorage.getItem("id"));
-	};
 	//Evento para añadir item al carrito
 	const handleAdd = shop => {
 		//if (shop != undefined) {
@@ -214,14 +210,7 @@ export const Product = () => {
 					</div>
 				</form>
 			</div>
-			<button
-				type="button"
-				className="btn btn-danger btn-lg"
-				onClick={() => {
-					getCarList();
-				}}>
-				Obtener carrito
-			</button>
+
 			{/* En esta sección se contruye el contenedor con las card */}
 			<div className="container myCard mt-2 mb-5">
 				<h3 className="text-light">Repuestos disponibles</h3>

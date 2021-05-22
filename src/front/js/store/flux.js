@@ -264,7 +264,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(result);
 						getActions().saveInSessionArray("carrito", result);
 					})
-					.catch(error => console.log("Error al cargar la lista del carrito.", error));
+					.catch(error => console.log("Error loading list.", error));
+			},
+			// Este metodo lo que hace es agregar a la base de datos el producto al carrito por usuario
+			postListbyID: (newData, position) => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(newData);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw
+				};
+
+				fetch(process.env.BACKEND_URL + "/api/user/" + position + "/carlist", requestOptions)
+					.then(response => {
+						console.log(response.json());
+						if (response.ok) {
+							// setStore({ loginResponse: "Item added!" });
+							// return response.json();
+						} else {
+							// setStore({ loginResponse: "It was not possible to add the item." });
+							// return response.json();
+						}
+					})
+					// .then(result => console.log(result))
+					.then(result => {
+						console.log("Item added!", result);
+					})
+					.catch(error => console.log("Error saving item.", error));
+			},
+			deleteListbyID: position => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+				var requestOptions = {
+					method: "DELETE",
+					headers: myHeaders
+				};
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/carlist/" + position, requestOptions)
+					.then(resp => resp.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("Error trying to delete from the list.", error));
 			},
 			saveInSessionArray: (keyName, value) => {
 				let myJSONText = JSON.stringify(value); // Convierte de JSON a texto.
@@ -274,6 +321,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let productText = sessionStorage.getItem(keyName);
 				let productJSON = JSON.parse(productText); // Convierte de texto a JSON.
 				return productJSON;
+			},
+			postProduct: newData => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(newData);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw
+				};
+
+				fetch(process.env.BACKEND_URL + "/api/product", requestOptions)
+					.then(response => {
+						console.log(response.json());
+						if (response.ok) {
+							// setStore({ loginResponse: "Item added!" });
+							// return response.json();
+						} else {
+							// setStore({ loginResponse: "It was not possible to add the item." });
+							// return response.json();
+						}
+					})
+					// .then(result => console.log(result))
+					.then(result => {
+						console.log("Product added!", result);
+					})
+					.catch(error => console.log("Error saving product.", error));
 			}
 		}
 	};
