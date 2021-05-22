@@ -235,9 +235,6 @@ export const CargarBase = () => {
 			</button>
 			<br></br>
 			<br></br>
-			<br></br>
-			<br></br>
-			<br></br>
 			<button
 				type="button"
 				className="btn btn-danger btn-lg"
@@ -246,9 +243,6 @@ export const CargarBase = () => {
 				}}>
 				Obtener carrito
 			</button>
-			<br></br>
-			<br></br>
-			<br></br>
 			<br></br>
 			<br></br>
 			<button
@@ -260,8 +254,7 @@ export const CargarBase = () => {
 				Agregar al carrito
 			</button>
 			<br></br>
-			<br></br>
-			<br></br>
+
 			<br></br>
 			<br></br>
 			<button
@@ -275,9 +268,6 @@ export const CargarBase = () => {
 
 			<br></br>
 			<br></br>
-			<br></br>
-			<br></br>
-			<br></br>
 			<button
 				type="button"
 				className="btn btn-danger btn-lg"
@@ -285,6 +275,16 @@ export const CargarBase = () => {
 					actions.reloadCar(1);
 				}}>
 				cargar carrito
+			</button>
+			<br></br>
+			<br></br>
+			<button
+				type="button"
+				className="btn btn-danger btn-lg"
+				onClick={() => {
+					actions.putQuantity(9, 20);
+				}}>
+				HACER PUT.
 			</button>
 		</div>
 	);

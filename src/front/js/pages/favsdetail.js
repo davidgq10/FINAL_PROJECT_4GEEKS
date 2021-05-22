@@ -6,6 +6,8 @@ import "../../styles/favsdetail.scss";
 
 export const Favs = () => {
 	const { store, actions } = useContext(Context);
+	console.log("Mi favs", store.favs);
+	console.log("Mi favs from database", store.productsByID);
 
 	const client = {
 		sandbox: "ARPLSZVVpgonARZIUYTeYZVoCQJPkYqNIuYdYfvSkm_2lkd8oItc1G3C5PpZZ1987IlKFLdc4ufXYmc6",
@@ -14,19 +16,21 @@ export const Favs = () => {
 
 	let varTotal = 0;
 
-	const orderItems = store.favs.map((item, index) => {
+	const orderItems = store.productsByID.map((item, index) => {
 		{
-			varTotal = varTotal + item.precio;
+			varTotal = varTotal + store.favs.find(prod => prod.id == item.product_id).precio * item.quantity;
 		}
 		return (
 			<tr key={index}>
 				<th scope="row">{index + 1}</th>
-				<td>{item.nombre}</td>
-				<td>{item.marca}</td>
-				<td>{item.item}</td>
-				<td>{item.categoria}</td>
-				<td className="text-center">1</td>
-				<td className="text-right  pr-4">{Math.round(item.precio)}</td>
+				<td>{store.favs.find(prod => prod.id == item.product_id).nombre}</td>
+				<td>{store.favs.find(prod => prod.id == item.product_id).marca}</td>
+				<td>{store.favs.find(prod => prod.id == item.product_id).item}</td>
+				<td>{store.favs.find(prod => prod.id == item.product_id).categoria}</td>
+				<td className="text-center">{item.quantity}</td>
+				<td className="text-right  pr-4">
+					{Math.round(store.favs.find(prod => prod.id == item.product_id).precio) * item.quantity}
+				</td>
 			</tr>
 		);
 	});

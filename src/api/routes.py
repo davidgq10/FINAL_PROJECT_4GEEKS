@@ -239,3 +239,19 @@ def delete_item_carlist(position):
     db.session.delete(favorite)
     db.session.commit()
     return jsonify({"msg": "Item was deleted"}), 200
+
+# Update product quantity in fav.
+@api.route("/updatefav/<int:position>", methods=["PUT"])
+def update_fav(position):
+    Quantity = request.json.get("quantity", None)
+    # User_id = request.json.get("user_id", None)
+    # Product_id = request.json.get("product_id", None)
+    fav = Wish_list.query.filter_by(id=position).first()
+    if fav is None:
+        return jsonify({"msg": "List item not found."}), 404 
+        # raise APIException('User not found', status_code=404)
+
+    fav.quantity = Quantity
+    db.session.commit()
+
+    return jsonify({"msg": "List updated updated!"}), 200

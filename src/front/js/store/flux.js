@@ -27,7 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loginLastName: [],
 			logoutStatus: [],
 			favs: [],
-			cars: [] // Aquí se almacenan los modelos de los carros que genera la API
+			cars: [], // Aquí se almacenan los modelos de los carros que genera la API
+			productsByID: [], //Lista con respecto al modelo
+			productToDelete: [] //Este es el elemento a eliminar
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -188,6 +190,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				sessionStorage.removeItem("name");
 				sessionStorage.removeItem("lastname");
 				sessionStorage.removeItem("user_type");
+				sessionStorage.removeItem("carrito");
 				setStore({ logoutStatus: "Logged out!" });
 			},
 			postValidation: data => {
@@ -251,30 +254,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("objeto", fav);
 				console.log("id user", user_id);
 				console.log("quantity", quantity);
-				let temp = {
-					product_id: fav.id,
-					quantity: quantity
-				};
-				console.log("json a enviar", temp);
-				setStore({ favs: getStore().favs.concat(fav) });
-				// Esta linea lo que hace es agregar el favorito a la base de datos.
-				// getActions().postListbyID(temp, user_id);
-				console.log("favs", getStore().favs);
+
+				const updateArray = getStore().productsByID.filter(favs => favs.product_id == fav.id);
+				console.log("Verificando favorito", updateArray.length);
+
+				if (updateArray.length > 0) {
+				} else {
+					let temp = {
+						product_id: fav.id,
+						quantity: quantity
+					};
+
+					console.log("json a enviar", temp);
+					setStore({ favs: getStore().favs.concat(fav) });
+					let temp2 = {
+						user_id: user_id,
+						product_id: fav.id,
+						quantity: quantity
+					};
+					setStore({ productsByID: getStore().productsByID.concat(temp2) });
+					//Esta linea lo que hace es agregar el favorito a la base de datos.
+					getActions().postListbyID(temp, user_id);
+					console.log("favs", getStore().favs);
+				}
 			},
 
 			deleteFav: fav => {
+				console.log("favorito a borrar", fav);
 				const deleteArray = getStore().favs.filter(erase => {
+					if (erase == fav) {
+						console.log("Este es el valor que se elimina", fav);
+						setStore({ productToDelete: fav });
+					}
 					return erase !== fav;
 				});
 				setStore({ favs: deleteArray });
+				console.log("Valores por id", getStore().productsByID);
+				const updateCarrito = getStore().productsByID.filter(
+					product => product.product_id === getStore().productToDelete.id
+				);
+				console.log("Valor filtrado a eliminar", updateCarrito);
+				getActions().deleteListbyID(updateCarrito[0].id);
+				console.log("Mi id a eliminar:", updateCarrito[0].id);
 			},
 			getListbyID: position => {
+				setStore({ productsByID: [] });
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/user/" + position + "/carlist")
 					.then(response => response.json())
 					.then(result => {
 						console.log(result);
 						getActions().saveInSessionArray("carrito", result);
+						let carritoJSON = result;
+						console.log("Lo que cargue de carrito", carritoJSON);
+						if (carritoJSON != null)
+							return carritoJSON.map((item, index) => {
+								setStore({ productsByID: getStore().productsByID.concat(item) });
+								getActions().getProductbyID(item.product_id);
+								console.log("Esto es lo que tengo", item);
+								console.log("Mi product id", item.product_id);
+							});
 					})
 					.catch(error => console.log("Error loading list.", error));
 			},
@@ -367,16 +406,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			// Recarga los favoritos desde la base de datos.
 			reloadCar: id => {
+				getStore().favs = [];
+				console.log("Me borró favs", getStore().favs);
 				getActions().getListbyID(id);
-				let carritoJSON = getActions().getFromSessionArray("carrito");
-				console.log("Lo que cargue de carrito", carritoJSON);
-
-				carritoJSON.map((item, index) => {
-					getActions().getProductbyID(item.product_id);
-					console.log("Esto es lo que tengo", item);
-					console.log("Mi product id", item.product_id);
-				});
-				console.log("store despues de reload", getStore().favs);
+				// let carritoJSON = getActions().getFromSessionArray("carrito");
+				// console.log("Lo que cargue de carrito", carritoJSON);
+				// if (carritoJSON != null)
+				// 	return carritoJSON.map((item, index) => {
+				// 		getActions().getProductbyID(item.product_id);
+				// 		console.log("Esto es lo que tengo", item);
+				// 		console.log("Mi product id", item.product_id);
+				// 	});
 			},
 			// Este metodo adquiere la info de un producto.
 			getProductbyID: position => {
@@ -384,10 +424,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/product/" + position)
 					.then(response => response.json())
 					.then(result => {
-						console.log(result);
+						console.log("lo que voy a añadir", result);
 						setStore({ favs: getStore().favs.concat(result) });
 					})
 					.catch(error => console.log("Error loading product.", error));
+			},
+			// List ID es el ID de la base de datos de wish list
+			putQuantity: (list_id, quantity) => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+				let data = { quantity: quantity };
+				var raw = JSON.stringify(data);
+
+				var requestOptions = {
+					method: "PUT",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(process.env.BACKEND_URL + "/api/updatefav/" + list_id, requestOptions)
+					.then(response => response.json())
+					// .then(result => console.log(result))
+					.then(result => setStore({ passwordResponse: result }))
+					.catch(error => console.log("Error updating password.", error));
 			}
 		}
 	};
