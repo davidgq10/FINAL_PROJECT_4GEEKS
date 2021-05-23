@@ -8,6 +8,7 @@ export const Favs = () => {
 	const { store, actions } = useContext(Context);
 	console.log("Mi favs", store.favs);
 	console.log("Mi favs from database", store.productsByID);
+
 	const myFavFromDB = store.productsByID;
 
 	const client = {

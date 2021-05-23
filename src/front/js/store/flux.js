@@ -260,7 +260,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("updateArray", updateArray);
 
 				if (updateArray.length > 0) {
-					// getActions().putQuantity(updateArray.id, quantity);
+					getActions().putQuantity(updateArray[0].id, quantity);
 				} else {
 					let temp = {
 						product_id: fav.id,
