@@ -256,10 +256,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("quantity", quantity);
 
 				const updateArray = getStore().productsByID.filter(favs => favs.product_id == fav.id);
+
 				console.log("Verificando favorito", updateArray.length);
-				console.log("updateArray", updateArray);
+				console.log("updateArray before", updateArray);
 
 				if (updateArray.length > 0) {
+					// Updating the store
+					const updateStoreArray = getStore().productsByID.map((item, index) => {
+						if (item.product_id == fav.id) {
+							item.quantity = quantity;
+						}
+						return item;
+					});
+					setStore({ productsByID: updateStoreArray });
+					console.log("after updating quantity", getStore().productsByID);
 					getActions().putQuantity(updateArray[0].id, quantity);
 				} else {
 					let temp = {
