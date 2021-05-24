@@ -144,8 +144,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					// .then(result => console.log(result))
 					.then(result => {
 						setStore({ loginToken: result });
-						getActions().saveToken(result.token);
-						getActions().saveInSession("id", result.idUser);
+						if (getStore().loginResponse == "Login Succesful!") {
+							getActions().saveToken(result.token);
+							getActions().saveInSession("id", result.idUser);
+						}
 					})
 					.catch(error => console.log("Error trying to login.", error));
 			},

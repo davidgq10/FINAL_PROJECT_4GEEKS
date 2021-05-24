@@ -13,8 +13,8 @@ export const Navbar = () => {
 
 	const loginLogout = () => {
 		let tokenExist = sessionStorage.getItem("token");
-
-		if (tokenExist != null) {
+		// && store.loginResponse == "Login Succesful!"
+		if (tokenExist != null || tokenExist != undefined) {
 			let id = sessionStorage.getItem("id");
 			let name = sessionStorage.getItem("name");
 			let lastname = sessionStorage.getItem("lastname");

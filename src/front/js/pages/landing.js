@@ -60,15 +60,15 @@ export const Landing = () => {
 					</a>
 				</div>
 				<div className="jumbotron">
-					<h1 className="display-4 text-center">¿Cansado de buscar una parte de tu carro?</h1>
+					<h1 className="display-4 text-center">Aquí encontrarás el repuesto que tanto buscás</h1>
 					<p className="lead text-center">
-						Si has topado con esta situación, Easy Parts CR, nace con el fin de ayudarte a encontrar con
-						facilidad las partes del vehículo que necesites.
+						Easy Parts CR, nace con el fin de ayudarte a encontrar con facilidad las partes del vehículo que
+						necesites.
 					</p>
 					<hr className="my-4" />
 					<p className="text-center">
-						Esto se logra al poder integrar los vendores pequeños, medianos y grandes en una misma
-						plataforma.
+						Esto se logra al poder integrar el catálogo de los vendores pequeños, medianos y grandes en una
+						misma plataforma.
 					</p>
 					<p className="lead">
 						<div className="row">
