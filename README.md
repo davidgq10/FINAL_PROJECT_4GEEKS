@@ -1,3 +1,9 @@
+#This is our final project in 4geeks academy, you can see the MVP at the link: https://youtu.be/n7GpWwuiviw?t=8266
+
+<p align="center">
+<a href="https://youtu.be/n7GpWwuiviw?t=8266"><img src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/how-to.png?raw=true?raw=true" /></a>
+</p>
+
 # WebApp boilerplate with React JS
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
 
