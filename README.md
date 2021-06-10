@@ -1,7 +1,7 @@
 #This is our final project in 4geeks academy, you can see the MVP at the link: https://youtu.be/n7GpWwuiviw?t=8266
 
 <p align="center">
-<a href="https://youtu.be/n7GpWwuiviw?t=8266"><img src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/how-to.png?raw=true?raw=true" /></a>
+<a href="https://youtu.be/n7GpWwuiviw?t=8266"><img src="https://youtu.be/n7GpWwuiviw?t=8266" /></a>
 </p>
 
 # WebApp boilerplate with React JS
