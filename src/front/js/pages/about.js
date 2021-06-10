@@ -8,7 +8,7 @@ import Mauricio from "../../img/MauricioVargas.jpg";
 import David from "../../img/David.jpg";
 import Jeffry from "../../img/Jeffry.jpg";
 export const AboutUs = () => {
-	// se crea un array de objetos que contiene las opciones del menú
+	// se crea un array de objetos que contiene las opciones del menú de about us.
 	const Menu = [
 		{
 			titulotarjeta: "Mauricio Vargas Soto",
