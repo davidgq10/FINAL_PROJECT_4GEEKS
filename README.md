@@ -1,15 +1,5 @@
-#This is our final project in 4geeks academy, you can see the MVP at the link: https://youtu.be/n7GpWwuiviw?t=8266
+<h2>This is our final project in 4geeks academy, you can see the MVP at the link: <a href="https://youtu.be/n7GpWwuiviw?t=8266">See the video</h2>
 
-<p align="center">
-<a href="https://youtu.be/n7GpWwuiviw?t=8266"><video width="320" height="240" controls>
-  <source src="https://youtu.be/n7GpWwuiviw?t=8266" type="video/mp4">
-Your browser does not support the video tag.
-</video></a>
-  <video width="320" height="240" controls>
-  <source src="https://youtu.be/n7GpWwuiviw?t=8266" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</p>
 
 # WebApp boilerplate with React JS
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
