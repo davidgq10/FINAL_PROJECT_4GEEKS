@@ -1,4 +1,4 @@
-<h2>This is our final project in 4geeks academy, you can see the MVP at the link: <a href="https://youtu.be/n7GpWwuiviw?t=8266">See the video</h2>
+<h2>This is our final project in 4geeks academy, you can see the MVP here: <a href="https://youtu.be/n7GpWwuiviw?t=8266">See the video</h2>
 
 
 # WebApp boilerplate with React JS
